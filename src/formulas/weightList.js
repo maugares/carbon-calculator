@@ -63,4 +63,4 @@ const weightList = [
     }
 ]
 
-console.log(weightList)
+module.exports.weightList = weightList
