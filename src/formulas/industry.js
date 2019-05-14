@@ -1,4 +1,5 @@
-const industry = ["Building materials including wood",
+module.exports.industry = [
+    "Building materials including wood",
     "Chemicals and refineries",
     "Electrical engineering industry",
     "Food industry",
@@ -7,6 +8,5 @@ const industry = ["Building materials including wood",
     "Rubber and plastics industry",
     "Textiles, clothing and leather",
     "Transport industry",
-    "Other"]
-
-module.exports.industry = industry
+    "Other"
+]

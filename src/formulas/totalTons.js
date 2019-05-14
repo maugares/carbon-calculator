@@ -1,6 +1,7 @@
 const { weightList } = require('./weightList')
+const { sampleCompany } = require('./sampleCompany')
 
-const totalTons = (companyInfo) => {
+module.exports.totalTons = (companyInfo) => {
     const { industry, turnover } = companyInfo
     const tonPerEuro = weightList
         .filter(elm => elm.industry === industry)[0]
@@ -9,12 +10,5 @@ const totalTons = (companyInfo) => {
     return tonPerEuro * turnover * 0.001
 }
 
-const sampleCompany = {
-    industry: 'Other',
-    turnover: 1000,
-    turnoverGrowth: 0.01,
-    profit: 0.05
-}
-
-module.exports.totalTons = totalTons
+console.log(`Total tons for sample company: ${sampleCompany}`)
 

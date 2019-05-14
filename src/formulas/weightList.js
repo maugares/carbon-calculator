@@ -1,6 +1,6 @@
 const { industry } = require('./industry')
 
-const weightList = [
+module.exports.weightList = [
     {
         industry: industry[0],
         weightS1: 0.50,
@@ -72,5 +72,3 @@ const weightList = [
         tonPerEuro: 1.032
     }
 ]
-
-module.exports.weightList = weightList
