@@ -1,4 +1,4 @@
-import { industry } from './industry'
+import { industry } from '../../lib/industry'
 import { emissionOther } from './emissionOther'
 
 const weightListDefined = [
