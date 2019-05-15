@@ -1,0 +1,13 @@
+body {
+    background: url('./assets/windmills.jpg') no-repeat center center fixed;
+    background-size: cover;
+    color: #333;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.64);
+    width: 80%;
+    margin: auto;
+    height: 100vh;
+}
+
