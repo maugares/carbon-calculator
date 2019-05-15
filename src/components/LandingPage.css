@@ -1,0 +1,31 @@
+.landing-page {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    color: #3D7A9B;
+    min-height: 500px;
+    margin-top: 7%;
+}
+
+.landing-page h1 {
+    font-size: 325%;
+}
+
+.landing-page h3 {
+    font-size: 140%;
+}
+
+.landing-page button {
+    background: #45A848;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    width: 180px;
+    height: 46px;
+    font-size: 24px;
+    cursor: pointer;
+    margin-top: 15%;
+}
