@@ -12,9 +12,9 @@ export const calculateEmissions = (companyInfo) => {
 
     const emissions = {
         totalTons,
-        emissionS1,
-        emissionS2,
-        emissionS3
+        scope1: emissionS1,
+        scope2: emissionS2,
+        scope3: emissionS3
     }
 
     return emissions
