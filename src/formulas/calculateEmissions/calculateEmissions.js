@@ -1,9 +1,8 @@
 import { weightList } from './weightList'
 
-export const calculateEmissions = (companyInfo) => {
-    const { industry, turnover } = companyInfo
-    const industryValues = weightList.filter(elm => elm.industry === industry)[0]
-    const { kgPerEuro, weightS1, weightS2, weightS3 } = industryValues
+export const calculateEmissions = (industry, turnover) => {
+    const industryValues = weightList.filter(elm => elm.industry === industry)
+    const { kgPerEuro, weightS1, weightS2, weightS3 } = industryValues[0]
 
     const totalTons = turnover * (kgPerEuro * 0.001)
     const emissionS1 = totalTons * weightS1
