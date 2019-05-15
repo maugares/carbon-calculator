@@ -3,6 +3,7 @@ export const emissionOther = (weightList) => {
         if (index < array.length) {
             return industries.kgPerEuro
         }
+        return null
     })
 
     const emissionOther = industryEmission.reduce(
