@@ -1,0 +1,14 @@
+body {
+    background: url('./assets/windmills.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+
+.App {
+    text-align: center;
+}
+
+#placeholder {
+    color: #3A759A;
+    font-size: 300%;
+    margin: 150px;
+}
