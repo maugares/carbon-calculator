@@ -124,5 +124,3 @@ export const combineFunctions = (companyInfo, taxScope, taxInfo, years) => {
     }
     return mergedCalculations
 }
-
-console.table(combineFunctions(companyInfo, taxScope, taxInfo, 5))
