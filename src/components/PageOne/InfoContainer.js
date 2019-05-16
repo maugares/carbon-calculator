@@ -4,6 +4,7 @@ import CompanyInfoForm from './CompanyInfoForm'
 import MarketInfoForm from './MarketInfoForm'
 import { connect } from 'react-redux';
 import {submitInput} from '../../actions/submitInput'
+import PageHeader from '../PageHeader'
 
 class InfoContainer extends Component {
     state = {
@@ -23,15 +24,13 @@ class InfoContainer extends Component {
 
     onSubmit = () => {
         this.props.submitInput(this.state)
+        this.props.history.push('/step-2')
     }
 
     render() {
         return (
             <div className="info container">
-                <div className="logo-container">
-                    <img src={require('../../assets/Logo.png')} alt="logo" id="logo" />
-                    <h4>Carbon Tax Calculator</h4>
-                </div>
+                <PageHeader />
                 <CompanyInfoForm values={this.state} onChange={this.onChange} />
                 <MarketInfoForm values={this.state} onChange={this.onChange} />
                 <button onClick={this.onSubmit} className="continue-button"> Continue </button>

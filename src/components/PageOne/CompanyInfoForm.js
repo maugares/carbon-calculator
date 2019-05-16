@@ -1,4 +1,5 @@
 import React from 'react'
+import {industry} from '../../lib/industry'
 
 export default function CompanyInfoForm(props) {
     return (
@@ -9,7 +10,7 @@ export default function CompanyInfoForm(props) {
                     <div className="input-item">
                         <label>Industry</label>
                         <select name="industry" value={props.values.industry} onChange={props.onChange}>
-                            <option>Test</option>
+                            {industry.map(entry => <option>{entry}</option>)}
                         </select>
                     </div>
                     <div className="input-item">
