@@ -13,7 +13,7 @@ export default function CompanyInfoForm(props) {
                         </select>
                     </div>
                     <div className="input-item">
-                        <label>Annual Turnover (Euro)</label>
+                        <label>Annual Turnover (Euro's)</label>
                         <input type="number" name="turnover" value={props.values.turnover} onChange={props.onChange} />
                     </div>
                     <div className="input-item">
