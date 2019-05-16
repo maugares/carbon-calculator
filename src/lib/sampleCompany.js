@@ -20,3 +20,9 @@ export const taxScope= {
     scope2: true,
     scope3: true
 }
+
+export const reductionInfo = {
+    scope1: 1,
+    scope2: 0,
+    scope3: 1
+}
