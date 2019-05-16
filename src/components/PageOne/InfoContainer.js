@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import './InfoContainer.css'
 import CompanyInfoForm from './CompanyInfoForm'
+import MarketInfoForm from './MarketInfoForm'
 
 export default class InfoContainer extends Component {
     state = {
@@ -18,6 +19,10 @@ export default class InfoContainer extends Component {
         })
     }
 
+    onSubmit = () => {
+        // ...
+    }
+
     render() {
         return (
             <div className="info container">
@@ -26,6 +31,8 @@ export default class InfoContainer extends Component {
                     <h4>Carbon Tax Calculator</h4>
                 </div>
                 <CompanyInfoForm values={this.state} onChange={this.onChange} />
+                <MarketInfoForm values={this.state} onChange={this.onChange} />
+                <button onClick={this.onSubmit} className="continue-button"> Continue </button>
             </div>
         )
     }
