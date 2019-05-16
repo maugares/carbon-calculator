@@ -10,7 +10,8 @@ export default function CompanyInfoForm(props) {
                     <div className="input-item">
                         <label>Industry</label>
                         <select name="industry" value={props.values.industry} onChange={props.onChange}>
-                            {industry.map(entry => <option>{entry}</option>)}
+                            <option>-- Choose one --</option>
+                            {industry.map(entry => <option key={entry}>{entry}</option>)}
                         </select>
                     </div>
                     <div className="input-item">
