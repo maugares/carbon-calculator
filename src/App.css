@@ -11,3 +11,28 @@ body {
     height: 100vh;
 }
 
+h1 {
+    font-size: 325%;
+    color: #3D7A9B;
+}
+
+h2 {
+    font-size: 250%;
+    color: #3D7A9B;
+}
+
+h3 {
+    font-size: 140%;
+    color: #3D7A9B;
+}
+
+h4 {
+    color: #3D7A9B;
+    font-size: 120%;
+    margin: 0;
+}
+
+#logo {
+    width: 125px;
+    height: 110px;
+}
