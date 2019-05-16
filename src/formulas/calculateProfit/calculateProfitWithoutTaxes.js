@@ -1,5 +1,4 @@
-import { companyInfo, marketInfo, taxInfo, taxScope, reductionInfo } from '../../lib/sampleCompany'
-import { combineFunctions } from '../calculateTax/yearTaxCalculation'
+import { companyInfo } from '../../lib/sampleCompany'
 
 const yearArray = (years) => {
     const yearArray = []
