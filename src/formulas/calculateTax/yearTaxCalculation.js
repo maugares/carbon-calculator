@@ -22,6 +22,7 @@ const scopeEmissions = (emissions, taxScope) => {
     return scopeEmissions
 }
 
+// TURNOVER CALCULATOR DONE
 export const turnoverCalculator = (turnover, taxInfo, totalEmissions, year) => {
     const { euroPerTon } = taxInfo
     const totalTax = euroPerTon * totalEmissions
@@ -44,9 +45,12 @@ export const turnoverCalculator = (turnover, taxInfo, totalEmissions, year) => {
     return turnoverInfo
 }
 
+// TURNOVER TAX CALCULATOR 
 const turnoverTaxCalculator = (turnover, turnoverGrowth, taxInfo, years) => {
     const { euroPerTon: baseTax, taxGrowth } = taxInfo
     const taxYears = {}
+
+    console.log('taxInfo:', taxInfo)
 
     for (let year = 1; year <= years; year++) {
         if (year === 1) {
@@ -99,16 +103,16 @@ const turnoverTaxY1 = turnoverTaxCalculator(turnoverY1.turnover, turnoverGrowth,
 console.log('YEAR 1')
 // console.log('emissionsY1:', emissionsY1)
 // console.log('taxEmY1:', taxEmY1)
-console.log('turnoverY1:', turnoverY1)
-// console.log('turnoverTaxY1:', turnoverTaxY1)
+// console.log('turnoverY1:', turnoverY1)
+console.log('turnoverTaxY1:', turnoverTaxY1)
 
 
 
 // turnoverForecast
-const turnoverForecast = turnoverTaxCalculator(turnoverY1.turnover, turnoverGrowth, taxInfo, 5)
+// const turnoverForecast = turnoverTaxCalculator(turnoverY1.turnover, turnoverGrowth, taxInfo, 5)
 
-// Year 2
-const emissionsY2 = scopeEmissions(industry, turnoverY1.turnover, taxScope)
+// // Year 2
+// const emissionsY2 = scopeEmissions(industry, turnoverY1.turnover, taxScope)
 // console.log(reducedEmissions(emissionsY1, reductionInfo, 1, 5))
 
 // const totalEmissionsY1 = scopeEmissions(companyInfo, taxScope)
