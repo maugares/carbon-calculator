@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import './InfoContainer.css'
+import CompanyInfoForm from './CompanyInfoForm'
 
 export default class InfoContainer extends Component {
     state = {
@@ -20,7 +21,11 @@ export default class InfoContainer extends Component {
     render() {
         return (
             <div className="info container">
-                
+                <div className="logo-container">
+                    <img src={require('../../assets/Logo.png')} alt="logo" id="logo" />
+                    <h4>Carbon Tax Calculator</h4>
+                </div>
+                <CompanyInfoForm values={this.state} onChange={this.onChange} />
             </div>
         )
     }

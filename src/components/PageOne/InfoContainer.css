@@ -1,0 +1,31 @@
+.info {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-container {
+    text-align: center;
+    padding-top: 2%;
+}
+
+.company-info-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.input-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+}
+
+.input-item {
+    display: flex;
+    flex-direction: column;
+    width: 33%;
+    margin: 10px;
+}

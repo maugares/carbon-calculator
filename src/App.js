@@ -1,8 +1,8 @@
 import React from 'react';
 import './App.css';
 import {Route} from 'react-router'
-import LandingPage from './components/LandingPage'
-import InfoContainer from './components/InfoContainer'
+import LandingPage from './components/LandingPage/LandingPage'
+import InfoContainer from './components/PageOne/InfoContainer'
 
 function App() {
     return (
