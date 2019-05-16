@@ -18,13 +18,13 @@ export default function CompanyInfoForm(props) {
                     </div>
                     <div className="input-item">
                         <label>Annual Turnover Growth (%)</label>
-                        <input type="number" name="turnover" value={props.values.turnoverGrowth} onChange={props.onChange} />
+                        <input type="number" name="turnoverGrowth" value={props.values.turnoverGrowth} onChange={props.onChange} />
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="input-item">
                         <label>What is your overall profit margin (%)</label>
-                        <input type="number" name="turnover" value={props.values.profit} onChange={props.onChange} />
+                        <input type="number" name="profit" value={props.values.profit} onChange={props.onChange} />
                     </div>
                 </div>
             </form>

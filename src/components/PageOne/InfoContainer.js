@@ -2,8 +2,10 @@ import React, { Component } from 'react'
 import './InfoContainer.css'
 import CompanyInfoForm from './CompanyInfoForm'
 import MarketInfoForm from './MarketInfoForm'
+import { connect } from 'react-redux';
+import {submitInput} from '../../actions/submitInput'
 
-export default class InfoContainer extends Component {
+class InfoContainer extends Component {
     state = {
         industry: '',
         turnover: 0, // euros
@@ -20,7 +22,7 @@ export default class InfoContainer extends Component {
     }
 
     onSubmit = () => {
-        // ...
+        this.props.submitInput(this.state)
     }
 
     render() {
@@ -37,3 +39,5 @@ export default class InfoContainer extends Component {
         )
     }
 }
+
+export default connect(null, {submitInput})(InfoContainer)
