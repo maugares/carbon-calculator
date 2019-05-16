@@ -11,7 +11,7 @@ const getYearArray = (years) => {
 
 const turnoverWithoutTaxes = (companyInfo, yearArray) => {
     const { turnover: baseTurnover, turnoverGrowth, profit } = companyInfo
-    const profitWithoutTaxes = {}
+    const turnoverWithoutTaxes = {}
 
     // Run for the different years
     yearArray.map(year => {
@@ -22,7 +22,7 @@ const turnoverWithoutTaxes = (companyInfo, yearArray) => {
         const profitWithoutTax = yearTurnover * profit
 
         // Get the values for the previous year
-        const previousYear = profitWithoutTaxes[year - 1]
+        const previousYear = turnoverWithoutTaxes[year - 1]
 
         // Calculate the cumulative profit for the given interval
         const cumulative = year > 1 ?
@@ -37,42 +37,42 @@ const turnoverWithoutTaxes = (companyInfo, yearArray) => {
         }
 
         // Insert the object year object in the general object
-        profitWithoutTaxes[year] = returnObject
+        turnoverWithoutTaxes[year] = returnObject
     })
-    return profitWithoutTaxes
+    return turnoverWithoutTaxes
 }
 
 const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
     const { profit } = companyInfo
-    const profitWithTaxes = {}
+    const turnoverWithTaxes = {}
 
     // Run for the different years
     yearArray.map(year => {
         const { taxableEmissions, totalTax } = yearValues[year]
 
         // Get the values for the previous year
-        const previousYear = profitWithTaxes[year - 1]
+        const previousYear = turnoverWithTaxes[year - 1]
 
         // Return the turnover after annual growth
         const turnover = year === 1 ? yearValues[year].newTurnover : yearValues[year].turnover
 
         // Calculate the profit for a given year before taxes
-        const profitBeforeTax = turnover * profit
+        const profitBT = turnover * profit
 
         // Calculate the cumulative profit for the given interval
         const cumulativeProfitBT = year > 1 ?
-            previousYear.cumulativeProfitBT + profitBeforeTax : profitBeforeTax
+            previousYear.cumulativeProfitBT + profitBT : profitBT
 
         // Calculate the cumulative emissions for the given interval
         const cumulativeEmissions = year > 1 ?
             previousYear.cumulativeEmissions + taxableEmissions : taxableEmissions
 
         // Calculate the profit for a given year after taxes
-        const profitAfterTax = profitBeforeTax - totalTax
+        const profitAT = profitBT - totalTax
 
         // Calculate the cumulative profit for the given interval
         const cumulativeProfitAT = year > 1 ?
-            previousYear.cumulativeProfitAT + profitAfterTax : profitAfterTax
+            previousYear.cumulativeProfitAT + profitAT : profitAT
 
         // Calculate the cumulative co2 tax
         const cumulativeCO2Tax = year > 1 ? previousYear.cumulativeCO2Tax + totalTax : totalTax
@@ -81,21 +81,21 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
         const returnObject = {
             year,
             turnover,
-            profitBeforeTax,
+            profitBT,
             cumulativeProfitBT,
             taxableEmissions,
             cumulativeEmissions,
             totalTax,
-            profitAfterTax,
+            profitAT,
             cumulativeProfitAT,
             cumulativeCO2Tax
         }
 
         // Insert the object year object in the general object
-        profitWithTaxes[year] = returnObject
+        turnoverWithTaxes[year] = returnObject
     })
 
-    return profitWithTaxes
+    return turnoverWithTaxes
 }
 
 export const calculateProfitWithoutTaxes = (companyInfo, years) => {
