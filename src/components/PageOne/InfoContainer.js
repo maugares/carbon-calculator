@@ -3,7 +3,7 @@ import './InfoContainer.css'
 import CompanyInfoForm from './CompanyInfoForm'
 import MarketInfoForm from './MarketInfoForm'
 import { connect } from 'react-redux';
-import {submitInput} from '../../actions/submitInput'
+import {submitInputOne} from '../../actions/submitInput'
 import PageHeader from '../PageHeader'
 
 class InfoContainer extends Component {
@@ -23,7 +23,7 @@ class InfoContainer extends Component {
     }
 
     onSubmit = () => {
-        this.props.submitInput(this.state)
+        this.props.submitInputOne(this.state)
         this.props.history.push('/step-2')
     }
 
@@ -39,4 +39,4 @@ class InfoContainer extends Component {
     }
 }
 
-export default connect(null, {submitInput})(InfoContainer)
+export default connect(null, {submitInputOne})(InfoContainer)

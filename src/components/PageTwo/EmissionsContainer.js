@@ -4,6 +4,7 @@ import EmissionsForm from './EmissionsForm'
 import {calculateEmissions} from '../../formulas/calculateEmissions/totalTons'
 import './EmissionsContainer.css'
 import { connect } from 'react-redux';
+import {submitInputTwo} from '../../actions/submitInput'
 
 class EmissionsContainer extends Component {
     state = {
@@ -45,7 +46,8 @@ class EmissionsContainer extends Component {
     }
 
     onSubmit = () => {
-        
+        this.props.submitInputTwo(this.state)
+        this.props.history.push("/results")
     }
 
     render() {
@@ -76,4 +78,4 @@ const mapStateToProps = state => ({
     pageOneInput: state.pageOneInput
 })
 
-export default connect(mapStateToProps)(EmissionsContainer)
+export default connect(mapStateToProps, {submitInputTwo})(EmissionsContainer)
