@@ -12,9 +12,9 @@ class CompanyOptionsContainer extends Component {
     }
 
     onChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        typeof [event.target.value] === 'number'
+            ? this.setState({ [event.target.name]: parseInt(event.target.value) })
+            : this.setState({ [event.target.name]: event.target.value })
     }
 
     onSubmit = (event) => {

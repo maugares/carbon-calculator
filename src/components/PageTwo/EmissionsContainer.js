@@ -29,12 +29,12 @@ class EmissionsContainer extends Component {
             })
         } else if(emissionsKnown === 'no') {
             const {industry, turnover} = this.props.pageOneInput
-            const { scope1, scope2, scope3 } = calculateEmissions(industry, turnover)
+            const { S1emissions, S2emissions, S3emissions } = calculateEmissions(industry, turnover)
             this.setState({
                 emissionsKnown,
-                S1emissions: scope1, 
-                S2emissions: scope2, 
-                S3emissions: scope3,
+                S1emissions, 
+                S2emissions, 
+                S3emissions,
             })
         }
     }

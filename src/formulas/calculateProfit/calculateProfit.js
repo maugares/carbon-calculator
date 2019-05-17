@@ -108,7 +108,9 @@ const calculateProfitWithoutTaxes = (companyInfo, years) => {
 const calculateProfitWithTaxes = (companyInfo, taxScope, taxInfo, emissionsInput, years) => {
     const yearArray = getYearArray(years)
     const yearValues = calculateAnnualValues(companyInfo, taxScope, taxInfo, emissionsInput, years)
+    console.log('yearValues', yearValues)
     const profitWithTaxes = turnoverWithTaxes(companyInfo, yearValues, yearArray)
+    console.log('profitWithTaxes', profitWithTaxes)
 
     return profitWithTaxes
 }
@@ -129,6 +131,8 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
 }
 
 export const dataGraphProfitNT = (companyInfo, years, profit, cumulative, isCumulative) => {
+    companyInfo.turnover = parseInt(companyInfo.turnover)
+
     const profitTable = calculateProfitWithoutTaxes(companyInfo, years)
 
     const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
@@ -137,10 +141,11 @@ export const dataGraphProfitNT = (companyInfo, years, profit, cumulative, isCumu
 }
 
 export const dataGraphProfitAT = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
+    taxInfo.euroPerTon = parseInt(taxInfo.euroPerTon)
     const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
-
+    // console.log('profittable', profitTable)
+    // console.log('profittable vars', companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
     const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
-
     return graphData
 }
 
