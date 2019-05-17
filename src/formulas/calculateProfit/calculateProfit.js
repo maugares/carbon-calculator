@@ -165,7 +165,7 @@ export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissi
     return graphData
 }
 
-// console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
+console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
 // console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", false))
 // console.table(dataGraphProfitAT(companyInfo, taxScope, taxInfo, emissionsInput, 5, "profitAT", "cumulativeProfitAT", true))
 // console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", true))

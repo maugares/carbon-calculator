@@ -22,11 +22,11 @@ export default class MainChart extends Component {
         return (
             <div className='profit-chart'>
                 <h3>Profit Per Year</h3>
-                <Line 
-                    options={optionsEuro} 
+                <Line
+                    options={optionsEuro}
                     data={
                         {
-                            labels: [1,2,3,4,5],
+                            labels: [1, 2, 3, 4, 5],
                             datasets:
                             [
                                 {
