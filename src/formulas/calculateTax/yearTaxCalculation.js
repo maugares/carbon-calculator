@@ -1,9 +1,8 @@
-import { companyInfo, marketInfo, taxInfo, taxScope, reductionInfo } from '../../lib/sampleCompany'
-import { calculateEmissions } from '../calculateEmissions/calculateEmissions'
+// import { companyInfo, taxInfo, taxScope, reductionInfo, emissionsInput } from '../../lib/sampleCompany'
 
 // SCOPE EMISSIONS CALCULATOR DONE
 const scopeEmissionsCalculator = (emissions, taxScope) => {
-    const scopes = Object.keys(taxScope)
+    const scopes = ['scope1', 'scope2', 'scope3']
     const scopeEmissions = {}
 
     let total = 0
@@ -21,13 +20,14 @@ const scopeEmissionsCalculator = (emissions, taxScope) => {
 }
 
 // TURNOVER CALCULATOR DONE
-const turnoverCalculator = (turnover, taxYear, scopeEmissions, year, oldP) => {
-    const {scope1, scope2, scope3, totalTons} = scopeEmissions
+const turnoverCalculator = (turnover, companyInfo, taxYear, scopeEmissions, year, oldP) => {
+    const { taxToCustomer, elasticity } = companyInfo
+    const { scope1, scope2, scope3, totalTons } = scopeEmissions
     const totalTax = taxYear * totalTons
 
-    const dTurnover = ((totalTax * marketInfo.taxToCustomer) / turnover) * marketInfo.elasticity
+    const dTurnover = ((totalTax * taxToCustomer / 100) / turnover) * elasticity
     const newQ = turnover * (1 + dTurnover)
-    const newP = oldP * (1 + (totalTax * marketInfo.taxToCustomer) / turnover)
+    const newP = oldP * (1 + (totalTax * taxToCustomer / 100) / turnover)
     const newTurnover = newQ * newP
 
     const turnoverInfo = {
@@ -65,7 +65,7 @@ const turnoverTaxCalculator = (turnover, turnoverGrowth, taxInfo, years) => {
             const newTax = baseTax * (1 + taxGrowth / 100) ** [year - 1]
 
             const baseTurnover = taxYears[1].newTurnover
-            const newTurnover = baseTurnover * (1 + turnoverGrowth) ** [year - 1]
+            const newTurnover = baseTurnover * (1 + turnoverGrowth / 100) ** [year - 1]
 
             taxYears[year] = {
                 year,
@@ -80,13 +80,13 @@ const turnoverTaxCalculator = (turnover, turnoverGrowth, taxInfo, years) => {
 
 // REDUCED EMISSIONS CALCULATOR DONE
 const reducedEmissionsCalculator = (emissions, reduction, year, years) => {
-    const keys = Object.keys(emissions)
+    const scopes = ['scope1', 'scope2', 'scope3']
     const values = Object.values(emissions)
     const reducedEmissions = {}
     let total = 0
 
-    for (let i = 1; i < keys.length; i++) {
-        const scope = keys[i]
+    for (let i = 0; i < scopes.length; i++) {
+        const scope = scopes[i]
         const yearReduction = (year - 1) / (years - 1)
         const scopeEmissions = values[i] - values[i] * reduction[scope] * yearReduction
         reducedEmissions[scope] = scopeEmissions
@@ -97,10 +97,24 @@ const reducedEmissionsCalculator = (emissions, reduction, year, years) => {
     return reducedEmissions
 }
 
+// Combine all the functions to calculate the new turnovers for the given input
 
-export const combineFunctions = (companyInfo, taxScope, taxInfo, years) => {
-    const { industry, turnover: baseTurnover, turnoverGrowth } = companyInfo
-    const baseEmissions = calculateEmissions(industry, baseTurnover)
+export const calculateAnnualValues = (companyInfo, taxScope, taxInfo, emissionsInput, years) => {
+    // Object companyInfo SHOULD contain: turnover, turnoverGrowth (0-100), taxToCustomer(0-100), elasticity[-2,0]
+    // Object taxScope SHOULD contain: scope1 (boolean), scope2 (boolean), scope3 (boolean)
+    // Object taxInfo SHOULD contain: euroPerTon, taxGrowth (0-100)
+    // Object emissionsInput SHOULD contain: S1emissions, S2emissions, S3emissions, S1reductionTarget (0-100), S2reductionTarget(0-100), S3reductionTarget(0-100)
+    const { turnover: baseTurnover, turnoverGrowth } = companyInfo
+    const baseEmissions = {
+        scope1: emissionsInput.S1emissions,
+        scope2: emissionsInput.S2emissions,
+        scope3: emissionsInput.S3emissions,
+    }
+    const reductionInfo = {
+        scope1: emissionsInput.S1reductionTarget / 100,
+        scope2: emissionsInput.S2reductionTarget / 100,
+        scope3: emissionsInput.S3reductionTarget / 100,
+    }
     const mergedCalculations = {}
     let turnoverForecast
 
@@ -109,7 +123,7 @@ export const combineFunctions = (companyInfo, taxScope, taxInfo, years) => {
             const taxEm = scopeEmissionsCalculator(baseEmissions, taxScope)
             const tax = taxInfo.euroPerTon
             const basePrice = 1
-            const turnover = turnoverCalculator(baseTurnover, tax, taxEm, year, basePrice)
+            const turnover = turnoverCalculator(baseTurnover, companyInfo, tax, taxEm, year, basePrice)
             mergedCalculations[year] = turnover
             turnoverForecast = turnoverTaxCalculator(turnover.newTurnover, turnoverGrowth, taxInfo, 5)
         } else {
@@ -117,8 +131,8 @@ export const combineFunctions = (companyInfo, taxScope, taxInfo, years) => {
             const taxEm = scopeEmissionsCalculator(emissions, taxScope)
             const taxY = turnoverForecast[year].euroPerTon
             const turnForecY = turnoverForecast[year].newTurnover
-            const basePrice = mergedCalculations[year-1].newP
-            const turnover = turnoverCalculator(turnForecY, taxY, taxEm, year, basePrice)
+            const basePrice = mergedCalculations[year - 1].newP
+            const turnover = turnoverCalculator(turnForecY, companyInfo, taxY, taxEm, year, basePrice)
             mergedCalculations[year] = turnover
         }
     }

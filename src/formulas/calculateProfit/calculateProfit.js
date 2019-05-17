@@ -1,5 +1,5 @@
-import { companyInfo, taxScope, taxInfo } from '../../lib/sampleCompany'
-import { combineFunctions } from '../calculateTax/yearTaxCalculation'
+import { companyInfo, taxScope, taxInfo, emissionsInput } from '../../lib/sampleCompany'
+import { calculateAnnualValues } from '../calculateTax/yearTaxCalculation'
 
 const getYearArray = (years) => {
     const yearArray = []
@@ -16,23 +16,23 @@ const turnoverWithoutTaxes = (companyInfo, yearArray) => {
     // Run for the different years
     yearArray.map(year => {
         // Calculate the annual turnover for the given year
-        const yearTurnover = baseTurnover * (1 + turnoverGrowth) ** (year - 1)
+        const yearTurnover = baseTurnover * (1 + turnoverGrowth / 100) ** (year - 1)
 
         // Calculate the profit for the given year without taxes
-        const profitWithoutTax = yearTurnover * profitMargin
+        const profit = yearTurnover * profitMargin / 100
 
         // Get the values for the previous year
         const previousYear = turnoverWithoutTaxes[year - 1]
 
         // Calculate the cumulative profit for the given interval
         const cumulative = year > 1 ?
-            previousYear.cumulative + profitWithoutTax : profitWithoutTax
+            previousYear.cumulative + profit : profit
 
         // Put the results in an year object
         const returnObject = {
             year,
             yearTurnover,
-            profitWithoutTax,
+            profit,
             cumulative
         }
 
@@ -57,7 +57,7 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
         const turnover = year === 1 ? yearValues[year].newTurnover : yearValues[year].turnover
 
         // Calculate the profit for a given year before taxes
-        const profitBT = turnover * profitMargin
+        const profitBT = turnover * profitMargin / 100
 
         // Calculate the cumulative profit for the given interval
         const cumulativeProfitBT = year > 1 ?
@@ -75,7 +75,7 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
             previousYear.cumulativeProfitAT + profitAT : profitAT
 
         // Calculate the cumulative co2 tax
-        const cumulativeCO2Tax = year > 1 ? previousYear.cumulativeCO2Tax + totalTax : totalTax
+        const cumulativeTax = year > 1 ? previousYear.cumulativeTax + totalTax : totalTax
 
         // Put the results in an year object
         const returnObject = {
@@ -88,7 +88,7 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
             totalTax,
             profitAT,
             cumulativeProfitAT,
-            cumulativeCO2Tax
+            cumulativeTax
         }
 
         // Insert the object year object in the general object
@@ -98,20 +98,73 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
     return turnoverWithTaxes
 }
 
-export const calculateProfitWithoutTaxes = (companyInfo, years) => {
+const calculateProfitWithoutTaxes = (companyInfo, years) => {
     const yearArray = getYearArray(years)
     const profitWithoutTaxes = turnoverWithoutTaxes(companyInfo, yearArray)
 
     return profitWithoutTaxes
 }
 
-export const calculateProfitWithTaxes = (companyInfo, taxScope, taxInfo, years) => {
+const calculateProfitWithTaxes = (companyInfo, taxScope, taxInfo, emissionsInput, years) => {
     const yearArray = getYearArray(years)
-    const yearValues = combineFunctions(companyInfo, taxScope, taxInfo, years)
-    const profitWithTaxes = turnoverWithTaxes(companyInfo, yearValues, yearArray) 
+    const yearValues = calculateAnnualValues(companyInfo, taxScope, taxInfo, emissionsInput, years)
+    const profitWithTaxes = turnoverWithTaxes(companyInfo, yearValues, yearArray)
 
     return profitWithTaxes
 }
 
-console.table(calculateProfitWithoutTaxes(companyInfo, 5))
-console.table(calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, 5))
+
+const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, isCumulative) => {
+    const yearArray = getYearArray(years)
+    let profit = []
+    let cumulative = []
+
+    yearArray.map(year => {
+        profit = [...profit, profitTable[year][varNameDiscrete]]
+        cumulative = [...cumulative, profitTable[year][varNameCumulative]]
+    })
+
+    const graphData = isCumulative ? { cumulative } : { profit }
+
+    return graphData
+}
+
+export const dataGraphProfitNT = (companyInfo, years, profit, cumulative, isCumulative) => {
+    const profitTable = calculateProfitWithoutTaxes(companyInfo, years)
+
+    const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
+
+    return graphData
+}
+
+export const dataGraphProfitAT = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
+    const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
+
+    const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
+
+    return graphData
+}
+
+export const dataGraphCO2Tax = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
+    const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
+
+    const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
+
+    return graphData
+}
+
+export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
+    const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
+
+    const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
+
+    return graphData
+}
+
+// console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
+// console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", false))
+// console.table(dataGraphProfitAT(companyInfo, taxScope, taxInfo, emissionsInput, 5, "profitAT", "cumulativeProfitAT", true))
+// console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", true))
+// console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", false))
+// console.table(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", true))
+// console.table(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", false))
