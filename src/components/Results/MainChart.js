@@ -3,6 +3,7 @@ import {Line} from 'react-chartjs-2'
 import {optionsEuro} from './chartData'
 import {calculateProfitWithoutTaxes, calculateProfitWithTaxes} from '../../formulas/calculateProfit/calculateProfit'
 
+
 export default class MainChart extends Component {
     render() {
         return (
