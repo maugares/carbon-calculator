@@ -112,6 +112,3 @@ export const calculateProfitWithTaxes = (companyInfo, taxScope, taxInfo, years) 
 
     return profitWithTaxes
 }
-
-console.table(calculateProfitWithoutTaxes(companyInfo, 5))
-console.table(calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, 5))

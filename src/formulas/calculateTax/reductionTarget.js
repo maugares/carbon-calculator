@@ -9,5 +9,3 @@ export const reductionTarget = {
     reductionS2: reductionInfo.scope2.reduction,
     reductionS3: reductionInfo.scope3.reduction
 }
-
-console.log(reductionTarget)

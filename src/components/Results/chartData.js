@@ -16,7 +16,13 @@ export const initial = {
         },
         {
             label: "Profit without tax",
-            data: [],
+            data: [
+                12050195,
+                12502509,
+                12412050,
+                15325320,
+                13503250,
+            ],
             backgroundColor: "rgba(69, 168, 72, 0.3)",
             pointBackgroundColor:  "rgba(69, 168, 72, 1)",
             fill: true,
@@ -35,8 +41,6 @@ export const options = {
     scales: {
         yAxes: [{
             ticks: {
-                min: 10000000,
-                max: 20000000,
                 callback: function(value, index, values) {
                     return '€' + value
                 }

@@ -1,0 +1,36 @@
+.results-container {
+    display: flex;
+    flex-direction: row;
+}
+
+.profit-chart {
+    width: 90%;
+    margin: auto;
+    height: 500px;
+}
+
+.chart-container {
+    background: rgba(255, 255, 255, 0.64);
+    width: 60%;
+    margin-right: 2%;
+    margin-left: auto;
+    margin-top: 2%;
+}
+
+.options-container {
+    margin-top: 2%;
+    width: 30%;
+    background: rgba(255, 255, 255, 0.64);
+    margin-left: 2%;
+    height: 250px;
+}
+
+.tax-options {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.chart-container h3 {
+    margin: 0;
+}
