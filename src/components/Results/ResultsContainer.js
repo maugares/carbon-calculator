@@ -1,12 +1,14 @@
 import React, { Component } from 'react'
 import MainChart from './MainChart'
 import TaxOptions from './TaxOptions'
+import SubCharts from './SubCharts'
 import './Results.css'
+import { connect } from 'react-redux';
 
-export default class ResultsContainer extends Component {
+class ResultsContainer extends Component {
     state = {
         euroPerTon: 50, // euros
-        taxGrowth: 5.5 // percentage
+        taxGrowth: 5.5, // percentage
     }
 
     onChange = (event) => {
@@ -23,10 +25,17 @@ export default class ResultsContainer extends Component {
                     <TaxOptions values={this.state} onChange={this.onChange} />
                 </div>
                 <div className="chart-container">
-                    <h3>Profit per year</h3>
-                    <MainChart taxInfo={this.state} />
+                    <MainChart taxInfo={this.state} companyData={this.props.companyData} emissionData={this.props.emissionData} />
+                    <SubCharts taxInfo={this.state} companyData={this.props.companyData} emissionData={this.props.emissionData} />
                 </div>
             </div>
         )
     }
 }
+
+const mapStateToProps = state => ({
+    companyData: state.pageOneInput,
+    emissionData: state.pageTwoInput
+})
+
+export default connect(mapStateToProps)(ResultsContainer)

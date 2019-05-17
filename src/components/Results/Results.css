@@ -15,6 +15,7 @@
     margin-right: 2%;
     margin-left: auto;
     margin-top: 2%;
+    padding: 1%;
 }
 
 .options-container {
@@ -33,4 +34,16 @@
 
 .chart-container h3 {
     margin: 0;
+}
+
+.subcharts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.subchart {
+    width: 40%;
+    height: 300px;
+    margin: 5%;
 }
