@@ -10,7 +10,7 @@ const getYearArray = (years) => {
 }
 
 const turnoverWithoutTaxes = (companyInfo, yearArray) => {
-    const { turnover: baseTurnover, turnoverGrowth, profit } = companyInfo
+    const { turnover: baseTurnover, turnoverGrowth, profitMargin } = companyInfo
     const turnoverWithoutTaxes = {}
 
     // Run for the different years
@@ -19,7 +19,7 @@ const turnoverWithoutTaxes = (companyInfo, yearArray) => {
         const yearTurnover = baseTurnover * (1 + turnoverGrowth) ** (year - 1)
 
         // Calculate the profit for the given year without taxes
-        const profitWithoutTax = yearTurnover * profit
+        const profitWithoutTax = yearTurnover * profitMargin
 
         // Get the values for the previous year
         const previousYear = turnoverWithoutTaxes[year - 1]
@@ -43,7 +43,7 @@ const turnoverWithoutTaxes = (companyInfo, yearArray) => {
 }
 
 const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
-    const { profit } = companyInfo
+    const { profitMargin } = companyInfo
     const turnoverWithTaxes = {}
 
     // Run for the different years
@@ -57,7 +57,7 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
         const turnover = year === 1 ? yearValues[year].newTurnover : yearValues[year].turnover
 
         // Calculate the profit for a given year before taxes
-        const profitBT = turnover * profit
+        const profitBT = turnover * profitMargin
 
         // Calculate the cumulative profit for the given interval
         const cumulativeProfitBT = year > 1 ?

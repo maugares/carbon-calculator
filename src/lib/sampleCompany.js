@@ -1,13 +1,13 @@
 export const companyInfo = {
     industry: 'Food industry',
     turnover: 20000000000.00,
-    turnoverGrowth: 1.00,
-    profit: 0.10
+    turnoverGrowth: 100,
+    profitMargin: 10
 }
 
 export const marketInfo = {
     elasticity: -0.4,
-    taxToCustomer: 1.00
+    taxToCustomer: 100
 }
 
 export const taxInfo = {
