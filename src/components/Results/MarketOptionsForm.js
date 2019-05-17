@@ -1,6 +1,6 @@
 import React from 'react'
 
-export default function MarketInfoForm(props) {
+export default function MarketOptionsForm(props) {
     return (
         <div className="form-container" onSubmit={props.onSubmit}>
             <h2>Market Information</h2>
@@ -17,6 +17,7 @@ export default function MarketInfoForm(props) {
                         {props.values.taxToConsumer}%
                     </div>
                 </div>
+                <input type="submit" className="continue-button" value="Apply" />
             </form>
         </div>
     )

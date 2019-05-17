@@ -7,7 +7,7 @@ const initialState = {
 export default (state = initialState, action = {}) => {
     switch(action.type) {
     case SUBMIT_INPUT_ONE:
-        return action.payload
+        return {...state, ...action.payload}
     default:
         return state
     }

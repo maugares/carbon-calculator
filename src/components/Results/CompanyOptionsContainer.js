@@ -1,11 +1,35 @@
 import React, { Component } from 'react'
+import CompanyOptionsForm from './CompanyOptionsForm'
+import {connect} from 'react-redux'
+import {submitInputOne} from '../../actions/submitInput'
 
-export default class CompanyOptionsContainer extends Component {
+class CompanyOptionsContainer extends Component {
+    state = {
+        industry: '',
+        turnover: 0, // euros
+        turnoverGrowth: 0, // percentage
+        profit: 0, // percentage
+    }
+
+    onChange = (event) => {
+        this.setState({
+            [event.target.name]: event.target.value
+        })
+    }
+
+    onSubmit = (event) => {
+        event.preventDefault()
+        this.props.submitInputOne(this.state)
+    }
+
     render() {
         return (
-            <div>
-        
+            <div className="company-options">
+                <CompanyOptionsForm onChange={this.onChange} values={this.state} default={this.props.companyData} onSubmit={this.onSubmit} />
             </div>
         )
     }
 }
+
+export default connect(null, {submitInputOne})(CompanyOptionsContainer)
+

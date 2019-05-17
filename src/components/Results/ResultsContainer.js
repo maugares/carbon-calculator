@@ -23,10 +23,12 @@ class ResultsContainer extends Component {
     render() {
         return (
             <div className="results-container">
-                <TaxOptions values={this.state} onChange={this.onChange} />
-                <CompanyOptionsContainer />
-                <MarketOptionsContainer />
-                <EmissionsOptionsContainer />
+                <div className="options-container">
+                    <TaxOptions values={this.state} onChange={this.onChange} />
+                    <CompanyOptionsContainer companyData={this.props.companyData} />
+                    <MarketOptionsContainer companyData={this.props.companyData} />
+                    <EmissionsOptionsContainer emissionsData={this.props.emissionsData} />
+                </div>
                 <div className="chart-container">
                     <MainChart taxInfo={this.state} companyData={this.props.companyData} emissionData={this.props.emissionData} />
                     <SubCharts taxInfo={this.state} companyData={this.props.companyData} emissionData={this.props.emissionData} />
