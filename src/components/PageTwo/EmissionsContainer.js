@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import PageHeader from '../PageHeader'
 import EmissionsForm from './EmissionsForm'
-import {calculateEmissions} from '../../formulas/calculateEmissions/totalTons'
+import {calculateEmissions} from '../../formulas/calculateEmissions/calculateEmissions'
 import './EmissionsContainer.css'
 import { connect } from 'react-redux';
 import {submitInputTwo} from '../../actions/submitInput'
@@ -28,7 +28,8 @@ class EmissionsContainer extends Component {
                 S3emissions: 0,
             })
         } else if(emissionsKnown === 'no') {
-            const { emissionS1, emissionS2, emissionS3 } = calculateEmissions(this.props.pageOneInput)
+            const {industry, turnover} = this.props.pageOneInput
+            const { emissionS1, emissionS2, emissionS3 } = calculateEmissions(industry, turnover)
             console.log(emissionS1)
             this.setState({
                 emissionsKnown,
