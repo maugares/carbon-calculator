@@ -6,7 +6,7 @@ import { connect } from 'react-redux';
 class MainChart extends Component {
     state = {
         options,
-        initial,
+        data: initial,
     }
 
     componentDidMount() {
@@ -18,7 +18,7 @@ class MainChart extends Component {
     render() {
         return (
             <div>
-                asdd
+                <Line options={this.state.options} data={this.state.data} />
             </div>
         )
     }
