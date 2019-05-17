@@ -153,10 +153,10 @@ export const dataGraphCO2Tax = (companyInfo, taxScope, taxInfo, emissionsInput, 
     return graphData
 }
 
-export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
+export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissionsInput, years, nameProfit, nameCumulative, isCumulative) => {
     const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
 
-    const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
+    const graphData = createArrays(profitTable, nameProfit, nameCumulative, years, isCumulative)
 
     return graphData
 }
