@@ -4,6 +4,9 @@ import TaxOptions from './TaxOptions'
 import SubCharts from './SubCharts'
 import './Results.css'
 import { connect } from 'react-redux';
+import CompanyOptionsContainer from './CompanyOptionsContainer'
+import MarketOptionsContainer from './MarketOptionsContainer'
+import EmissionsOptionsContainer from './EmissionsOptionsContainer'
 
 class ResultsContainer extends Component {
     state = {
@@ -20,10 +23,10 @@ class ResultsContainer extends Component {
     render() {
         return (
             <div className="results-container">
-                <div className="options-container">
-                    <h2>CO2 Tax</h2>
-                    <TaxOptions values={this.state} onChange={this.onChange} />
-                </div>
+                <TaxOptions values={this.state} onChange={this.onChange} />
+                <CompanyOptionsContainer />
+                <MarketOptionsContainer />
+                <EmissionsOptionsContainer />
                 <div className="chart-container">
                     <MainChart taxInfo={this.state} companyData={this.props.companyData} emissionData={this.props.emissionData} />
                     <SubCharts taxInfo={this.state} companyData={this.props.companyData} emissionData={this.props.emissionData} />
