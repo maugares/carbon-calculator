@@ -13,7 +13,7 @@ class InfoContainer extends Component {
         turnoverGrowth: 0, // percentage
         profitMargin: 0, // percentage
         elasticity: 0, // between -2 and 0
-        taxToConsumer: 0, // percentage
+        taxToCustomer: 0, // percentage
     }
 
     onChange = (event) => {

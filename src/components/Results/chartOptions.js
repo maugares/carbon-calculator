@@ -26,11 +26,3 @@ export const options = {
         
     }
 }
-
-// export function updateChart(val) {
-//     const newData = JSON.parse(JSON.stringify(initial))
-//     const initialDataset = initial.datasets[0].data
-//     const replacementData = initialDataset.map(value => value*(val/10))
-//     newData.datasets[0].data = replacementData
-//     return newData
-// }

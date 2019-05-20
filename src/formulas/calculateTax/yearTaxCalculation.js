@@ -136,5 +136,6 @@ export const calculateAnnualValues = (companyInfo, taxScope, taxInfo, emissionsI
             mergedCalculations[year] = turnover
         }
     }
+    
     return mergedCalculations
 }

@@ -13,8 +13,8 @@ export default function MarketInfoForm(props) {
                     </div>
                     <div className="slider">
                         <label><b>What percentage of the carbon tax will be levied to your customer?</b></label>
-                        <input type="range" min={0} max={100} name="taxToConsumer" value={props.values.taxToConsumer} onChange={props.onChange} />
-                        {props.values.taxToConsumer}%
+                        <input type="range" min={0} max={100} name="taxToCustomer" value={props.values.taxToCustomer} onChange={props.onChange} />
+                        {props.values.taxToCustomer}%
                     </div>
                 </div>
             </form>

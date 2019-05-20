@@ -1,4 +1,4 @@
-import { companyInfo, taxScope, taxInfo, emissionsInput } from '../../lib/sampleCompany'
+// import { companyInfo, taxScope, taxInfo, emissionsInput } from '../../lib/sampleCompany'
 import { calculateAnnualValues } from '../calculateTax/yearTaxCalculation'
 
 const getYearArray = (years) => {
@@ -108,9 +108,7 @@ const calculateProfitWithoutTaxes = (companyInfo, years) => {
 const calculateProfitWithTaxes = (companyInfo, taxScope, taxInfo, emissionsInput, years) => {
     const yearArray = getYearArray(years)
     const yearValues = calculateAnnualValues(companyInfo, taxScope, taxInfo, emissionsInput, years)
-    console.log('yearValues', yearValues)
     const profitWithTaxes = turnoverWithTaxes(companyInfo, yearValues, yearArray)
-    console.log('profitWithTaxes', profitWithTaxes)
 
     return profitWithTaxes
 }
@@ -165,7 +163,7 @@ export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissi
     return graphData
 }
 
-console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
+// console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
 // console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", false))
 // console.table(dataGraphProfitAT(companyInfo, taxScope, taxInfo, emissionsInput, 5, "profitAT", "cumulativeProfitAT", true))
 // console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", true))

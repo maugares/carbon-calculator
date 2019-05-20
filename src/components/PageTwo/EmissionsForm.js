@@ -3,7 +3,6 @@ import React from 'react'
 const percs = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
 
 export default function EmissionsForm(props) {
-    console.log(props)
     return (
         <table className="page-two-table">
             <thead>

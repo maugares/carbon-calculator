@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import {Line} from 'react-chartjs-2'
-import {optionsEuro, options} from './chartData'
+import {optionsEuro, options} from './chartOptions'
+import {dataGraphCO2Tax} from '../../formulas/calculateProfit/calculateProfit'
 
 export default class SubCharts extends Component {
     render() {
@@ -15,13 +16,7 @@ export default class SubCharts extends Component {
                             [
                                 {
                                     label: "Total CO2 tax",
-                                    data: [
-                                        1200000*this.props.taxInfo.euroPerTon,
-                                        1300000*this.props.taxInfo.euroPerTon,
-                                        1400000*this.props.taxInfo.euroPerTon,
-                                        1500000*this.props.taxInfo.euroPerTon,
-                                        1600000*this.props.taxInfo.euroPerTon
-                                    ],
+                                    data: [],
                                     backgroundColor: "rgba(101, 188, 162, 0.3)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
                                 },
