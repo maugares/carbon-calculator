@@ -8,7 +8,7 @@ export default function MarketInfoForm(props) {
                 <div className="form-row">
                     <div className="slider">
                         <label><b>How price sensitive is your market?</b></label>
-                        <input type="range" min={-2} max={0} name="elasticity" value={props.values.elasticity} onChange={props.onChange} />
+                        <input type="range" min="-2" max="0" step="0.1" name="elasticity" value={props.values.elasticity} onChange={props.onChange} style={{direction: 'rtl'}} />
                         {props.values.elasticity}
                     </div>
                     <div className="slider">

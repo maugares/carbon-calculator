@@ -11,13 +11,17 @@ import EmissionsOptionsContainer from './EmissionsOptionsContainer'
 class ResultsContainer extends Component {
     state = {
         euroPerTon: 50, // euros
-        taxGrowth: 5.5, // percentage
+        taxGrowth: 5.5, // percentage,
+        cumulative: true,
+        scope1Taxable: true,
+        scope2Taxable: true,
+        scope3Taxable: true
     }
 
     onChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
+        event.target.type === 'checkbox'
+            ? this.setState({ [event.target.name]: !this.state[event.target.name] })
+            : this.setState({ [event.target.name]: event.target.value })
     }
 
     render() {
@@ -30,8 +34,28 @@ class ResultsContainer extends Component {
                     <EmissionsOptionsContainer emissionsData={this.props.emissionsData} />
                 </div>
                 <div className="chart-container">
-                    <MainChart taxInfo={this.state} companyData={this.props.companyData} emissionData={this.props.emissionData} />
-                    <SubCharts taxInfo={this.state} companyData={this.props.companyData} emissionData={this.props.emissionData} />
+                    <MainChart 
+                        taxInfo={this.state} 
+                        companyData={this.props.companyData} 
+                        emissionData={this.props.emissionData}
+                        cumulative={this.state.cumulative}
+                        taxScope={{
+                            scope1: this.state.scope1Taxable, 
+                            scope2: this.state.scope2Taxable,
+                            scope3: this.state.scope3Taxable,
+                        }} 
+                    />
+                    <SubCharts 
+                        taxInfo={this.state} 
+                        companyData={this.props.companyData} 
+                        emissionData={this.props.emissionData}
+                        cumulative={this.state.cumulative}
+                        taxScope={{
+                            scope1: this.state.scope1Taxable, 
+                            scope2: this.state.scope2Taxable,
+                            scope3: this.state.scope3Taxable,
+                        }}  
+                    />
                 </div>
             </div>
         )

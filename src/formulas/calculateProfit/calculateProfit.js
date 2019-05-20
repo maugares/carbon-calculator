@@ -139,6 +139,7 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
         cumulative = [...cumulative, profitTable[year][varNameCumulative]]
     })
 
+
     const graphData = isCumulative ? { cumulative } : { discrete: profit }
 
     return graphData
