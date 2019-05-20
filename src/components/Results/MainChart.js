@@ -26,7 +26,7 @@ export default class MainChart extends Component {
                                         "profit",
                                         "cumulative",
                                         this.props.cumulative
-                                    ).cumulative,
+                                    ),
                                     backgroundColor: "rgba(101, 188, 162, 0.4)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
                                 },
@@ -41,7 +41,7 @@ export default class MainChart extends Component {
                                         "profitAT",
                                         "cumulativeProfitAT",
                                         this.props.cumulative
-                                    ).cumulative,
+                                    ),
                                     backgroundColor: "rgba(69, 168, 72, 0.4)",
                                     pointBackgroundColor:  "rgba(69, 168, 72, 1)",
                                     fill: true,
