@@ -27,7 +27,7 @@ export default class SubCharts extends Component {
                                         "cumulativeTax", 
                                         this.props.cumulative
                                     ).cumulative,
-                                    backgroundColor: "rgba(101, 188, 162, 0.3)",
+                                    backgroundColor: "rgba(101, 188, 162, 0.5)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
                                 },
                             ]
@@ -53,7 +53,7 @@ export default class SubCharts extends Component {
                                         "cumulativeEmissions", 
                                         this.props.cumulative
                                     ).cumulative,
-                                    backgroundColor: "rgba(101, 188, 162, 0.3)",
+                                    backgroundColor: "rgba(101, 188, 162, 0.5)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
                                 },
                             ]
