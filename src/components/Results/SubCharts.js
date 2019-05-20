@@ -27,7 +27,7 @@ export default class SubCharts extends Component {
                                         "cumulativeTax", 
                                         this.props.cumulative
                                     ).cumulative,
-                                    backgroundColor: "rgba(101, 188, 162, 0.5)",
+                                    backgroundColor: "rgba(101, 188, 162, 0.4)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
                                 },
                             ]
