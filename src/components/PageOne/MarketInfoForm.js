@@ -1,4 +1,9 @@
 import React from 'react'
+import {Slider} from 'antd'
+
+function percFormatter(value) {
+    return `${value}%`
+}
 
 export default function MarketInfoForm(props) {
     return (
@@ -8,13 +13,21 @@ export default function MarketInfoForm(props) {
                 <div className="form-row">
                     <div className="slider">
                         <label><b>How price sensitive is your market?</b></label>
-                        <input type="range" min="-2" max="0" step="0.1" name="elasticity" value={props.values.elasticity} onChange={props.onChange} style={{direction: 'rtl'}} />
-                        {props.values.elasticity}
+                        <Slider
+                            value={props.values.elasticity} 
+                            onChange={e => props.onChange(e, 'elasticity')}
+                            min={-2}
+                            max={0}
+                            step={0.1}
+                        />
                     </div>
                     <div className="slider">
                         <label><b>What percentage of the carbon tax will be levied to your customer?</b></label>
-                        <input type="range" min={0} max={100} name="taxToCustomer" value={props.values.taxToCustomer} onChange={props.onChange} />
-                        {props.values.taxToCustomer}%
+                        <Slider
+                            value={props.values.taxToCustomer} 
+                            onChange={e => props.onChange(e, 'taxToCustomer')}
+                            tipFormatter={percFormatter} 
+                        />
                     </div>
                 </div>
             </form>
