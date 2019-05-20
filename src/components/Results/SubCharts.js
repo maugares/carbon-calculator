@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
 import {Line} from 'react-chartjs-2'
 import {optionsEuro, options} from './chartOptions'
-import {dataGraphCO2Tax} from '../../formulas/calculateProfit/calculateProfit'
+import {dataGraphCO2Tax, dataGraphTaxableEmissions} from '../../formulas/calculateProfit/calculateProfit'
 
 export default class SubCharts extends Component {
+    
     render() {
         return (
             <div className="subcharts-container">
@@ -16,8 +17,17 @@ export default class SubCharts extends Component {
                             [
                                 {
                                     label: "Total CO2 tax",
-                                    data: [],
-                                    backgroundColor: "rgba(101, 188, 162, 0.3)",
+                                    data: dataGraphCO2Tax(
+                                        this.props.companyData, 
+                                        this.props.taxScope, 
+                                        this.props.taxInfo, 
+                                        this.props.emissionData, 
+                                        5, 
+                                        "totalTax", 
+                                        "cumulativeTax", 
+                                        this.props.cumulative
+                                    ),
+                                    backgroundColor: "rgba(101, 188, 162, 0.4)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
                                 },
                             ]
@@ -33,14 +43,17 @@ export default class SubCharts extends Component {
                             [
                                 {
                                     label: "Taxable emissions",
-                                    data: [
-                                        1200000*this.props.taxInfo.euroPerTon,
-                                        1300000*this.props.taxInfo.euroPerTon,
-                                        1400000*this.props.taxInfo.euroPerTon,
-                                        1500000*this.props.taxInfo.euroPerTon,
-                                        1600000*this.props.taxInfo.euroPerTon
-                                    ],
-                                    backgroundColor: "rgba(101, 188, 162, 0.3)",
+                                    data: dataGraphTaxableEmissions(
+                                        this.props.companyData, 
+                                        this.props.taxScope, 
+                                        this.props.taxInfo, 
+                                        this.props.emissionData, 
+                                        5, 
+                                        "taxableEmissions", 
+                                        "cumulativeEmissions", 
+                                        this.props.cumulative
+                                    ),
+                                    backgroundColor: "rgba(101, 188, 162, 0.5)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
                                 },
                             ]

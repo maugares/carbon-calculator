@@ -1,6 +1,10 @@
 import React from 'react'
 
 export default function TaxOptions(props) {
+    const growthValues = []
+    for(let i = 0.5; i <= 6.5; i += 0.5) {
+        growthValues.push(i)
+    }
     return (
         <div className="tax-options">
             <h2>CO2 Tax</h2>
@@ -12,7 +16,7 @@ export default function TaxOptions(props) {
             <div className="tax-growth-container">
                 <p>Tax price growth p/y</p>
                 <select name="taxGrowth" onChange={props.onChange} >
-                    <option value={props.values.taxGrowth}>5.5%</option>
+                    {growthValues.map(val => <option value={val} key={val}>{val.toFixed(1)}%</option>)}
                 </select>
             </div>
         </div>
