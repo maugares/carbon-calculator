@@ -79,11 +79,11 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
 
         // Add the scopes to the object
         const scope1Cumulative = year > 1 ?
-            previousYear.scope1 + scope1 : scope1
+            previousYear.scope1Cumulative + scope1 : scope1
         const scope2Cumulative = year > 1 ?
-            previousYear.scope2 + scope2 : scope2
+            previousYear.scope2Cumulative + scope2 : scope2
         const scope3Cumulative = year > 1 ?
-            previousYear.scope3 + scope3 : scope3
+            previousYear.scope3Cumulative + scope3 : scope3
 
         // Put the results in an year object
         const returnObject = {
@@ -139,8 +139,7 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
         cumulative = [...cumulative, profitTable[year][varNameCumulative]]
     })
 
-
-    const graphData = isCumulative ? { cumulative } : { discrete: profit }
+    const graphData = isCumulative ? cumulative : profit
 
     return graphData
 }
@@ -170,18 +169,18 @@ export const dataGraphCO2Tax = (companyInfo, taxScope, taxInfo, emissionsInput, 
 export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissionsInput, years, nameProfit, nameCumulative, isCumulative) => {
     const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
     const graphData = createArrays(profitTable, nameProfit, nameCumulative, years, isCumulative)
-
+        
     return graphData
 }
 
 
-// console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
-// console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", false))
-// console.table(dataGraphProfitAT(companyInfo, taxScope, taxInfo, emissionsInput, 5, "profitAT", "cumulativeProfitAT", true))
-// console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", true))
-// console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", false))
+// console.log(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
+// console.log(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", false))
+// console.log(dataGraphProfitAT(companyInfo, taxScope, taxInfo, emissionsInput, 5, "profitAT", "cumulativeProfitAT", true))
+// console.log(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", true))
+// console.log(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", false))
 // console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", true))
-// console.table(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", false))
+// console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", false))
 
 console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope1", "scope1Cumulative", true))
 console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope1", "scope1Cumulative", false))
