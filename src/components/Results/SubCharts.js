@@ -42,19 +42,49 @@ export default class SubCharts extends Component {
                             datasets:
                             [
                                 {
-                                    label: "Taxable emissions",
+                                    label: "Scope 1",
                                     data: dataGraphTaxableEmissions(
                                         this.props.companyData, 
                                         this.props.taxScope, 
                                         this.props.taxInfo, 
                                         this.props.emissionData, 
                                         5, 
-                                        "taxableEmissions", 
-                                        "cumulativeEmissions", 
+                                        "scope1", 
+                                        "scope1Cumulative", 
                                         this.props.cumulative
                                     ),
-                                    backgroundColor: "rgba(101, 188, 162, 0.5)",
+                                    backgroundColor: "rgba(101, 188, 162, 0.4)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
+                                },
+                                {
+                                    label: "Scope 2",
+                                    data: dataGraphTaxableEmissions(
+                                        this.props.companyData, 
+                                        this.props.taxScope, 
+                                        this.props.taxInfo, 
+                                        this.props.emissionData, 
+                                        5, 
+                                        "scope2", 
+                                        "scope2Cumulative", 
+                                        this.props.cumulative
+                                    ),
+                                    backgroundColor: "rgba(69, 168, 72, 0.4)",
+                                    pointBackgroundColor:  "rgba(69, 168, 72, 1)",
+                                },
+                                {
+                                    label: "Scope 3",
+                                    data: dataGraphTaxableEmissions(
+                                        this.props.companyData, 
+                                        this.props.taxScope, 
+                                        this.props.taxInfo, 
+                                        this.props.emissionData, 
+                                        5, 
+                                        "scope3", 
+                                        "scope3Cumulative", 
+                                        this.props.cumulative
+                                    ),
+                                    backgroundColor: "rgba(89, 168, 160, 0.4)",
+                                    pointBackgroundColor:  "rgba(89, 168, 160, 0.4)",
                                 },
                             ]
                         }
