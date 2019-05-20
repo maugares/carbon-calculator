@@ -27,11 +27,11 @@ export default class MainChart extends Component {
                                         "cumulative",
                                         this.props.cumulative
                                     ).cumulative,
-                                    backgroundColor: "rgba(101, 188, 162, 0.3)",
+                                    backgroundColor: "rgba(101, 188, 162, 0.4)",
                                     pointBackgroundColor:  "rgba(101, 188, 162, 1)",
                                 },
                                 {
-                                    label: "Profit after tax", //companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative
+                                    label: "Profit after tax",
                                     data: dataGraphProfitAT(
                                         this.props.companyData, 
                                         this.props.taxScope, 
@@ -42,7 +42,7 @@ export default class MainChart extends Component {
                                         "cumulativeProfitAT",
                                         this.props.cumulative
                                     ).cumulative,
-                                    backgroundColor: "rgba(69, 168, 72, 0.3)",
+                                    backgroundColor: "rgba(69, 168, 72, 0.4)",
                                     pointBackgroundColor:  "rgba(69, 168, 72, 1)",
                                     fill: true,
                                 }
