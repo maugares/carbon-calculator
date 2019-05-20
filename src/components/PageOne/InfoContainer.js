@@ -17,7 +17,7 @@ class InfoContainer extends Component {
     }
 
     onChange = (event) => {
-        event.target.type === 'number' || event.target.type === 'range'
+        event.target.type === 'number'
             ? this.setState({ [event.target.name]: parseInt(event.target.value) })
             : this.setState({ [event.target.name]: event.target.value })
     }
