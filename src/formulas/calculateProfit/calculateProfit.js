@@ -1,4 +1,4 @@
-// import { companyInfo, taxScope, taxInfo, emissionsInput } from '../../lib/sampleCompany'
+import { companyInfo, taxScope, taxInfo, emissionsInput } from '../../lib/sampleCompany'
 import { calculateAnnualValues } from '../calculateTax/yearTaxCalculation'
 
 const getYearArray = (years) => {
@@ -48,7 +48,7 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
 
     // Run for the different years
     yearArray.map(year => {
-        const { taxableEmissions, totalTax } = yearValues[year]
+        const { taxableEmissions, totalTax, scope1, scope2, scope3 } = yearValues[year]
 
         // Get the values for the previous year
         const previousYear = turnoverWithTaxes[year - 1]
@@ -77,6 +77,14 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
         // Calculate the cumulative co2 tax
         const cumulativeTax = year > 1 ? previousYear.cumulativeTax + totalTax : totalTax
 
+        // Add the scopes to the object
+        const scope1Cumulative = year > 1 ?
+            previousYear.scope1 + scope1 : scope1
+        const scope2Cumulative = year > 1 ?
+            previousYear.scope2 + scope2 : scope2
+        const scope3Cumulative = year > 1 ?
+            previousYear.scope3 + scope3 : scope3
+
         // Put the results in an year object
         const returnObject = {
             year,
@@ -88,7 +96,13 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
             totalTax,
             profitAT,
             cumulativeProfitAT,
-            cumulativeTax
+            cumulativeTax,
+            scope1,
+            scope1Cumulative,
+            scope2,
+            scope2Cumulative,
+            scope3,
+            scope3Cumulative,
         }
 
         // Insert the object year object in the general object
@@ -110,6 +124,8 @@ const calculateProfitWithTaxes = (companyInfo, taxScope, taxInfo, emissionsInput
     const yearValues = calculateAnnualValues(companyInfo, taxScope, taxInfo, emissionsInput, years)
     const profitWithTaxes = turnoverWithTaxes(companyInfo, yearValues, yearArray)
 
+    // console.log('profit with taxes:', profitWithTaxes)
+
     return profitWithTaxes
 }
 
@@ -123,16 +139,14 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
         cumulative = [...cumulative, profitTable[year][varNameCumulative]]
     })
 
-    const graphData = isCumulative ? { cumulative } : { profit }
+    const graphData = isCumulative ? { cumulative } : { discrete: profit }
 
     return graphData
 }
 
 export const dataGraphProfitNT = (companyInfo, years, profit, cumulative, isCumulative) => {
     companyInfo.turnover = parseInt(companyInfo.turnover)
-
     const profitTable = calculateProfitWithoutTaxes(companyInfo, years)
-
     const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
 
     return graphData
@@ -141,15 +155,12 @@ export const dataGraphProfitNT = (companyInfo, years, profit, cumulative, isCumu
 export const dataGraphProfitAT = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
     taxInfo.euroPerTon = parseInt(taxInfo.euroPerTon)
     const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
-    // console.log('profittable', profitTable)
-    // console.log('profittable vars', companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
     const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
     return graphData
 }
 
 export const dataGraphCO2Tax = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
     const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
-
     const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
 
     return graphData
@@ -157,16 +168,23 @@ export const dataGraphCO2Tax = (companyInfo, taxScope, taxInfo, emissionsInput, 
 
 export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissionsInput, years, nameProfit, nameCumulative, isCumulative) => {
     const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
-
     const graphData = createArrays(profitTable, nameProfit, nameCumulative, years, isCumulative)
 
     return graphData
 }
+
 
 // console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
 // console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", false))
 // console.table(dataGraphProfitAT(companyInfo, taxScope, taxInfo, emissionsInput, 5, "profitAT", "cumulativeProfitAT", true))
 // console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", true))
 // console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", false))
-// console.table(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", true))
+// console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", true))
 // console.table(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", false))
+
+console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope1", "scope1Cumulative", true))
+console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope1", "scope1Cumulative", false))
+console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope2", "scope2Cumulative", true))
+console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope2", "scope2Cumulative", false))
+console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope3", "scope3Cumulative", true))
+console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope3", "scope3Cumulative", false))
