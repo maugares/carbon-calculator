@@ -10,7 +10,8 @@ class ResultsContainer extends Component {
         euroPerTon: 50, // euros
         taxGrowth: 5.5, // percentage,
         checked: ['Scope 1', 'Scope 2', 'Scope 3'],
-        taxScope: { scope1: true, scope2: true, scope3: true }
+        taxScope: { scope1: true, scope2: true, scope3: true },
+        cumulative: true
     }
 
     onChange = (data, target) => {
