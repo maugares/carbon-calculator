@@ -16,7 +16,7 @@ export default function MarketInfoForm(props) {
                         <Slider
                             value={props.values.elasticity} 
                             onChange={e => props.onChange(e, 'elasticity')}
-                            min={-2}
+                            min={-4}
                             max={0}
                             step={0.1}
                         />

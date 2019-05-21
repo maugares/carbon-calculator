@@ -181,10 +181,3 @@ export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissi
 // console.log(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", false))
 // console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", true))
 // console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", false))
-
-console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope1", "scope1Cumulative", true))
-console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope1", "scope1Cumulative", false))
-console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope2", "scope2Cumulative", true))
-console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope2", "scope2Cumulative", false))
-console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope3", "scope3Cumulative", true))
-console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "scope3", "scope3Cumulative", false))

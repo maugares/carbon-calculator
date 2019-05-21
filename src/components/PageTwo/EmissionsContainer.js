@@ -5,6 +5,7 @@ import {calculateEmissions} from '../../formulas/calculateEmissions/calculateEmi
 import './EmissionsContainer.css'
 import { connect } from 'react-redux';
 import {submitInputTwo} from '../../actions/submitInput'
+import {Radio, Button} from 'antd'
 
 class EmissionsContainer extends Component {
     state =  JSON.parse(sessionStorage.getItem('emissionInfo')) && {
@@ -39,9 +40,9 @@ class EmissionsContainer extends Component {
         }
     }
 
-    onChange = (event) => {
+    onChange = (data, target) => {
         this.setState({
-            [event.target.name]: event.target.value
+            [target]: data
         })
     }
 
@@ -58,11 +59,14 @@ class EmissionsContainer extends Component {
                 <div className="knows-emissions">
                     <h2>Company CO2 Emissions</h2>
                     Do you know your company CO2 emissions? 
-                    <select value={this.state.emissionsKnown} name="emissionsKnown" onChange={this.onEmissionsKnownChange}>
-                        <option value=""></option>
-                        <option value="yes">Yes</option>
-                        <option value="no">No</option>
-                    </select>
+                    <Radio.Group 
+                        value={this.state.emissionsKnown} 
+                        onChange={this.onEmissionsKnownChange}
+                        style={{ marginLeft: '5%' }}
+                    >
+                        <Radio value="yes">Yes</Radio>
+                        <Radio value="no">No</Radio>
+                    </Radio.Group>
                 </div>
                 {this.state.emissionsKnown && 
                     <div className="form-container">
