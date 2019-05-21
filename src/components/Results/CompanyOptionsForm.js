@@ -26,7 +26,7 @@ export default function CompanyOptionsForm(props) {
                 <div className="form-row">
                     <div className="input-item">
                         <label>What is your overall profit margin (%)</label>
-                        <input type="number" name="profit" value={props.values.profit} onChange={props.onChange} />
+                        <input type="number" name="profitMargin" value={props.values.profitMargin} onChange={props.onChange} />
                     </div>
                 </div>
                 <input type="submit" className="continue-button" value="Apply" />
