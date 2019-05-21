@@ -9,7 +9,7 @@ const defaultState = {
     taxToCustomer: 100, 
 };
 
-const initialState = sessionStorage.getItem('company info') || defaultState
+const initialState = sessionStorage.getItem('companyInfo') || defaultState
 
 export default (state = initialState, action = {}) => {
     switch(action.type) {

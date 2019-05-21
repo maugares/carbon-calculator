@@ -7,7 +7,7 @@ import { connect } from 'react-redux';
 import {submitInputTwo} from '../../actions/submitInput'
 
 class EmissionsContainer extends Component {
-    state = {
+    state =  JSON.parse(sessionStorage.getItem('emissionInfo')) && {
         emissionsKnown: "",
         S1emissions: 0, // tons CO2
         S1reductionTarget: 0, // percentage
@@ -47,6 +47,7 @@ class EmissionsContainer extends Component {
 
     onSubmit = () => {
         this.props.submitInputTwo(this.state)
+        sessionStorage.setItem('emissionInfo',  JSON.stringify(this.state))
         this.props.history.push("/results")
     }
 
