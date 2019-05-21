@@ -7,7 +7,7 @@ function percFormatter(value) {
 }
 
 const tooltipElasticity = <div><p>To indicate how your customers react to a price change we use the price elasticity of demand.</p><p>Food, for example, tend to be inelastic (between 0 - 1) while luxury goods tend to be elastic (>1)</p></div>
-const tooltipTaxToCustomer = <div><p></p></div>
+const tooltipTaxToCustomer = <div><p>Does the polluter pay?</p><p>Please indicate the percentage of the tax that will be levied on your customer by increasing your price</p></div>
 
 export default function MarketInfoForm(props) {
     return (
