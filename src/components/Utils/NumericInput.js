@@ -29,7 +29,7 @@ export default class NumericInput extends React.Component {
   // '.' at the end or only '-' in the input box.
   onBlur = () => {
       const { value, onBlur, onChange } = this.props;
-      if(value) {
+      if(typeof value === 'string') {
           if (value.charAt(value.length - 1) === '.' || value === '-') {
               onChange(value.slice(0, -1));
           }

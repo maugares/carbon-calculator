@@ -1,4 +1,4 @@
-import {SUBMIT_INPUT_ONE} from '../actions/submitInput'
+import {SUBMIT_INPUT_ONE, UPDATE_INPUT} from '../actions/input'
 
 const initialState = {
     industry: "Building materials including wood",
@@ -12,6 +12,8 @@ const initialState = {
 export default (state = initialState, action = {}) => {
     switch(action.type) {
     case SUBMIT_INPUT_ONE:
+        return {...state, ...action.payload}
+    case UPDATE_INPUT:
         return {...state, ...action.payload}
     default:
         return state

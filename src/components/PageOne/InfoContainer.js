@@ -3,7 +3,7 @@ import './InfoContainer.css'
 import CompanyInfoForm from './CompanyInfoForm'
 import MarketInfoForm from './MarketInfoForm'
 import { connect } from 'react-redux';
-import {submitInputOne} from '../../actions/submitInput'
+import {submitInputOne} from '../../actions/input'
 import PageHeader from '../PageHeader'
 
 class InfoContainer extends Component {

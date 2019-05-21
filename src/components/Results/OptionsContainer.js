@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
 import OptionsPanel from './OptionsPanel'
 import { connect } from 'react-redux'
+import { updateInput } from '../../actions/input'
 
 class OptionsContainer extends Component {
     onChange = (data, target) => {
-
+        console.log(data, target)
+        this.props.updateInput({ [target]: data })
     }
 
     render() {
@@ -33,4 +35,4 @@ const mapStateToProps = state => ({
     S3reductionTarget: state.pageOneInput.S3reductionTarget, 
 })
 
-export default connect(mapStateToProps)(OptionsContainer)
+export default connect(mapStateToProps, { updateInput })(OptionsContainer)

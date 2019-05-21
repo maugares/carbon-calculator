@@ -1,4 +1,4 @@
-import {SUBMIT_INPUT_TWO} from '../actions/submitInput'
+import {SUBMIT_INPUT_TWO, UPDATE_INPUT} from '../actions/input'
 
 const initialState = {
     emissionsKnown: "no",
@@ -13,7 +13,9 @@ const initialState = {
 export default (state = initialState, action = {}) => {
     switch(action.type) {
     case SUBMIT_INPUT_TWO:
-        return action.payload
+        return {...state, ...action.payload}
+    case UPDATE_INPUT:
+        return {...state, ...action.payload}
     default:
         return state
     }

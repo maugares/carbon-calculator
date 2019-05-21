@@ -4,7 +4,7 @@ import EmissionsForm from './EmissionsForm'
 import {calculateEmissions} from '../../formulas/calculateEmissions/calculateEmissions'
 import './EmissionsContainer.css'
 import { connect } from 'react-redux';
-import {submitInputTwo} from '../../actions/submitInput'
+import {submitInputTwo} from '../../actions/input'
 import {Radio} from 'antd'
 
 class EmissionsContainer extends Component {
