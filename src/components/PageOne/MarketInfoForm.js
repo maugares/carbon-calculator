@@ -1,11 +1,13 @@
 import React from 'react'
 import { Slider, Tooltip, Icon, Badge } from 'antd'
+import './MarketInfoForm.css'
 
 function percFormatter(value) {
     return `${value}%`
 }
 
-const infoMessageElasticity = <div><p>To indicate how your customers react to a price change we use the price elasticity of demand.</p><p>Food, for example, tend to be inelastic (between 0 - 1) while luxury goods tend to be elastic (>1)</p></div>
+const tooltipElasticity = <div><p>To indicate how your customers react to a price change we use the price elasticity of demand.</p><p>Food, for example, tend to be inelastic (between 0 - 1) while luxury goods tend to be elastic (>1)</p></div>
+const tooltipTaxToCustomer = <div><p></p></div>
 
 export default function MarketInfoForm(props) {
     return (
@@ -14,9 +16,9 @@ export default function MarketInfoForm(props) {
             <form className="info-form">
                 <div className="form-row">
                     <div className="slider">
-                        <label>
+                        <label className="label">
                             <b>How price sensitive is your market?</b>
-                            <Tooltip placement="rightTop" title={infoMessageElasticity}>
+                            <Tooltip placement="rightTop" title={tooltipElasticity}>
                                 <Icon type="info-circle" />
                             </Tooltip>
                         </label>
@@ -29,7 +31,12 @@ export default function MarketInfoForm(props) {
                         />
                     </div>
                     <div className="slider">
-                        <label><b>What percentage of the carbon tax will be levied to your customer?</b></label>
+                        <label className="label">
+                            <b>What percentage of the carbon tax will be levied to your customer?</b>
+                            <Tooltip placement="rightTop" title={tooltipTaxToCustomer}>
+                                <Icon type="info-circle" />
+                            </Tooltip>
+                        </label>
                         <Slider
                             value={props.values.taxToCustomer}
                             onChange={e => props.onChange(e, 'taxToCustomer')}
