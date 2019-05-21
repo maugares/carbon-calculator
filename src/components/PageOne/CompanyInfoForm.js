@@ -1,5 +1,13 @@
 import React from 'react'
 import {industry} from '../../lib/industry'
+import {Select, Slider} from 'antd'
+import NumericInput from '../Utils/NumericInput'
+
+const Option = Select.Option
+
+function percFormatter(value) {
+    return `${value}%`
+}
 
 export default function CompanyInfoForm(props) {
     return (
@@ -9,24 +17,36 @@ export default function CompanyInfoForm(props) {
                 <div className="form-row">
                     <div className="input-item">
                         <label>Industry</label>
-                        <select name="industry" value={props.values.industry} onChange={props.onChange}>
-                            <option>-- Choose one --</option>
-                            {industry.map(entry => <option key={entry}>{entry}</option>)}
-                        </select>
+                        <Select defaultValue="Select industry" onChange={e => props.onChange(e, 'industry')}>
+                            {industry.map(entry => <Option value={entry} key={entry}>{entry}</Option>)}
+                        </Select>
                     </div>
                     <div className="input-item">
                         <label>Annual Turnover (Euro's)</label>
-                        <input type="number" name="turnover" value={props.values.turnover} onChange={props.onChange} />
+                        <NumericInput 
+                            maxLength={25} 
+                            prefix="€" 
+                            value={props.values.turnover} 
+                            onChange={e => props.onChange(e, 'turnover')} 
+                        />
                     </div>
                     <div className="input-item">
                         <label>Annual Turnover Growth (%)</label>
-                        <input type="number" name="turnoverGrowth" value={props.values.turnoverGrowth} onChange={props.onChange} />
+                        <Slider
+                            value={props.values.turnoverGrowth} 
+                            onChange={e => props.onChange(e, 'turnoverGrowth')}
+                            tipFormatter={percFormatter} 
+                        />
                     </div>
                 </div>
                 <div className="form-row">
                     <div className="input-item">
                         <label>What is your overall profit margin (%)</label>
-                        <input type="number" name="profitMargin" value={props.values.profitMargin} onChange={props.onChange} />
+                        <Slider
+                            value={props.values.profit} 
+                            onChange={e => props.onChange(e, 'profit')}
+                            tipFormatter={percFormatter} 
+                        />
                     </div>
                 </div>
             </form>

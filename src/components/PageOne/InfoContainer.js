@@ -16,10 +16,8 @@ class InfoContainer extends Component {
         taxToCustomer: 0, // percentage
     }
 
-    onChange = (event) => {
-        event.target.type === 'number'
-            ? this.setState({ [event.target.name]: parseInt(event.target.value) })
-            : this.setState({ [event.target.name]: event.target.value })
+    onChange = (data, target) => {
+        this.setState({ [target]: data })
     }
 
     onSubmit = () => {
