@@ -1,5 +1,5 @@
 import React from 'react'
-import { Slider, Tooltip, Icon, Badge } from 'antd'
+import { Slider, Tooltip, Icon } from 'antd'
 import './MarketInfoForm.css'
 
 function percFormatter(value) {

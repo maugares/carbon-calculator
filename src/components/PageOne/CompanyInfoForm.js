@@ -1,6 +1,6 @@
 import React from 'react'
-import {industry} from '../../lib/industry'
-import {Select, Slider, Tooltip} from 'antd'
+import { industry } from '../../lib/industry'
+import { Select, Slider } from 'antd'
 import NumericInput from '../Utils/NumericInput'
 
 const Option = Select.Option
@@ -23,19 +23,19 @@ export default function CompanyInfoForm(props) {
                     </div>
                     <div className="input-item">
                         <label>Annual Turnover (Euro's)</label>
-                        <NumericInput 
-                            maxLength={25} 
-                            prefix="€" 
-                            value={props.values.turnover} 
-                            onChange={e => props.onChange(e, 'turnover')} 
+                        <NumericInput
+                            maxLength={25}
+                            prefix="€"
+                            value={props.values.turnover}
+                            onChange={e => props.onChange(e, 'turnover')}
                         />
                     </div>
                     <div className="input-item">
                         <label>Annual Turnover Growth (%)</label>
                         <Slider
-                            value={props.values.turnoverGrowth} 
+                            value={props.values.turnoverGrowth}
                             onChange={e => props.onChange(e, 'turnoverGrowth')}
-                            tipFormatter={percFormatter} 
+                            tipFormatter={percFormatter}
                         />
                     </div>
                 </div>
@@ -43,9 +43,9 @@ export default function CompanyInfoForm(props) {
                     <div className="input-item">
                         <label>What is your overall profit margin (%)</label>
                         <Slider
-                            value={props.values.profitMargin} 
+                            value={props.values.profitMargin}
                             onChange={e => props.onChange(e, 'profitMargin')}
-                            tipFormatter={percFormatter} 
+                            tipFormatter={percFormatter}
                         />
                     </div>
                 </div>

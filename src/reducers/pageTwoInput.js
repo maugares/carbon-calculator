@@ -1,4 +1,4 @@
-import {SUBMIT_INPUT_TWO} from '../actions/submitInput'
+import { SUBMIT_INPUT_TWO } from '../actions/submitInput'
 
 const defaultState = {
     emissionsKnown: "no",
@@ -10,14 +10,14 @@ const defaultState = {
     S3reductionTarget: 100, // percentage
 };
 
-const initialState = sessionStorage.getItem('emissionInfo') || defaultState
+const initialState = JSON.parse(sessionStorage.getItem('emissionInfo')) || defaultState
 
 export default (state = initialState, action = {}) => {
-    switch(action.type) {
-    case SUBMIT_INPUT_TWO:
-            sessionStorage.setItem('emissionInfo', JSON.stringify({...state, ...action.payload}))
-        return action.payload
-    default:
-        return state
+    switch (action.type) {
+        case SUBMIT_INPUT_TWO:
+            sessionStorage.setItem('emissionInfo', JSON.stringify({ ...state, ...action.payload }))
+            return action.payload
+        default:
+            return state
     }
 }
