@@ -7,8 +7,8 @@ import {submitInputOne} from '../../actions/submitInput'
 import PageHeader from '../PageHeader'
 
 class InfoContainer extends Component {
-    state = {
-        industry: '',
+    state = JSON.parse(sessionStorage.getItem('companyInfo')) || {
+        industry: "Select industry", 
         turnover: 0, // euros
         turnoverGrowth: 0, // percentage
         profitMargin: 0, // percentage
@@ -22,6 +22,7 @@ class InfoContainer extends Component {
 
     onSubmit = () => {
         this.props.submitInputOne(this.state)
+        sessionStorage.setItem('companyInfo',  JSON.stringify(this.state))
         this.props.history.push('/step-2')
     }
 

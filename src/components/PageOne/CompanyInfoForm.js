@@ -17,7 +17,7 @@ export default function CompanyInfoForm(props) {
                 <div className="form-row">
                     <div className="input-item">
                         <label>Industry</label>
-                        <Select defaultValue="Select industry" onChange={e => props.onChange(e, 'industry')}>
+                        <Select defaultValue={props.values.industry} onChange={e => props.onChange(e, 'industry')}>
                             {industry.map(entry => <Option value={entry} key={entry}>{entry}</Option>)}
                         </Select>
                     </div>
