@@ -1,31 +1,36 @@
 import React, { Component } from 'react'
-import MarketOptionsForm from './MarketOptionsForm'
+import OptionsPanel from './OptionsPanel'
 import { connect } from 'react-redux'
 
 class OptionsContainer extends Component {
-    state = {
-        elasticity: 0, // between -2 and 0
-        taxToConsumer: 0, // percentage
-    }
+    onChange = (data, target) => {
 
-    onChange = (event) => {
-        this.setState({
-            [event.target.name]: event.target.value
-        })
-    }
-
-    onSubmit = (event) => {
-        event.preventDefault()
-        this.props.submitInputOne(this.state)
     }
 
     render() {
         return (
-            <div className="market-options">
-                <MarketOptionsForm onChange={this.onChange} onSubmit={this.onSubmit} values={this.state} default={this.props.companyData} />
-            </div>
+            <OptionsPanel 
+                values={this.props} 
+                onChange={this.onChange}
+            />
         )
     }
 }
 
-export default connect(null, )(OptionsContainer)
+const mapStateToProps = state => ({
+    industry: state.pageOneInput.industry,
+    turnover: state.pageOneInput.turnover, 
+    turnoverGrowth: state.pageOneInput.turnoverGrowth, 
+    profitMargin: state.pageOneInput.profitMargin, 
+    elasticity: state.pageOneInput.elasticity, 
+    taxToConsumer: state.pageOneInput.taxToConsumer, 
+    emissionsKnown: state.pageOneInput.emissionsKnown,
+    S1emissions: state.pageOneInput.S1emissions, 
+    S1reductionTarget: state.pageOneInput.S1reductionTarget, 
+    S2emissions: state.pageOneInput.S2emissions, 
+    S2reductionTarget: state.pageOneInput.S2reductionTarget, 
+    S3emissions: state.pageOneInput.S3emissions, 
+    S3reductionTarget: state.pageOneInput.S3reductionTarget, 
+})
+
+export default connect(mapStateToProps)(OptionsContainer)

@@ -4,6 +4,7 @@ import TaxOptions from './TaxOptions'
 import SubCharts from './SubCharts'
 import './Results.css'
 import { connect } from 'react-redux';
+import OptionsContainer from './OptionsContainer'
 
 class ResultsContainer extends Component {
     state = {
@@ -19,7 +20,7 @@ class ResultsContainer extends Component {
     }
 
     onCheckboxChange = (data, target) => {
-        const newScope = {scope1: true, scope2: true, scope3: true}
+        const newScope = { scope1: true, scope2: true, scope3: true }
 
         if(!data.includes('Scope 1')) newScope.scope1 = false
         if(!data.includes('Scope 2')) newScope.scope2 = false
@@ -39,6 +40,7 @@ class ResultsContainer extends Component {
                         onChange={this.onChange} 
                         onCheckboxChange={this.onCheckboxChange} 
                     />
+                    <OptionsContainer />
                 </div>
                 <div className="chart-container">
                     <MainChart 

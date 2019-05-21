@@ -11,6 +11,7 @@
 
 .chart-container {
     background: rgba(255, 255, 255, 0.64);
+    border: 1px solid white;
     width: 60%;
     margin-right: 2%;
     margin-left: auto;
