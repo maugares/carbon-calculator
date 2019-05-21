@@ -6,6 +6,7 @@ import './EmissionsContainer.css'
 import { connect } from 'react-redux';
 import { submitInputTwo } from '../../actions/submitInput'
 import { Radio, Button } from 'antd'
+import { Redirect } from 'react-router-dom'
 
 class EmissionsContainer extends Component {
     state = JSON.parse(sessionStorage.getItem('emissionInfo')) || {
@@ -53,29 +54,33 @@ class EmissionsContainer extends Component {
     }
 
     render() {
-        return (
-            <div className="container">
-                <PageHeader />
-                <div className="knows-emissions">
-                    <h2>Company CO2 Emissions</h2>
-                    Do you know your company CO2 emissions?
+        if (!sessionStorage.getItem('companyInfo')) {
+            return <Redirect to='/' />
+        } else {
+            return (
+                <div className="container">
+                    <PageHeader />
+                    <div className="knows-emissions">
+                        <h2>Company CO2 Emissions</h2>
+                        Do you know your company CO2 emissions?
                     <Radio.Group
-                        value={this.state.emissionsKnown}
-                        onChange={this.onEmissionsKnownChange}
-                        style={{ marginLeft: '5%' }}
-                    >
-                        <Radio value="yes">Yes</Radio>
-                        <Radio value="no">No</Radio>
-                    </Radio.Group>
-                </div>
-                {this.state.emissionsKnown &&
-                    <div className="form-container">
-                        <EmissionsForm values={this.state} onChange={this.onChange} />
-                        <button className="continue-button" onClick={this.onSubmit}>Continue</button>
+                            value={this.state.emissionsKnown}
+                            onChange={this.onEmissionsKnownChange}
+                            style={{ marginLeft: '5%' }}
+                        >
+                            <Radio value="yes">Yes</Radio>
+                            <Radio value="no">No</Radio>
+                        </Radio.Group>
                     </div>
-                }
-            </div>
-        )
+                    {this.state.emissionsKnown &&
+                        <div className="form-container">
+                            <EmissionsForm values={this.state} onChange={this.onChange} />
+                            <button className="continue-button" onClick={this.onSubmit}>Continue</button>
+                        </div>
+                    }
+                </div>
+            )
+        }
     }
 }
 
