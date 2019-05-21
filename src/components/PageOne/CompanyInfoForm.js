@@ -43,8 +43,8 @@ export default function CompanyInfoForm(props) {
                     <div className="input-item">
                         <label>What is your overall profit margin (%)</label>
                         <Slider
-                            value={props.values.profit} 
-                            onChange={e => props.onChange(e, 'profit')}
+                            value={props.values.profitMargin} 
+                            onChange={e => props.onChange(e, 'profitMargin')}
                             tipFormatter={percFormatter} 
                         />
                     </div>

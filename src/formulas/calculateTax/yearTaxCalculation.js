@@ -26,6 +26,7 @@ const turnoverCalculator = (turnover, companyInfo, taxYear, scopeEmissions, year
     const totalTax = taxYear * totalTons
 
     const dTurnover = ((totalTax * taxToCustomer / 100) / turnover) * elasticity
+    console.log('dTurnover', dTurnover)
     const newQ = turnover * (1 + dTurnover)
     const newP = oldP * (1 + (totalTax * taxToCustomer / 100) / turnover)
     const newTurnover = newQ * newP
