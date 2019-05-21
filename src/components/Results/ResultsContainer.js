@@ -4,34 +4,40 @@ import TaxOptions from './TaxOptions'
 import SubCharts from './SubCharts'
 import './Results.css'
 import { connect } from 'react-redux';
-import CompanyOptionsContainer from './CompanyOptionsContainer'
-import MarketOptionsContainer from './MarketOptionsContainer'
-import EmissionsOptionsContainer from './EmissionsOptionsContainer'
 
 class ResultsContainer extends Component {
     state = {
         euroPerTon: 50, // euros
         taxGrowth: 5.5, // percentage,
-        cumulative: true,
-        scope1Taxable: true,
-        scope2Taxable: true,
-        scope3Taxable: true
+        checked: ['Scope 1', 'Scope 2', 'Scope 3'],
+        taxScope: { scope1: true, scope2: true, scope3: true }
     }
 
-    onChange = (event) => {
-        event.target.type === 'checkbox'
-            ? this.setState({ [event.target.name]: !this.state[event.target.name] })
-            : this.setState({ [event.target.name]: event.target.value })
+    onChange = (data, target) => {
+        this.setState({ [target]: data })
+    }
+
+    onCheckboxChange = (data, target) => {
+        const newScope = {scope1: true, scope2: true, scope3: true}
+
+        if(!data.includes('Scope 1')) newScope.scope1 = false
+        if(!data.includes('Scope 2')) newScope.scope2 = false
+        if(!data.includes('Scope 3')) newScope.scope3 = false
+
+        this.setState({ taxScope: newScope })
+
+        this.onChange(data, target)
     }
 
     render() {
         return (
             <div className="results-container">
                 <div className="options-container">
-                    <TaxOptions values={this.state} onChange={this.onChange} />
-                    <CompanyOptionsContainer companyData={this.props.companyData} />
-                    <MarketOptionsContainer companyData={this.props.companyData} />
-                    <EmissionsOptionsContainer emissionsData={this.props.emissionsData} />
+                    <TaxOptions 
+                        values={this.state} 
+                        onChange={this.onChange} 
+                        onCheckboxChange={this.onCheckboxChange} 
+                    />
                 </div>
                 <div className="chart-container">
                     <MainChart 
@@ -39,22 +45,14 @@ class ResultsContainer extends Component {
                         companyData={this.props.companyData} 
                         emissionData={this.props.emissionData}
                         cumulative={this.state.cumulative}
-                        taxScope={{
-                            scope1: this.state.scope1Taxable, 
-                            scope2: this.state.scope2Taxable,
-                            scope3: this.state.scope3Taxable,
-                        }} 
+                        taxScope={this.state.taxScope} 
                     />
                     <SubCharts 
                         taxInfo={this.state} 
                         companyData={this.props.companyData} 
                         emissionData={this.props.emissionData}
                         cumulative={this.state.cumulative}
-                        taxScope={{
-                            scope1: this.state.scope1Taxable, 
-                            scope2: this.state.scope2Taxable,
-                            scope3: this.state.scope3Taxable,
-                        }}  
+                        taxScope={this.state.taxScope}  
                     />
                 </div>
             </div>

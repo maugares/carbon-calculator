@@ -5,7 +5,7 @@ import {calculateEmissions} from '../../formulas/calculateEmissions/calculateEmi
 import './EmissionsContainer.css'
 import { connect } from 'react-redux';
 import {submitInputTwo} from '../../actions/submitInput'
-import {Radio, Button} from 'antd'
+import {Radio} from 'antd'
 
 class EmissionsContainer extends Component {
     state = {
@@ -29,7 +29,7 @@ class EmissionsContainer extends Component {
                 S3emissions: 0,
             })
         } else if(emissionsKnown === 'no') {
-            const {industry, turnover} = this.props.pageOneInput
+            const { industry, turnover } = this.props.pageOneInput
             const { S1emissions, S2emissions, S3emissions } = calculateEmissions(industry, turnover)
             this.setState({
                 emissionsKnown,

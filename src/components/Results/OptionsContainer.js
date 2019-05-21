@@ -1,9 +1,8 @@
 import React, { Component } from 'react'
 import MarketOptionsForm from './MarketOptionsForm'
 import { connect } from 'react-redux'
-import { submitInputOne } from '../../actions/submitInput'
 
-class MarketOptionsContainer extends Component {
+class OptionsContainer extends Component {
     state = {
         elasticity: 0, // between -2 and 0
         taxToConsumer: 0, // percentage
@@ -29,4 +28,4 @@ class MarketOptionsContainer extends Component {
     }
 }
 
-export default connect(null, {submitInputOne})(MarketOptionsContainer)
+export default connect(null, )(OptionsContainer)
