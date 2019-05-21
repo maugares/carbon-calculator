@@ -39,7 +39,7 @@ export default function EmissionsForm(props) {
                     <td>
                         <Select 
                             style={rtSelect} 
-                            defaultValue="0" 
+                            defaultValue={props.values.S1reductionTarget} 
                             onChange={e => props.onChange(e, 'S1reductionTarget')}
                         >
                             {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}
@@ -64,7 +64,7 @@ export default function EmissionsForm(props) {
                     <td>
                         <Select 
                             style={rtSelect} 
-                            defaultValue="0" 
+                            defaultValue={props.values.S2reductionTarget} 
                             onChange={e => props.onChange(e, 'S2reductionTarget')}
                         >
                             {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}
@@ -89,7 +89,7 @@ export default function EmissionsForm(props) {
                     <td>
                         <Select 
                             style={rtSelect} 
-                            defaultValue="0" 
+                            defaultValue={props.values.S3reductionTarget} 
                             onChange={e => props.onChange(e, 'S3reductionTarget')}
                         >
                             {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}

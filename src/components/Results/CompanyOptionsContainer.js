@@ -4,11 +4,11 @@ import {connect} from 'react-redux'
 import {submitInputOne} from '../../actions/submitInput'
 
 class CompanyOptionsContainer extends Component {
-    state = {
+    state = JSON.parse(sessionStorage.getItem('companyInfo')) || {
         industry: '',
         turnover: 0, // euros
         turnoverGrowth: 0, // percentage
-        profit: 0, // percentage
+        profitMargin: 0, // percentage
     }
 
     onChange = (event) => {
@@ -19,6 +19,7 @@ class CompanyOptionsContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
+        sessionStorage.setItem('companyInfo', JSON.stringify(this.state))
         this.props.submitInputOne(this.state)
     }
 
