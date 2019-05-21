@@ -16,7 +16,7 @@ export default (state = initialState, action = {}) => {
     case SUBMIT_INPUT_ONE:
         sessionStorage.setItem('companyInfo', JSON.stringify({...state, ...action.payload}))
         return {...state, ...action.payload}
-    default:
+    default: 
         return state
     }
 }
