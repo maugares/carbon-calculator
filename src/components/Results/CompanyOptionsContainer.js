@@ -19,6 +19,7 @@ class CompanyOptionsContainer extends Component {
 
     onSubmit = (event) => {
         event.preventDefault()
+        sessionStorage.setItem('companyInfo', JSON.stringify(this.state))
         this.props.submitInputOne(this.state)
     }
 
