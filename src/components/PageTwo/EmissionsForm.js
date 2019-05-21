@@ -1,5 +1,5 @@
 import React from 'react'
-import {Select} from 'antd'
+import { Select } from 'antd'
 import NumericInput from '../Utils/NumericInput'
 
 const Option = Select.Option
@@ -25,24 +25,24 @@ export default function EmissionsForm(props) {
                     <td>Scope 1 - Direct emissions</td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
-                            ?<NumericInput 
-                                maxLength={25} 
-                                value={props.values.S1emissions} 
-                                onChange={e => props.onChange(e, 'S1emissions')} 
+                            ? <NumericInput
+                                maxLength={25}
+                                value={props.values.S1emissions}
+                                onChange={e => props.onChange(e, 'S1emissions')}
                             />
-                            :<NumericInput 
-                                value={props.values.S1emissions} 
+                            : <NumericInput
+                                value={props.values.S1emissions}
                                 disabled
                             />
                         }
                     </td>
                     <td>
-                        <Select 
-                            style={rtSelect} 
-                            defaultValue={props.values.S1reductionTarget} 
+                        <Select
+                            style={rtSelect}
+                            defaultValue={props.values.S1reductionTarget}
                             onChange={e => props.onChange(e, 'S1reductionTarget')}
                         >
-                            {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}
+                            {percs.map(val => <Option value={val} key={val}>{val}%</Option>)}
                         </Select>
                     </td>
                 </tr>
@@ -50,24 +50,24 @@ export default function EmissionsForm(props) {
                     <td>Scope 2 - Direct emissions</td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
-                            ?<NumericInput 
-                                maxLength={25} 
-                                value={props.values.S2emissions} 
-                                onChange={e => props.onChange(e, 'S2emissions')} 
+                            ? <NumericInput
+                                maxLength={25}
+                                value={props.values.S2emissions}
+                                onChange={e => props.onChange(e, 'S2emissions')}
                             />
-                            :<NumericInput 
-                                value={props.values.S2emissions} 
+                            : <NumericInput
+                                value={props.values.S2emissions}
                                 disabled
                             />
                         }
                     </td>
                     <td>
-                        <Select 
-                            style={rtSelect} 
-                            defaultValue={props.values.S2reductionTarget} 
+                        <Select
+                            style={rtSelect}
+                            defaultValue={props.values.S2reductionTarget}
                             onChange={e => props.onChange(e, 'S2reductionTarget')}
                         >
-                            {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}
+                            {percs.map(val => <Option value={val} key={val}>{val}%</Option>)}
                         </Select>
                     </td>
                 </tr>
@@ -75,24 +75,24 @@ export default function EmissionsForm(props) {
                     <td>Scope 3 - Indirect emissions</td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
-                            ?<NumericInput 
-                                maxLength={25} 
-                                value={props.values.S3emissions} 
-                                onChange={e => props.onChange(e, 'S3emissions')} 
+                            ? <NumericInput
+                                maxLength={25}
+                                value={props.values.S3emissions}
+                                onChange={e => props.onChange(e, 'S3emissions')}
                             />
-                            :<NumericInput 
-                                value={props.values.S3emissions} 
+                            : <NumericInput
+                                value={props.values.S3emissions}
                                 disabled
                             />
                         }
                     </td>
                     <td>
-                        <Select 
-                            style={rtSelect} 
-                            defaultValue={props.values.S3reductionTarget} 
+                        <Select
+                            style={rtSelect}
+                            defaultValue={props.values.S3reductionTarget}
                             onChange={e => props.onChange(e, 'S3reductionTarget')}
                         >
-                            {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}
+                            {percs.map(val => <Option value={val} key={val}>{val}%</Option>)}
                         </Select>
                     </td>
                 </tr>
