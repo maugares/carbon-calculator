@@ -7,6 +7,7 @@ import { connect } from 'react-redux';
 import CompanyOptionsContainer from './CompanyOptionsContainer'
 import MarketOptionsContainer from './MarketOptionsContainer'
 import EmissionsOptionsContainer from './EmissionsOptionsContainer'
+import { Redirect } from 'react-router-dom'
 
 class ResultsContainer extends Component {
     state = {
@@ -25,40 +26,44 @@ class ResultsContainer extends Component {
     }
 
     render() {
-        return (
-            <div className="results-container">
-                <div className="options-container">
-                    <TaxOptions values={this.state} onChange={this.onChange} />
-                    <CompanyOptionsContainer companyData={this.props.companyData} />
-                    <MarketOptionsContainer companyData={this.props.companyData} />
-                    <EmissionsOptionsContainer emissionsData={this.props.emissionsData} />
+        if (!sessionStorage.getItem('companyInfo') || !sessionStorage.getItem('emissionInfo')) {
+            return <Redirect to='/' />
+        } else {
+            return (
+                <div className="results-container">
+                    <div className="options-container">
+                        <TaxOptions values={this.state} onChange={this.onChange} />
+                        <CompanyOptionsContainer companyData={this.props.companyData} />
+                        <MarketOptionsContainer companyData={this.props.companyData} />
+                        <EmissionsOptionsContainer emissionsData={this.props.emissionsData} />
+                    </div>
+                    <div className="chart-container">
+                        <MainChart
+                            taxInfo={this.state}
+                            companyData={this.props.companyData}
+                            emissionData={this.props.emissionData}
+                            cumulative={this.state.cumulative}
+                            taxScope={{
+                                scope1: this.state.scope1Taxable,
+                                scope2: this.state.scope2Taxable,
+                                scope3: this.state.scope3Taxable,
+                            }}
+                        />
+                        <SubCharts
+                            taxInfo={this.state}
+                            companyData={this.props.companyData}
+                            emissionData={this.props.emissionData}
+                            cumulative={this.state.cumulative}
+                            taxScope={{
+                                scope1: this.state.scope1Taxable,
+                                scope2: this.state.scope2Taxable,
+                                scope3: this.state.scope3Taxable,
+                            }}
+                        />
+                    </div>
                 </div>
-                <div className="chart-container">
-                    <MainChart 
-                        taxInfo={this.state} 
-                        companyData={this.props.companyData} 
-                        emissionData={this.props.emissionData}
-                        cumulative={this.state.cumulative}
-                        taxScope={{
-                            scope1: this.state.scope1Taxable, 
-                            scope2: this.state.scope2Taxable,
-                            scope3: this.state.scope3Taxable,
-                        }} 
-                    />
-                    <SubCharts 
-                        taxInfo={this.state} 
-                        companyData={this.props.companyData} 
-                        emissionData={this.props.emissionData}
-                        cumulative={this.state.cumulative}
-                        taxScope={{
-                            scope1: this.state.scope1Taxable, 
-                            scope2: this.state.scope2Taxable,
-                            scope3: this.state.scope3Taxable,
-                        }}  
-                    />
-                </div>
-            </div>
-        )
+            )
+        }
     }
 }
 
