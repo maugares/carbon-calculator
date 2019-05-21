@@ -1,6 +1,6 @@
 import React from 'react'
 import {industry} from '../../lib/industry'
-import {Select, Slider} from 'antd'
+import {Select, Slider, Tooltip} from 'antd'
 import NumericInput from '../Utils/NumericInput'
 
 const Option = Select.Option
