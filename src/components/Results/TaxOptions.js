@@ -1,6 +1,7 @@
 import React from 'react'
 import { Slider } from 'antd'
 import { Checkbox } from 'antd'
+import TextWithTooltip from '../Utils/TextWithTooltip'
 
 
 export default function TaxOptions(props) {
@@ -11,6 +12,7 @@ export default function TaxOptions(props) {
     
     return (
         <div className="tax-options">
+            <span><TextWithTooltip topic='co2Tax'/></span>
             <h2>CO2 Tax</h2>
             <div className="tax-slider-container">
                 <p>CO2 tax per ton</p>

@@ -14,7 +14,7 @@ export default function MarketInfoForm(props) {
             <form className="info-form">
                 <div className="form-row">
                     <div className="slider">
-                        <TextWithTooltip topic='elasticity' position='right'/>
+                        <TextWithTooltip topic='elasticity'/>
                         <Slider
                             value={props.values.elasticity}
                             onChange={e => props.onChange(e, 'elasticity')}
@@ -24,7 +24,7 @@ export default function MarketInfoForm(props) {
                         />
                     </div>
                     <div className="slider">
-                        <TextWithTooltip topic='taxToCustomer' position='right'/>
+                        <TextWithTooltip topic='taxToCustomer'/>
                         <Slider
                             value={props.values.taxToCustomer}
                             onChange={e => props.onChange(e, 'taxToCustomer')}

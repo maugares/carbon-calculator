@@ -5,7 +5,7 @@ import { labels } from '../Utils/TooltipMessages'
 export default function TextWithTooltip(props) {
     const input = labels[props.topic]
 
-    switch (props.position) {
+    switch (input.position) {
         case 'right':
             return (
                 <div className="label">
@@ -24,6 +24,13 @@ export default function TextWithTooltip(props) {
                     </Tooltip>
                     <b>{input.text}</b>
                 </div>
+            )
+
+        case 'box':
+            return (
+                <Tooltip placement="topLeft" title={input.message}>
+                    <Icon type="info-circle" />
+                </Tooltip>
             )
 
         default:

@@ -25,7 +25,7 @@ export default function EmissionsForm(props) {
             <tbody>
                 <tr>
                     <td>
-                        <TextWithTooltip topic='scope1' position='left'/>
+                        <TextWithTooltip topic='scope1'/>
                     </td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
@@ -51,7 +51,7 @@ export default function EmissionsForm(props) {
                     </td>
                 </tr>
                 <tr>
-                    <td><TextWithTooltip topic='scope2' position='left'/></td>
+                    <td><TextWithTooltip topic='scope2'/></td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
                             ? <NumericInput
@@ -76,7 +76,7 @@ export default function EmissionsForm(props) {
                     </td>
                 </tr>
                 <tr>
-                    <td><TextWithTooltip topic='scope3' position='left'/></td>
+                    <td><TextWithTooltip topic='scope3'/></td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
                             ? <NumericInput
