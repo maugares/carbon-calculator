@@ -3,6 +3,7 @@ import { Select } from 'antd'
 import NumericInput from '../Utils/NumericInput'
 import TextWithTooltip from '../Utils/TextWithTooltip';
 import './EmissionsContainer.css'
+import '../PageOne/MarketInfoForm.css'
 
 const Option = Select.Option
 

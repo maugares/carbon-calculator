@@ -20,7 +20,7 @@ export default function TextWithTooltip(props) {
             return (
                 <div className="label">
                     <Tooltip placement="rightTop" title={input.message}>
-                        <Icon type="info-circle" />
+                        <Icon type="info-circle"/>
                     </Tooltip>
                     <b>{input.text}</b>
                 </div>
@@ -28,9 +28,11 @@ export default function TextWithTooltip(props) {
 
         case 'box':
             return (
-                <Tooltip placement="topLeft" title={input.message}>
-                    <Icon type="info-circle" />
-                </Tooltip>
+                <div className='infoStyle'>
+                    <Tooltip placement="topLeft" title={input.message}>
+                        <Icon type="info-circle"/>
+                    </Tooltip>
+                </div>
             )
 
         default:

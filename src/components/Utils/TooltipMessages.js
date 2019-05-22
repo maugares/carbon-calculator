@@ -29,5 +29,17 @@ export const labels = {
     co2Tax: {
         position: 'box',
         message: <div><p>In this section you can change the CO2 price per ton to see the effect on your profit. </p><p> Tax growth per year is set on 5.5% </p></div>
+    },
+    companyInfo: {
+        position: 'box',
+        message: <div><p>Use this tab to see how other industries perform under tax regulation.</p></div>
+    },
+    marketInfo: {
+        position: 'box',
+        message: <div><p>Indicate how much of your taxes will be covered by a price increase.</p><p>How sensitive are consumers in your market to price?</p></div>
+    },
+    emissions: {
+        position: 'box',
+        message: <div><p>Change your emissions, targets and decide which emission scopes are being taxed</p></div>
     }
 }
