@@ -3,11 +3,11 @@ import './InfoContainer.css'
 import CompanyInfoForm from './CompanyInfoForm'
 import MarketInfoForm from './MarketInfoForm'
 import { connect } from 'react-redux';
-import { submitInputOne } from '../../actions/submitInput'
+import {submitInputOne} from '../../actions/input'
 import PageHeader from '../PageHeader'
 
 class InfoContainer extends Component {
-    state = JSON.parse(sessionStorage.getItem('companyInfo')) || {
+    state = this.props.pageOneInput || {
         industry: "Select industry",
         turnover: 0, // euros
         turnoverGrowth: 0, // percentage
@@ -38,4 +38,8 @@ class InfoContainer extends Component {
     }
 }
 
-export default connect(null, { submitInputOne })(InfoContainer)
+const mapStateToProps = state => ({
+    pageOneInput: state.pageOneInput
+})
+
+export default connect(mapStateToProps, { submitInputOne })(InfoContainer)
