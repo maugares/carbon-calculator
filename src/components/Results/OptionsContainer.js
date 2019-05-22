@@ -5,7 +5,6 @@ import { updateInput } from '../../actions/input'
 
 class OptionsContainer extends Component {
     onChange = (data, target) => {
-        console.log(data, target)
         this.props.updateInput({ [target]: data })
     }
 

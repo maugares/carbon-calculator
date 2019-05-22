@@ -17,7 +17,6 @@ class ResultsContainer extends Component {
     }
 
     onChange = (data, target) => {
-        console.log(data)
         if(!target) {
             this.setState({
                 cumulative: data.target.checked
