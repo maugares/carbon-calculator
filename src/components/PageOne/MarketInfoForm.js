@@ -1,6 +1,7 @@
 import React from 'react'
 import { Slider, Tooltip, Icon } from 'antd'
 import './MarketInfoForm.css'
+import TooltipComponent from '../Utils/TooltipComponent';
 
 function percFormatter(value) {
     return `${value}%`
@@ -16,12 +17,16 @@ export default function MarketInfoForm(props) {
             <form className="info-form">
                 <div className="form-row">
                     <div className="slider">
-                        <label className="label">
+                        {/* <label className="label">
                             <b>How price sensitive is your market?</b>
                             <Tooltip placement="rightTop" title={tooltipElasticity}>
                                 <Icon type="info-circle" />
                             </Tooltip>
-                        </label>
+                        </label> */}
+                        <TooltipComponent
+                            label='How price sensitive is your market?'
+                            tooltip='tooltipElasticity'
+                            />
                         <Slider
                             value={props.values.elasticity}
                             onChange={e => props.onChange(e, 'elasticity')}
