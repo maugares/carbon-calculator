@@ -1,7 +1,8 @@
 import React from 'react'
-import {Collapse, Icon, Slider, Select, Form, Radio} from 'antd'
+import {Collapse, Icon, Slider, Select, Form, Button} from 'antd'
 import NumericInput from '../Utils/NumericInput'
 import {industry} from '../../lib/industry'
+import {Link} from 'react-router-dom'
 
 const Panel = Collapse.Panel
 const Option = Select.Option
@@ -18,7 +19,7 @@ const collapseStyle = {
     border: '0',
     fontSize: '130%',
     textAlign: 'center',
-    margin: '10px',
+    margin: '10px 0',
     borderRadius: '0'
 }
 
@@ -42,7 +43,7 @@ export default function OptionsPanel(props) {
     return (
         <div className="options-panel">
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
-                <Panel header="Company info" extra={cog} style={panelStyle}>
+                <Panel header="Change your company info" style={panelStyle}>
                     <Form style={formStyle}>
                         <Form.Item>
                             <label>Industry</label>
@@ -83,7 +84,7 @@ export default function OptionsPanel(props) {
                 </Panel>
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
-                <Panel header="Market info" extra={cog} style={panelStyle}>
+                <Panel header="Change your market info" style={panelStyle}>
                     <Form style={formStyle}>
                         <Form.Item>
                             <label>How price sensitive is your market?</label>
@@ -93,6 +94,7 @@ export default function OptionsPanel(props) {
                                 min={-4}
                                 max={0}
                                 step={0.1}
+                                marks={{0: '0', '-4': '-4'}}
                             />
                         </Form.Item>
                         <Form.Item>
@@ -101,13 +103,14 @@ export default function OptionsPanel(props) {
                                 value={props.values.taxToCustomer} 
                                 onChange={e => props.onChange(e, 'taxToCustomer')}
                                 tipFormatter={val => `${val}%`} 
+                                marks={{0: '0%', 100: '100%'}}
                             />
                         </Form.Item>
                     </Form>
                 </Panel>
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
-                <Panel header="Emissions" extra={cog} style={panelStyle}>
+                <Panel header="Change your CO2 emissions" style={panelStyle}>
                     {/* <Radio.Group 
                         value={props.values.emissionsKnown} 
                         onChange={props.onEmissionsKnownChange}
@@ -193,6 +196,20 @@ export default function OptionsPanel(props) {
                     </Form>
                 </Panel>
             </Collapse>
+            <Link to="/ecochain">
+                <Button 
+                    type="primary" 
+                    size="large"
+                    style={{
+                        width: '100%',
+                        height: '60px',
+                        marginTop: '1%',
+                        bottom: '2%',
+                    }}
+                >
+                    <b>Calculate your exact emissions</b>
+                </Button>
+            </Link>
         </div>
     )
 }
