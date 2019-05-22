@@ -4,12 +4,12 @@ import EmissionsForm from './EmissionsForm'
 import { calculateEmissions } from '../../formulas/calculateEmissions/calculateEmissions'
 import './EmissionsContainer.css'
 import { connect } from 'react-redux';
-import { submitInputTwo } from '../../actions/submitInput'
-import { Radio, Button } from 'antd'
 import { Redirect } from 'react-router-dom'
+import {submitInputTwo} from '../../actions/input'
+import {Radio} from 'antd'
 
 class EmissionsContainer extends Component {
-    state = JSON.parse(sessionStorage.getItem('emissionInfo')) || {
+    state = this.props.pageTwoInput || {
         emissionsKnown: "",
         S1emissions: 0, // tons CO2
         S1reductionTarget: 0, // percentage
@@ -63,7 +63,7 @@ class EmissionsContainer extends Component {
                     <div className="knows-emissions">
                         <h2>Company CO2 Emissions</h2>
                         Do you know your company CO2 emissions?
-                    <Radio.Group
+                        <Radio.Group
                             value={this.state.emissionsKnown}
                             onChange={this.onEmissionsKnownChange}
                             style={{ marginLeft: '5%' }}
@@ -85,7 +85,10 @@ class EmissionsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-    return { pageOneInput: state.pageOneInput }
+    return { 
+        pageOneInput: state.pageOneInput,
+        pageTwoInput: state.pageTwoInput 
+    }
 }
 
 export default connect(mapStateToProps, { submitInputTwo })(EmissionsContainer)

@@ -1,4 +1,4 @@
-import {SUBMIT_INPUT_ONE} from '../actions/submitInput'
+import {SUBMIT_INPUT_ONE, UPDATE_INPUT} from '../actions/input'
 
 const defaultState = {
     industry: "Building materials including wood",
@@ -16,7 +16,9 @@ export default (state = initialState, action = {}) => {
     case SUBMIT_INPUT_ONE:
         sessionStorage.setItem('companyInfo', JSON.stringify({...state, ...action.payload}))
         return {...state, ...action.payload}
-    default: 
+    case UPDATE_INPUT:
+        return {...state, ...action.payload}
+    default:
         return state
     }
 }

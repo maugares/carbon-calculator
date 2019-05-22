@@ -1,4 +1,4 @@
-import { SUBMIT_INPUT_TWO } from '../actions/submitInput'
+import {SUBMIT_INPUT_TWO, UPDATE_INPUT} from '../actions/input'
 
 const defaultState = {
     emissionsKnown: "no",
@@ -13,11 +13,13 @@ const defaultState = {
 const initialState = JSON.parse(sessionStorage.getItem('emissionInfo')) || defaultState
 
 export default (state = initialState, action = {}) => {
-    switch (action.type) {
-        case SUBMIT_INPUT_TWO:
-            sessionStorage.setItem('emissionInfo', JSON.stringify({ ...state, ...action.payload }))
-            return action.payload
-        default:
-            return state
+    switch(action.type) {
+    case SUBMIT_INPUT_TWO:
+        sessionStorage.setItem('emissionInfo', JSON.stringify({...state, ...action.payload}))
+        return {...state, ...action.payload}
+    case UPDATE_INPUT:
+        return {...state, ...action.payload}
+    default:
+        return state
     }
 }
