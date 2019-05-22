@@ -1,5 +1,5 @@
 import React from 'react'
-import {Collapse, Icon, Slider, Select, Form} from 'antd'
+import {Collapse, Icon, Slider, Select, Form, Radio} from 'antd'
 import NumericInput from '../Utils/NumericInput'
 import {industry} from '../../lib/industry'
 
@@ -27,8 +27,19 @@ const formStyle = {
     margin: 'auto'
 }
 
+const emissionStyle = {
+    width: '60%',
+    margin: '5%'
+}
+
+const rtStyle = {
+    width: '30%',
+}
+
+const percs = [0, 10, 20, 30, 40, 50, 60, 70, 80, 90, 100]
+
 export default function OptionsPanel(props) {
-    console.log(cog)
+    console.log(props.values.S1emissions)
     return (
         <div className="options-panel">
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
@@ -95,7 +106,89 @@ export default function OptionsPanel(props) {
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
                 <Panel header="Emissions" extra={cog} style={panelStyle}>
-                    Some
+                    {/* <Radio.Group 
+                        value={props.values.emissionsKnown} 
+                        onChange={props.onEmissionsKnownChange}
+                        style={{ marginLeft: '5%' }}
+                    >
+                        <Radio value="yes">Yes</Radio>
+                        <Radio value="no">No</Radio>
+                    </Radio.Group> */}
+                    <Form style={formStyle} layout="inline">
+                        <Form.Item>
+                            <label>Scope 1 - Direct emissions</label>
+                            {props.values.emissionsKnown === 'yes'
+                                ?<NumericInput 
+                                    style={emissionStyle}
+                                    maxLength={25} 
+                                    value={props.values.S1emissions} 
+                                    onChange={e => props.onChange(e, 'S1emissions')} 
+                                />
+                                :<NumericInput 
+                                    style={emissionStyle}
+                                    value={props.values.S1emissions} 
+                                    disabled
+                                />
+                            }
+                            <Select 
+                                style={rtStyle} 
+                                value={props.values.S1reductionTarget}
+                                onChange={e => props.onChange(e, 'S1reductionTarget')}
+                            >
+                                {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}
+                            </Select>
+                        </Form.Item>
+                    </Form>
+                    <Form style={formStyle} layout='inline'>
+                        <Form.Item>
+                            <label>Scope 2 - Direct emissions</label>
+                            {props.values.emissionsKnown === 'yes'
+                                ?<NumericInput
+                                    style={emissionStyle} 
+                                    maxLength={25} 
+                                    value={props.values.S2emissions} 
+                                    onChange={e => props.onChange(e, 'S2emissions')} 
+                                />
+                                :<NumericInput 
+                                    style={emissionStyle}
+                                    value={props.values.S2emissions} 
+                                    disabled
+                                />
+                            }
+                            <Select 
+                                style={rtStyle}
+                                value={props.values.S2reductionTarget}
+                                onChange={e => props.onChange(e, 'S2reductionTarget')}
+                            >
+                                {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}
+                            </Select>
+                        </Form.Item>
+                    </Form>
+                    <Form style={formStyle} layout="inline">
+                        <Form.Item>
+                            <label>Scope 3 - Indirect emissions</label>
+                            {props.values.emissionsKnown === 'yes'
+                                ?<NumericInput
+                                    style={emissionStyle} 
+                                    maxLength={25} 
+                                    value={props.values.S3emissions} 
+                                    onChange={e => props.onChange(e, 'S3emissions')} 
+                                />
+                                :<NumericInput
+                                    style={emissionStyle} 
+                                    value={props.values.S3emissions} 
+                                    disabled
+                                />
+                            }
+                            <Select 
+                                style={rtStyle}
+                                value={props.values.S3reductionTarget}
+                                onChange={e => props.onChange(e, 'S3reductionTarget')}
+                            >
+                                {percs.map(val => <Option value={val} key={val}>{val}%</Option> )}
+                            </Select>
+                        </Form.Item>
+                    </Form>
                 </Panel>
             </Collapse>
         </div>

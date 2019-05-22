@@ -27,12 +27,12 @@ const mapStateToProps = state => ({
     elasticity: state.pageOneInput.elasticity, 
     taxToCustomer: state.pageOneInput.taxToCustomer, 
     emissionsKnown: state.pageOneInput.emissionsKnown,
-    S1emissions: state.pageOneInput.S1emissions, 
-    S1reductionTarget: state.pageOneInput.S1reductionTarget, 
-    S2emissions: state.pageOneInput.S2emissions, 
-    S2reductionTarget: state.pageOneInput.S2reductionTarget, 
-    S3emissions: state.pageOneInput.S3emissions, 
-    S3reductionTarget: state.pageOneInput.S3reductionTarget, 
+    S1emissions: state.pageTwoInput.S1emissions, 
+    S1reductionTarget: state.pageTwoInput.S1reductionTarget, 
+    S2emissions: state.pageTwoInput.S2emissions, 
+    S2reductionTarget: state.pageTwoInput.S2reductionTarget, 
+    S3emissions: state.pageTwoInput.S3emissions, 
+    S3reductionTarget: state.pageTwoInput.S3reductionTarget, 
 })
 
 export default connect(mapStateToProps, { updateInput })(OptionsContainer)
