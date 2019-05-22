@@ -1,6 +1,8 @@
 import React from 'react'
 import { Select } from 'antd'
 import NumericInput from '../Utils/NumericInput'
+import TextWithTooltip from '../Utils/TextWithTooltip';
+import './EmissionsContainer.css'
 
 const Option = Select.Option
 
@@ -22,7 +24,9 @@ export default function EmissionsForm(props) {
             </thead>
             <tbody>
                 <tr>
-                    <td>Scope 1 - Direct emissions</td>
+                    <td>
+                        <TextWithTooltip topic='scope1' position='left'/>
+                    </td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
                             ? <NumericInput
@@ -47,7 +51,7 @@ export default function EmissionsForm(props) {
                     </td>
                 </tr>
                 <tr>
-                    <td>Scope 2 - Direct emissions</td>
+                    <td><TextWithTooltip topic='scope2' position='left'/></td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
                             ? <NumericInput
@@ -72,7 +76,7 @@ export default function EmissionsForm(props) {
                     </td>
                 </tr>
                 <tr>
-                    <td>Scope 3 - Indirect emissions</td>
+                    <td><TextWithTooltip topic='scope3' position='left'/></td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
                             ? <NumericInput
