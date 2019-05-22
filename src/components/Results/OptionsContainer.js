@@ -25,7 +25,7 @@ const mapStateToProps = state => ({
     turnoverGrowth: state.pageOneInput.turnoverGrowth, 
     profitMargin: state.pageOneInput.profitMargin, 
     elasticity: state.pageOneInput.elasticity, 
-    taxToConsumer: state.pageOneInput.taxToConsumer, 
+    taxToCustomer: state.pageOneInput.taxToCustomer, 
     emissionsKnown: state.pageOneInput.emissionsKnown,
     S1emissions: state.pageOneInput.S1emissions, 
     S1reductionTarget: state.pageOneInput.S1reductionTarget, 

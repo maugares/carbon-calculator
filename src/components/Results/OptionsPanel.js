@@ -22,13 +22,18 @@ const collapseStyle = {
     borderRadius: '0'
 }
 
+const formStyle = {
+    maxWidth: '400px',
+    margin: 'auto'
+}
+
 export default function OptionsPanel(props) {
     console.log(cog)
     return (
         <div className="options-panel">
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
                 <Panel header="Company info" extra={cog} style={panelStyle}>
-                    <Form>
+                    <Form style={formStyle}>
                         <Form.Item>
                             <label>Industry</label>
                             <Select defaultValue="Select industry" onChange={e => props.onChange(e, 'industry')}>
@@ -66,7 +71,26 @@ export default function OptionsPanel(props) {
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
                 <Panel header="Market info" extra={cog} style={panelStyle}>
-                    Some
+                    <Form style={formStyle}>
+                        <Form.Item>
+                            <label>How price sensitive is your market?</label>
+                            <Slider
+                                value={props.values.elasticity} 
+                                onChange={e => props.onChange(e, 'elasticity')}
+                                min={-4}
+                                max={0}
+                                step={0.1}
+                            />
+                        </Form.Item>
+                        <Form.Item>
+                            <label>What percentage of the carbon tax will be levied to your customer?</label>
+                            <Slider
+                                value={props.values.taxToCustomer} 
+                                onChange={e => props.onChange(e, 'taxToCustomer')}
+                                tipFormatter={val => `${val}%`} 
+                            />
+                        </Form.Item>
+                    </Form>
                 </Panel>
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
