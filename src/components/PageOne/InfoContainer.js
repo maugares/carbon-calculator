@@ -2,28 +2,27 @@ import React, { Component } from 'react'
 import './InfoContainer.css'
 import CompanyInfoForm from './CompanyInfoForm'
 import MarketInfoForm from './MarketInfoForm'
+import { message } from 'antd'
 import { connect } from 'react-redux';
-import {submitInputOne} from '../../actions/input'
+import { submitInputOne } from '../../actions/input'
 import PageHeader from '../PageHeader'
 
 class InfoContainer extends Component {
-    state = this.props.pageOneInput || {
-        industry: "Select industry",
-        turnover: 0, // euros
-        turnoverGrowth: 0, // percentage
-        profitMargin: 0, // percentage
-        elasticity: 0, // between -2 and 0
-        taxToCustomer: 0, // percentage
-    }
+    state = this.props.pageOneInput
 
     onChange = (data, target) => {
         this.setState({ [target]: data })
     }
 
     onSubmit = () => {
-        this.props.submitInputOne(this.state)
-        sessionStorage.setItem('companyInfo', JSON.stringify(this.state))
-        this.props.history.push('/step-2')
+        if(!this.state.industry) {
+            message.error('Please select an industry.')
+        } else if(!this.state.turnover) {
+            message.error('Please enter your annual turnover.')
+        } else {
+            this.props.submitInputOne(this.state)
+            this.props.history.push('/step-2')
+        }
     }
 
     render() {

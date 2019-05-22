@@ -83,8 +83,8 @@ export default class SubCharts extends Component {
                                         "scope3Cumulative", 
                                         this.props.cumulative
                                     ),
-                                    backgroundColor: "rgba(89, 168, 160, 0.4)",
-                                    pointBackgroundColor:  "rgba(89, 168, 160, 0.4)",
+                                    backgroundColor: "rgba(60, 116, 151, 0.4)",
+                                    pointBackgroundColor:  "rgba(60, 116, 151, 1)",
                                 },
                             ]
                         }

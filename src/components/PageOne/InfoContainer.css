@@ -31,6 +31,7 @@
 .slider {
     display: flex;
     flex-direction: column;
+    justify-content: space-between;
     width: 35%;
     margin: 1%;
 }

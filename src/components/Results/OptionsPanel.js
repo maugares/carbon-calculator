@@ -1,7 +1,8 @@
 import React from 'react'
-import { Collapse, Icon, Slider, Select, Form, Radio } from 'antd'
+import {Collapse, Icon, Slider, Select, Form, Button} from 'antd'
 import NumericInput from '../Utils/NumericInput'
-import { industry } from '../../lib/industry'
+import {industry} from '../../lib/industry'
+import {Link} from 'react-router-dom'
 import TextWithTooltip from '../Utils/TextWithTooltip'
 import './Results.css'
 
@@ -20,7 +21,7 @@ const collapseStyle = {
     border: '0',
     fontSize: '130%',
     textAlign: 'center',
-    margin: '10px',
+    margin: '10px 0',
     borderRadius: '0'
 }
 
@@ -45,8 +46,8 @@ export default function OptionsPanel(props) {
     return (
         <div className="options-panel">
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
-                <Panel header="Company info" extra={cog} style={panelStyle}>
-                    <TextWithTooltip topic='companyInfo' />
+                <Panel header="Change your company info" style={panelStyle}>
+                <TextWithTooltip topic='companyInfo' />
                     <Form style={formStyle}>
                         <Form.Item>
                             <label>Industry</label>
@@ -68,7 +69,10 @@ export default function OptionsPanel(props) {
                             <Slider
                                 value={props.values.turnoverGrowth}
                                 onChange={e => props.onChange(e, 'turnoverGrowth')}
-                                tipFormatter={val => `${val}%`}
+                                tipFormatter={val => `${val}%`} 
+                                min={0}
+                                max={200}
+                                marks={{0: '0%', 200: '200%'}}
                             />
                         </Form.Item>
                         <Form.Item>
@@ -84,8 +88,8 @@ export default function OptionsPanel(props) {
                 </Panel>
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
-                <Panel header="Market info" extra={cog} style={panelStyle}>
-                    <TextWithTooltip topic='marketInfo' />
+                <Panel header="Change your market info" style={panelStyle}>
+                <TextWithTooltip topic='marketInfo' />
                     <Form style={formStyle}>
                         <Form.Item>
                             <label>How price sensitive is your market?</label>
@@ -95,6 +99,7 @@ export default function OptionsPanel(props) {
                                 min={-4}
                                 max={0}
                                 step={0.1}
+                                marks={{0: '0', '-4': '-4'}}
                             />
                         </Form.Item>
                         <Form.Item>
@@ -102,14 +107,15 @@ export default function OptionsPanel(props) {
                             <Slider
                                 value={props.values.taxToCustomer}
                                 onChange={e => props.onChange(e, 'taxToCustomer')}
-                                tipFormatter={val => `${val}%`}
+                                tipFormatter={val => `${val}%`} 
+                                marks={{0: '0%', 100: '100%'}}
                             />
                         </Form.Item>
                     </Form>
                 </Panel>
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
-                <Panel header="Emissions" extra={cog} style={panelStyle}>
+                <Panel header="Change your CO2 emissions" style={panelStyle}>
                     {/* <Radio.Group 
                         value={props.values.emissionsKnown} 
                         onChange={props.onEmissionsKnownChange}
@@ -196,6 +202,20 @@ export default function OptionsPanel(props) {
                     </Form>
                 </Panel>
             </Collapse>
+            <Link to="/ecochain">
+                <Button 
+                    type="primary" 
+                    size="large"
+                    style={{
+                        width: '100%',
+                        height: '60px',
+                        marginTop: '1%',
+                        bottom: '2%',
+                    }}
+                >
+                    <b>Calculate your exact emissions</b>
+                </Button>
+            </Link>
         </div>
     )
 }
