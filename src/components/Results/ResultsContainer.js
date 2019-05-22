@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import MainChart from './MainChart'
 import TaxOptions from './TaxOptions'
 import SubCharts from './SubCharts'
+import { Checkbox } from 'antd'
 import './Results.css'
 import { connect } from 'react-redux';
 import OptionsContainer from './OptionsContainer'
@@ -16,7 +17,14 @@ class ResultsContainer extends Component {
     }
 
     onChange = (data, target) => {
-        this.setState({ [target]: data })
+        console.log(data)
+        if(!target) {
+            this.setState({
+                cumulative: data.target.checked
+            })
+        } else {
+            this.setState({ [target]: data })
+        }
     }
 
     onCheckboxChange = (data, target) => {
@@ -43,6 +51,14 @@ class ResultsContainer extends Component {
                     <OptionsContainer />
                 </div>
                 <div className="chart-container">
+                    <div style={{textAlign: 'center'}}>
+                        <Checkbox 
+                            onChange={this.onChange}
+                            checked={this.state.cumulative}
+                        >
+                        Cumulative
+                        </Checkbox>
+                    </div>
                     <MainChart 
                         taxInfo={this.state} 
                         companyData={this.props.companyData} 
