@@ -1,5 +1,6 @@
 body {
     background: url('./assets/windmills.jpg') no-repeat center center fixed;
+    background-color: #65BCA2;
     background-size: cover;
     color: #333;
 }

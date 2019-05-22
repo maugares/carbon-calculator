@@ -13,6 +13,10 @@ function App() {
             <Route exact path="/step-1" component={InfoContainer} />
             <Route exact path="/step-2" component={EmissionsContainer} />
             <Route exact path="/results" component={ResultsContainer} />
+            <Route path='/ecochain' component={() => { 
+                window.location.href = 'https://ecochain.com/software/'; 
+                return null;
+            }}/>
         </div>
     );
 }
