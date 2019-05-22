@@ -6,18 +6,10 @@ import './EmissionsContainer.css'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
 import {submitInputTwo} from '../../actions/input'
-import {Radio} from 'antd'
+import {Radio, message} from 'antd'
 
 class EmissionsContainer extends Component {
-    state = this.props.pageTwoInput || {
-        emissionsKnown: "",
-        S1emissions: 0, // tons CO2
-        S1reductionTarget: 0, // percentage
-        S2emissions: 0, // tons CO2
-        S2reductionTarget: 0, // percentage
-        S3emissions: 0, // tons CO2
-        S3reductionTarget: 0, // percentage
-    }
+    state = this.props.pageTwoInput
 
     onEmissionsKnownChange = (event) => {
         const emissionsKnown = event.target.value
@@ -48,9 +40,12 @@ class EmissionsContainer extends Component {
     }
 
     onSubmit = () => {
-        this.props.submitInputTwo(this.state)
-        sessionStorage.setItem('emissionInfo', JSON.stringify(this.state))
-        this.props.history.push("/results")
+        if(!this.state.emissionsKnown) {
+            message.error("Please select 'Yes' or 'No'")
+        } else {
+            this.props.submitInputTwo(this.state)
+            this.props.history.push("/results")
+        }
     }
 
     render() {

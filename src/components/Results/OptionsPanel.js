@@ -65,6 +65,9 @@ export default function OptionsPanel(props) {
                                 value={props.values.turnoverGrowth} 
                                 onChange={e => props.onChange(e, 'turnoverGrowth')}
                                 tipFormatter={val => `${val}%`} 
+                                min={0}
+                                max={200}
+                                marks={{0: '0%', 200: '200%'}}
                             />
                         </Form.Item>
                         <Form.Item>

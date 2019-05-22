@@ -1,10 +1,9 @@
 export const optionsEuro = {
     maintainAspectRatio: false,
     legend: {
-        display: true,
-        usePointStyle: true,
-        pointStyle: 'line'
-        
+        labels: {
+            usePointStyle: true,
+        },
     },
     scales: {
         yAxes: [{
@@ -23,8 +22,9 @@ export const optionsEuro = {
 export const options = {
     maintainAspectRatio: false,
     legend: {
-        display: true,
-        usePointStyle: true,
+        labels: {
+            usePointStyle: true,
+        },
     },
     scales: {
         yAxes: [{
