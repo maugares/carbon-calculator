@@ -1,14 +1,11 @@
 import React from 'react'
-import { Slider, Tooltip, Icon } from 'antd'
+import { Slider } from 'antd'
 import './MarketInfoForm.css'
-import TooltipComponent from '../Utils/TooltipComponent';
+import TextWithTooltip from '../Utils/TextWithTooltip';
 
 function percFormatter(value) {
     return `${value}%`
 }
-
-const tooltipElasticity = <div><p>To indicate how your customers react to a price change we use the price elasticity of demand.</p><p>Food, for example, tend to be inelastic (between 0 - 1) while luxury goods tend to be elastic (>1)</p></div>
-const tooltipTaxToCustomer = <div><p>Does the polluter pay?</p><p>Please indicate the percentage of the tax that will be levied on your customer by increasing your price</p></div>
 
 export default function MarketInfoForm(props) {
     return (
@@ -17,16 +14,7 @@ export default function MarketInfoForm(props) {
             <form className="info-form">
                 <div className="form-row">
                     <div className="slider">
-                        {/* <label className="label">
-                            <b>How price sensitive is your market?</b>
-                            <Tooltip placement="rightTop" title={tooltipElasticity}>
-                                <Icon type="info-circle" />
-                            </Tooltip>
-                        </label> */}
-                        <TooltipComponent
-                            label='How price sensitive is your market?'
-                            tooltip='tooltipElasticity'
-                            />
+                        <TextWithTooltip topic='elasticity' />
                         <Slider
                             value={props.values.elasticity}
                             onChange={e => props.onChange(e, 'elasticity')}
@@ -36,12 +24,7 @@ export default function MarketInfoForm(props) {
                         />
                     </div>
                     <div className="slider">
-                        <label className="label">
-                            <b>What percentage of the carbon tax will be levied to your customer?</b>
-                            <Tooltip placement="rightTop" title={tooltipTaxToCustomer}>
-                                <Icon type="info-circle" />
-                            </Tooltip>
-                        </label>
+                        <TextWithTooltip topic='taxToCustomer' />
                         <Slider
                             value={props.values.taxToCustomer}
                             onChange={e => props.onChange(e, 'taxToCustomer')}
