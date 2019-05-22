@@ -1,5 +1,7 @@
 import React from 'react'
-import {Slider, Form} from 'antd'
+import { Slider, Form } from 'antd'
+import './MarketInfoForm.css'
+import TextWithTooltip from '../Utils/TextWithTooltip';
 
 function percFormatter(value) {
     return `${value}%`
@@ -11,7 +13,7 @@ export default function MarketInfoForm(props) {
             <h2>Market Information</h2>
             <Form>
                 <Form.Item style={{width: '45%'}} wrapperCol={{ sm: 24 }}>
-                    <label>How price sensitive is your market?</label>
+                    <TextWithTooltip topic='elasticity'/>
                     <Slider
                         style={{width: '65%'}}
                         value={props.values.elasticity} 
@@ -23,7 +25,7 @@ export default function MarketInfoForm(props) {
                     />
                 </Form.Item>
                 <Form.Item style={{width: '45%'}} colon={false} wrapperCol={{ sm: 24 }}>
-                    <label>What percentage of the carbon tax will be levied to your customer?</label>
+                    <TextWithTooltip topic='taxToCustomer'/>
                     <Slider
                         style={{width: '65%'}}
                         value={props.values.taxToCustomer} 

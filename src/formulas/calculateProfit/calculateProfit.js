@@ -1,4 +1,5 @@
-import { companyInfo, taxScope, taxInfo, emissionsInput } from '../../lib/sampleCompany'
+// Uncomment next to text console.table
+// import { companyInfo, taxScope, taxInfo, emissionsInput } from '../../lib/sampleCompany'
 import { calculateAnnualValues } from '../calculateTax/yearTaxCalculation'
 
 const getYearArray = (years) => {
@@ -38,6 +39,7 @@ const turnoverWithoutTaxes = (companyInfo, yearArray) => {
 
         // Insert the object year object in the general object
         turnoverWithoutTaxes[year] = returnObject
+        return null
     })
     return turnoverWithoutTaxes
 }
@@ -107,6 +109,7 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
 
         // Insert the object year object in the general object
         turnoverWithTaxes[year] = returnObject
+        return null
     })
 
     return turnoverWithTaxes
@@ -137,6 +140,7 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
     yearArray.map(year => { 
         profit = [...profit, profitTable[year][varNameDiscrete]]
         cumulative = [...cumulative, profitTable[year][varNameCumulative]]
+        return null
     })
 
     const graphData = isCumulative ? cumulative : profit
@@ -173,11 +177,12 @@ export const dataGraphTaxableEmissions = (companyInfo, taxScope, taxInfo, emissi
     return graphData
 }
 
+// To run the following tests, uncomment the first line with imports
 
-// console.log(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
-// console.log(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", false))
-// console.log(dataGraphProfitAT(companyInfo, taxScope, taxInfo, emissionsInput, 5, "profitAT", "cumulativeProfitAT", true))
-// console.log(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", true))
-// console.log(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", false))
-// console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", true))
-// console.log(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", false))
+// console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", true))
+// console.table(dataGraphProfitNT(companyInfo, 5, "profit", "cumulative", false))
+// console.table(dataGraphProfitAT(companyInfo, taxScope, taxInfo, emissionsInput, 5, "profitAT", "cumulativeProfitAT", true))
+// console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", true))
+// console.table(dataGraphCO2Tax(companyInfo, taxScope, taxInfo, emissionsInput, 5, "totalTax", "cumulativeTax", false))
+// console.table(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", true))
+// console.table(dataGraphTaxableEmissions(companyInfo, taxScope, taxInfo, emissionsInput, 5, "taxableEmissions", "cumulativeEmissions", false))
