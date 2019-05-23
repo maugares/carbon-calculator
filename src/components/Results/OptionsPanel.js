@@ -1,5 +1,5 @@
 import React from 'react'
-import { Collapse, Icon, Slider, Select, Form, Button, Radio } from 'antd'
+import { Collapse, Slider, Select, Form, Button, Radio } from 'antd'
 import NumericInput from '../Utils/NumericInput'
 import { industry } from '../../lib/industry'
 import { Link } from 'react-router-dom'

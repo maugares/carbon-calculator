@@ -5,11 +5,24 @@ import { calculateEmissions } from '../../formulas/calculateEmissions/calculateE
 import './EmissionsContainer.css'
 import { connect } from 'react-redux';
 import { Redirect } from 'react-router-dom'
-import {submitInputTwo} from '../../actions/input'
-import {Radio, message} from 'antd'
+import { submitInputTwo } from '../../actions/input'
+import { Radio, message } from 'antd'
 
 class EmissionsContainer extends Component {
     state = this.props.pageTwoInput
+
+    componentDidMount() {
+        if (this.state.emissionsKnown === 'no') {
+            const { industry, turnover } = this.props.pageOneInput
+            const { S1emissions, S2emissions, S3emissions } = calculateEmissions(industry, turnover)
+            this.setState({
+                emissionsKnown: 'no',
+                S1emissions,
+                S2emissions,
+                S3emissions,
+            })
+        }
+    }
 
     onEmissionsKnownChange = (event) => {
         const emissionsKnown = event.target.value
@@ -40,7 +53,7 @@ class EmissionsContainer extends Component {
     }
 
     onSubmit = () => {
-        if(!this.state.emissionsKnown) {
+        if (!this.state.emissionsKnown) {
             message.error("Please select 'Yes' or 'No'")
         } else {
             this.props.submitInputTwo(this.state)
@@ -80,9 +93,9 @@ class EmissionsContainer extends Component {
 }
 
 const mapStateToProps = state => {
-    return { 
+    return {
         pageOneInput: state.pageOneInput,
-        pageTwoInput: state.pageTwoInput 
+        pageTwoInput: state.pageTwoInput
     }
 }
 
