@@ -3,7 +3,7 @@ import { Select } from 'antd'
 import NumericInput from '../Utils/NumericInput'
 import TextWithTooltip from '../Utils/TextWithTooltip';
 import './EmissionsContainer.css'
-import '../PageOne/MarketInfoForm.css'
+import '../Utils/styles.css'
 
 const Option = Select.Option
 
@@ -20,7 +20,7 @@ export default function EmissionsForm(props) {
                 <tr>
                     <th></th>
                     <th>CO2 emissions (tons)</th>
-                    <th>Reduction target in 5 years</th>
+                    <TextWithTooltip topic='reduction'/>
                 </tr>
             </thead>
             <tbody>

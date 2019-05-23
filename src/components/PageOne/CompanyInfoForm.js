@@ -17,6 +17,7 @@ export default function CompanyInfoForm(props) {
                 <Form.Item wrapperCol={{ sm: 24 }} style={{ width: '30%' }}>
                     <label>Industry</label><br />
                     <Select 
+                        placeholder="Select industry" 
                         value={props.values.industry}
                         onChange={e => props.onChange(e, 'industry')}
                     >

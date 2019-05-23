@@ -50,7 +50,7 @@ class ResultsContainer extends Component {
                     <OptionsContainer />
                 </div>
                 <div className="chart-container">
-                    <div style={{textAlign: 'center'}}>
+                    <div style={{ textAlign: 'center' }}>
                         <Checkbox 
                             onChange={this.onChange}
                             checked={this.state.cumulative}
