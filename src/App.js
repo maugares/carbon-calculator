@@ -19,10 +19,7 @@ function App() {
                 window.location.href = 'https://ecochain.com/software/';
                 return null;
             }} />
-            {/* <footer className="footer"> */}
-                <TextWithTooltip topic='disclaimer' />
-                {/* <i>No rights can be derived from the information given in this tool</i> */}
-            {/* </footer> */}
+            <TextWithTooltip topic='disclaimer' />
         </div>
     );
 }
