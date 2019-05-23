@@ -39,7 +39,6 @@ export default class SubCharts extends Component {
                 </div>
                 <div className="subchart">
                     <TextWithTooltip topic='graphEmissions' />
-                    {/* <h3>Taxable emissions</h3> */}
                     <Line options={options} data={
                         {
                             labels: [1, 2, 3, 4, 5],

@@ -82,5 +82,10 @@ export const labels = {
         position: 'reduction',
         text: 'Reduction target in 5 years',
         message: <div><p>Please indicate how much emissions you are planning to reduce in 5 years </p><p> If you do'nt have any reduction targets or plans please leave the value at 0 </p><p> Targets can be changed again in the final step</p></div>
+    },
+    disclaimer: {
+        position: 'disclaimer',
+        text: 'No rights can be derived from the information given in this tool',
+        message: <div><p>This calculator only provides an indication of the impact of carbon tax on your profit. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the information provided by this calculator. Any reliance you place on such information is therefore strictly at your own risk.</p></div>
     }
 }
