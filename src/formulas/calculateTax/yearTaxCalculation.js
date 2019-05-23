@@ -9,9 +9,7 @@ const scopeEmissionsCalculator = (emissions, taxScope) => {
     for (let i = 0; i < scopes.length; i++) {
         const scope = scopes[i]
         if (taxScope[scope]) {
-            // console.log('scope', scope)
-            // console.log(emissions[scope])
-            scopeEmissions[scope] = Number(emissions[scope])
+            scopeEmissions[scope] = emissions[scope]
             total += Number(emissions[scope])
         } else {
             scopeEmissions[scope] = 0
@@ -25,7 +23,7 @@ const scopeEmissionsCalculator = (emissions, taxScope) => {
 const turnoverCalculator = (turnover, companyInfo, taxYear, scopeEmissions, year, oldP) => {
     const { taxToCustomer, elasticity } = companyInfo
     const { scope1, scope2, scope3, totalTons } = scopeEmissions
-    const totalTax = Number(taxYear) * Number(totalTons)
+    const totalTax = taxYear * totalTons
 
     const dTurnover = ((totalTax * taxToCustomer / 100) / turnover) * elasticity
     const newQ = turnover * (1 + dTurnover)
@@ -33,18 +31,18 @@ const turnoverCalculator = (turnover, companyInfo, taxYear, scopeEmissions, year
     const newTurnover = newQ * newP
 
     const turnoverInfo = {
-        year: Number(year),
-        turnover: Number(turnover),
-        taxYear: Number(taxYear),
-        scope1: Number(scope1),
-        scope2: Number(scope2),
-        scope3: Number(scope3),
-        taxableEmissions: Number(totalTons),
-        totalTax: Number(totalTax),
-        dTurnover: Number(dTurnover),
-        newQ: Number(newQ),
-        newP: Number(newP),
-        newTurnover: Number(newTurnover)
+        year: year,
+        turnover:turnover,
+        taxYear:taxYear,
+        scope1:scope1,
+        scope2:scope2,
+        scope3:scope3,
+        taxableEmissions:totalTons,
+        totalTax:totalTax,
+        dTurnover:dTurnover,
+        newQ: newQ,
+        newP: newP,
+        newTurnover:newTurnover
     }
 
     return turnoverInfo
