@@ -1,14 +1,5 @@
 import {SUBMIT_INPUT_ONE, UPDATE_INPUT} from '../actions/input'
 
-// const defaultState = {
-//     industry: "Building materials including wood",
-//     turnover: 20000000000,
-//     turnoverGrowth: 100, 
-//     profitMargin: 10, 
-//     elasticity: -0.4, 
-//     taxToCustomer: 100, 
-// };
-
 const initialState = JSON.parse(sessionStorage.getItem('companyInfo')) || {}
 
 export default (state = initialState, action = {}) => {

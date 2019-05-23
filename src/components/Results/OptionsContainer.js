@@ -13,11 +13,17 @@ class OptionsContainer extends Component {
         }
     }
 
+    onEmissionsKnownChange = (e) => {
+        this.props.updateInput({ emissionsKnown: e.target.value })
+        this.props.updateInput(calculateEmissions(this.props.industry, this.props.turnover))
+    }
+
     render() {
         return (
             <OptionsPanel 
                 values={this.props} 
                 onChange={this.onChange}
+                onEmissionsKnownChange={this.onEmissionsKnownChange}
             />
         )
     }
