@@ -49,6 +49,5 @@
 }
 
 .tooltip-graph {
-    /* width: 8em; */
-    margin: 2em;
+    padding: 0 0.2em 0;
 }

@@ -55,7 +55,7 @@ export default function TextWithTooltip(props) {
             case 'graph':
                 return (
                     <div className="label-graph">
-                        <div className="tooltip-chart"><h3>{input.text}</h3></div>
+                        <div className="tooltip-graph"><h3>{input.text}</h3></div>
                         <div className="tooltip-icon">
                             <Tooltip placement="rightTop" title={input.message} >
                                 <Icon type="info-circle"/>
