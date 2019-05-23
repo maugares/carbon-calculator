@@ -67,3 +67,8 @@ h4 {
 .continue-button:active {
     box-shadow: none;
 }
+
+footer {
+    color: white;
+    text-align: center;
+}
