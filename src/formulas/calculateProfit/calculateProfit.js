@@ -151,14 +151,17 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
 }
 
 export const dataGraphProfitNT = (companyInfo, years, profit, cumulative, isCumulative) => {
+    if(!companyInfo.turnover) return []
     companyInfo.turnover = parseInt(companyInfo.turnover)
     const profitTable = calculateProfitWithoutTaxes(companyInfo, years)
     const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
-
+    
     return graphData
+    
 }
 
 export const dataGraphProfitAT = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
+    if(!companyInfo.turnover) return []
     taxInfo.euroPerTon = parseInt(taxInfo.euroPerTon)
     const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
     const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
@@ -166,6 +169,7 @@ export const dataGraphProfitAT = (companyInfo, taxScope, taxInfo, emissionsInput
 }
 
 export const dataGraphCO2Tax = (companyInfo, taxScope, taxInfo, emissionsInput, years, profit, cumulative, isCumulative) => {
+    if(!companyInfo.turnover) return []
     const profitTable = calculateProfitWithTaxes(companyInfo, taxScope, taxInfo, emissionsInput, years, isCumulative)
     const graphData = createArrays(profitTable, profit, cumulative, years, isCumulative)
 

@@ -17,9 +17,6 @@ export default (state = initialState, action = {}) => {
         sessionStorage.setItem('companyInfo', JSON.stringify({...state, ...action.payload}))
         return {...state, ...action.payload}
     case UPDATE_INPUT:
-        if(!action.payload.turnover) {
-            action.payload.turnover = 0
-        }
         return {...state, ...action.payload}
     default:
         return state
