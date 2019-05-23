@@ -47,7 +47,7 @@ export default function OptionsPanel(props) {
         <div className="options-panel">
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
                 <Panel header="Change your company info" style={panelStyle}>
-                <TextWithTooltip topic='companyInfo' />
+                    <TextWithTooltip topic='companyInfo' />
                     <Form style={formStyle}>
                         <Form.Item>
                             <label>Industry</label>
@@ -58,7 +58,7 @@ export default function OptionsPanel(props) {
                         <Form.Item>
                             <label>Annual Turnover (Euro's)</label>
                             <NumericInput
-                                maxLength={25}
+                                maxLength={20}
                                 prefix="€"
                                 value={props.values.turnover}
                                 onChange={e => props.onChange(e, 'turnover')}
@@ -89,7 +89,7 @@ export default function OptionsPanel(props) {
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
                 <Panel header="Change your market info" style={panelStyle}>
-                <TextWithTooltip topic='marketInfo' />
+                    <TextWithTooltip topic='marketInfo' />
                     <Form style={formStyle}>
                         <Form.Item>
                             <label>How price sensitive is your market?</label>
@@ -99,7 +99,7 @@ export default function OptionsPanel(props) {
                                 min={-4}
                                 max={0}
                                 step={0.1}
-                                marks={{0: '0', '-4': '-4'}}
+                                marks={{ 0: '0', '-4': '-4' }}
                             />
                         </Form.Item>
                         <Form.Item>
@@ -108,7 +108,7 @@ export default function OptionsPanel(props) {
                                 value={props.values.taxToCustomer}
                                 onChange={e => props.onChange(e, 'taxToCustomer')}
                                 tipFormatter={val => `${val}%`} 
-                                marks={{0: '0%', 100: '100%'}}
+                                marks={{ 0: '0%', 100: '100%' }}
                             />
                         </Form.Item>
                     </Form>
