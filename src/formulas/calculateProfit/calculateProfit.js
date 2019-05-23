@@ -56,56 +56,56 @@ const turnoverWithTaxes = (companyInfo, yearValues, yearArray) => {
         const previousYear = turnoverWithTaxes[year - 1]
 
         // Return the turnover after annual growth
-        const turnover = year === 1 ? Number(yearValues[year].newTurnover) : Number(yearValues[year].turnover)
+        const turnover = year === 1 ? yearValues[year].newTurnover : yearValues[year].turnover
 
         // Calculate the profit for a given year before taxes
-        const profitBT = Number(turnover) * Number(profitMargin) / 100
+        const profitBT = turnover * profitMargin / 100
 
         // Calculate the cumulative profit for the given interval
         const cumulativeProfitBT = year > 1 ?
-            Number(previousYear.cumulativeProfitBT) + Number(profitBT) : Number(profitBT)
+            previousYear.cumulativeProfitBT + profitBT : profitBT
 
         // Calculate the cumulative emissions for the given interval
         const cumulativeEmissions = year > 1 ?
-            Number(previousYear.cumulativeEmissions) + Number(taxableEmissions) : Number(taxableEmissions)
+            previousYear.cumulativeEmissions + taxableEmissions : taxableEmissions
 
         // Calculate the profit for a given year after taxes
-        const profitAT = Number(profitBT) - Number(totalTax)
+        const profitAT = profitBT - totalTax
 
         // Calculate the cumulative profit for the given interval
         const cumulativeProfitAT = year > 1 ?
-            Number(previousYear.cumulativeProfitAT) + Number(profitAT) : Number(profitAT)
+            previousYear.cumulativeProfitAT + profitAT : profitAT
 
         // Calculate the cumulative co2 tax
         const cumulativeTax = year > 1 ?
-            Number(previousYear.cumulativeTax) + Number(totalTax) : Number(totalTax)
+            previousYear.cumulativeTax + totalTax : totalTax
 
         // Add the scopes to the object
         const scope1Cumulative = year > 1 ?
-            Number(previousYear.scope1Cumulative) + Number(scope1) : Number(scope1)
+            previousYear.scope1Cumulative + scope1 : scope1
         const scope2Cumulative = year > 1 ?
-            Number(previousYear.scope2Cumulative) + Number(scope2) : Number(scope2)
+            previousYear.scope2Cumulative + scope2 : scope2
         const scope3Cumulative = year > 1 ?
-            Number(previousYear.scope3Cumulative) + Number(scope3) : Number(scope3)
+            previousYear.scope3Cumulative + scope3 : scope3
 
         // Put the results in an year object
         const returnObject = {
             year,
-            turnover: Number(turnover),
-            profitBT: Number(profitBT),
-            cumulativeProfitBT: Number(cumulativeProfitBT),
-            taxableEmissions: Number(taxableEmissions),
-            cumulativeEmissions: Number(cumulativeEmissions),
-            totalTax: Number(totalTax),
-            profitAT: Number(profitAT),
-            cumulativeProfitAT: Number(cumulativeProfitAT),
-            cumulativeTax: Number(cumulativeTax),
-            scope1: Number(scope1),
-            scope1Cumulative: Number(scope1Cumulative),
-            scope2: Number(scope2),
-            scope2Cumulative: Number(scope2Cumulative),
-            scope3: Number(scope3),
-            scope3Cumulative: Number(scope3Cumulative),
+            turnover,
+            profitBT,
+            cumulativeProfitBT,
+            taxableEmissions,
+            cumulativeEmissions,
+            totalTax,
+            profitAT,
+            cumulativeProfitAT,
+            cumulativeTax,
+            scope1,
+            scope1Cumulative,
+            scope2,
+            scope2Cumulative,
+            scope3,
+            scope3Cumulative,
         }
 
         // Insert the object year object in the general object
@@ -128,8 +128,6 @@ const calculateProfitWithTaxes = (companyInfo, taxScope, taxInfo, emissionsInput
     const yearValues = calculateAnnualValues(companyInfo, taxScope, taxInfo, emissionsInput, years)
     const profitWithTaxes = turnoverWithTaxes(companyInfo, yearValues, yearArray)
 
-    // console.log('profit with taxes:', profitWithTaxes)
-
     return profitWithTaxes
 }
 
@@ -137,7 +135,6 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
     const yearArray = getYearArray(years)
     let profit = []
     let cumulative = []
-
 
     yearArray.map(year => {
         profit = [...profit, profitTable[year][varNameDiscrete]]

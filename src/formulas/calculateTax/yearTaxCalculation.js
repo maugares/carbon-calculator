@@ -10,7 +10,7 @@ const scopeEmissionsCalculator = (emissions, taxScope) => {
         const scope = scopes[i]
         if (taxScope[scope]) {
             scopeEmissions[scope] = emissions[scope]
-            total += Number(emissions[scope])
+            total += emissions[scope]
         } else {
             scopeEmissions[scope] = 0
         }
@@ -106,9 +106,9 @@ export const calculateAnnualValues = (companyInfo, taxScope, taxInfo, emissionsI
     // Object emissionsInput SHOULD contain: S1emissions, S2emissions, S3emissions, S1reductionTarget (0-100), S2reductionTarget(0-100), S3reductionTarget(0-100)
     const { turnover: baseTurnover, turnoverGrowth } = companyInfo
     const baseEmissions = {
-        scope1: emissionsInput.S1emissions,
-        scope2: emissionsInput.S2emissions,
-        scope3: emissionsInput.S3emissions,
+        scope1: Number(emissionsInput.S1emissions),
+        scope2: Number(emissionsInput.S2emissions),
+        scope3: Number(emissionsInput.S3emissions),
     }
     const reductionInfo = {
         scope1: emissionsInput.S1reductionTarget / 100,
