@@ -14,7 +14,7 @@ export default function TaxOptions(props) {
             <div>
                 <TextWithTooltip topic='co2Tax' />
             </div>
-            <h2>CO2 Tax</h2>
+            <h2>CO<sub>2</sub> Tax</h2>
             <div className="tax-slider-container">
                 <p>CO2 tax per ton</p>
                 <Slider

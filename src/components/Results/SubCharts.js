@@ -18,7 +18,7 @@ export default class SubCharts extends Component {
                             datasets:
                                 [
                                     {
-                                        label: "Total CO2 tax",
+                                        label: `Total CO2 tax`,
                                         data: dataGraphCO2Tax(
                                             this.props.companyData,
                                             this.props.taxScope,

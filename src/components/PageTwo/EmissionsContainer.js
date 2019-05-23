@@ -69,8 +69,8 @@ class EmissionsContainer extends Component {
                 <div className="container">
                     <PageHeader />
                     <div className="knows-emissions">
-                        <h2>Company CO2 Emissions</h2>
-                        Do you know your company CO2 emissions?
+                        <h2>Company CO<sub>2</sub> Emissions</h2>
+                        Do you know your company CO<sub>2</sub> emissions?
                         <Radio.Group
                             value={this.state.emissionsKnown}
                             onChange={this.onEmissionsKnownChange}

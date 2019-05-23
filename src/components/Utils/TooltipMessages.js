@@ -14,7 +14,7 @@ export const labels = {
     scope1: {
         position: 'left',
         text: `Scope 1 - Direct emissions`,
-        message: <div><p>Direct GHG emissions occur from sources that are owned or controlled by the company, for example, emissions from combustion in owned or controlled boilers, furnaces, vehicles, etc.; emissions from chemical production in owned or controlled process equipment. </p><p> Direct CO2 emissions from the combustion of biomass shall not be included in scope 1 but reported separately.</p></div>,
+        message: <div><p>Direct GHG emissions occur from sources that are owned or controlled by the company, for example, emissions from combustion in owned or controlled boilers, furnaces, vehicles, etc.; emissions from chemical production in owned or controlled process equipment. </p><p> Direct CO<sub>2</sub> emissions from the combustion of biomass shall not be included in scope 1 but reported separately.</p></div>,
     },
     scope2: {
         position: 'left',
@@ -29,7 +29,7 @@ export const labels = {
     scope1Box: {
         position: 'left',
         text: `Scope 1 - Direct emissions`,
-        message: <div><p>Direct GHG emissions occur from sources that are owned or controlled by the company, for example, emissions from combustion in owned or controlled boilers, furnaces, vehicles, etc.; emissions from chemical production in owned or controlled process equipment. </p><p> Direct CO2 emissions from the combustion of biomass shall not be included in scope 1 but reported separately.</p></div>,
+        message: <div><p>Direct GHG emissions occur from sources that are owned or controlled by the company, for example, emissions from combustion in owned or controlled boilers, furnaces, vehicles, etc.; emissions from chemical production in owned or controlled process equipment. </p><p> Direct CO<sub>2</sub> emissions from the combustion of biomass shall not be included in scope 1 but reported separately.</p></div>,
     },
     scope2Box: {
         position: 'left',
@@ -43,7 +43,7 @@ export const labels = {
     },
     co2Tax: {
         position: 'box',
-        message: <div><p>In this section you can change the CO2 price per ton to see the effect on your profit. </p><p> Tax growth per year is set on 5.5% </p></div>
+        message: <div><p>In this section you can change the CO<sub>2</sub> price per ton to see the effect on your profit. </p><p> Tax growth per year is set on 5.5% </p></div>
     },
     companyInfo: {
         position: 'box',
@@ -76,7 +76,7 @@ export const labels = {
     graphProfit: {
         position: 'graph',
         text: 'Profit per year',
-        message: <div><p>This graph displayes the total amount profit per year for your company before and after the CO2 tax is deducted</p></div>
+        message: <div><p>This graph displayes the total amount profit per year for your company before and after the CO<sub>2</sub> tax is deducted</p></div>
     },
     reduction: {
         position: 'reduction',
