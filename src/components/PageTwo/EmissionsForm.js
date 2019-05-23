@@ -20,9 +20,7 @@ export default function EmissionsForm(props) {
                 <tr>
                     <th></th>
                     <th>CO2 emissions (tons)</th>
-                    <th>
-                        <TextWithTooltip topic='reduction' />
-                    </th>
+                    <th><TextWithTooltip topic='reduction' /></th>
                 </tr>
             </thead>
             <tbody>
