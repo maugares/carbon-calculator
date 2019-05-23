@@ -1,6 +1,6 @@
 import React from 'react'
 import { Slider, Form } from 'antd'
-import './MarketInfoForm.css'
+import '../Utils/styles.css'
 import TextWithTooltip from '../Utils/TextWithTooltip';
 
 function percFormatter(value) {

@@ -2,7 +2,8 @@ import React, { Component } from 'react'
 import {Line} from 'react-chartjs-2'
 import {optionsEuro} from './chartOptions'
 import {dataGraphProfitNT, dataGraphProfitAT} from '../../formulas/calculateProfit/calculateProfit'
-
+import TextWithTooltip from '../Utils/TextWithTooltip'
+import '../Utils/styles.css'
 
 export default class MainChart extends Component {
     
@@ -10,7 +11,7 @@ export default class MainChart extends Component {
         if(!this.props.emissionData || !this.props.taxInfo || !this.props.companyData) return 'loading'
         return (
             <div className='profit-chart'>
-                <h3>Profit Per Year</h3>
+                <TextWithTooltip topic='graphProfit' />
                 <Line
                     options={optionsEuro}
                     data={

@@ -1,8 +1,8 @@
 import React from 'react'
-import {Collapse, Icon, Slider, Select, Form, Button} from 'antd'
+import { Collapse, Icon, Slider, Select, Form, Button } from 'antd'
 import NumericInput from '../Utils/NumericInput'
-import {industry} from '../../lib/industry'
-import {Link} from 'react-router-dom'
+import { industry } from '../../lib/industry'
+import { Link } from 'react-router-dom'
 import TextWithTooltip from '../Utils/TextWithTooltip'
 import './Results.css'
 
@@ -69,10 +69,10 @@ export default function OptionsPanel(props) {
                             <Slider
                                 value={props.values.turnoverGrowth}
                                 onChange={e => props.onChange(e, 'turnoverGrowth')}
-                                tipFormatter={val => `${val}%`} 
+                                tipFormatter={val => `${val}%`}
                                 min={0}
                                 max={200}
-                                marks={{0: '0%', 200: '200%'}}
+                                marks={{ 0: '0%', 200: '200%' }}
                             />
                         </Form.Item>
                         <Form.Item>
@@ -89,10 +89,9 @@ export default function OptionsPanel(props) {
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
                 <Panel header="Change your market info" style={panelStyle}>
-                    <TextWithTooltip topic='marketInfo' />
                     <Form style={formStyle}>
                         <Form.Item>
-                            <label>How price sensitive is your market?</label>
+                            <TextWithTooltip topic='marketInfo1' />
                             <Slider
                                 value={props.values.elasticity}
                                 onChange={e => props.onChange(e, 'elasticity')}
@@ -103,11 +102,11 @@ export default function OptionsPanel(props) {
                             />
                         </Form.Item>
                         <Form.Item>
-                            <label>What percentage of the carbon tax will be levied to your customer?</label>
+                            <TextWithTooltip topic='marketInfo2' />
                             <Slider
                                 value={props.values.taxToCustomer}
                                 onChange={e => props.onChange(e, 'taxToCustomer')}
-                                tipFormatter={val => `${val}%`} 
+                                tipFormatter={val => `${val}%`}
                                 marks={{ 0: '0%', 100: '100%' }}
                             />
                         </Form.Item>
@@ -127,7 +126,7 @@ export default function OptionsPanel(props) {
                     <TextWithTooltip topic='emissions' className='infoStyle' />
                     <Form style={formStyle} layout="inline">
                         <Form.Item>
-                            <label>Scope 1 - Direct emissions</label>
+                            <TextWithTooltip topic='scope1Box' />
                             {props.values.emissionsKnown === 'yes'
                                 ? <NumericInput
                                     style={emissionStyle}
@@ -152,7 +151,7 @@ export default function OptionsPanel(props) {
                     </Form>
                     <Form style={formStyle} layout='inline'>
                         <Form.Item>
-                            <label>Scope 2 - Direct emissions</label>
+                            <TextWithTooltip topic='scope2Box' />
                             {props.values.emissionsKnown === 'yes'
                                 ? <NumericInput
                                     style={emissionStyle}
@@ -177,7 +176,7 @@ export default function OptionsPanel(props) {
                     </Form>
                     <Form style={formStyle} layout="inline">
                         <Form.Item>
-                            <label>Scope 3 - Indirect emissions</label>
+                            <TextWithTooltip topic='scope3Box' />
                             {props.values.emissionsKnown === 'yes'
                                 ? <NumericInput
                                     style={emissionStyle}
@@ -203,8 +202,8 @@ export default function OptionsPanel(props) {
                 </Panel>
             </Collapse>
             <Link to="/ecochain">
-                <Button 
-                    type="primary" 
+                <Button
+                    type="primary"
                     size="large"
                     style={{
                         width: '100%',
