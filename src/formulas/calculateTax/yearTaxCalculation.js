@@ -87,7 +87,7 @@ const reducedEmissionsCalculator = (emissions, reduction, year, years) => {
     const reducedEmissions = {}
     let total = 0
 
-    console.log(emissions)
+    // console.log(emissions)
 
     for (let i = 0; i < scopes.length; i++) {
         const scope = scopes[i]
