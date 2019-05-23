@@ -11,9 +11,6 @@ import './components/Utils/styles.css'
 function App() {
     return (
         <div className="App">
-<<<<<<< HEAD
-            <h1 id="placeholder">Coming Soon!</h1>
-=======
             <Route exact path="/" component={LandingPage} />
             <Route exact path="/step-1" component={InfoContainer} />
             <Route exact path="/step-2" component={EmissionsContainer} />
@@ -27,7 +24,6 @@ function App() {
                     <TextWithTooltip topic='disclaimer' />
                 </div>
             </footer>
->>>>>>> dev
         </div>
     );
 }

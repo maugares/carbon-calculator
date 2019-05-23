@@ -1,18 +1,5 @@
 body {
     background: url('./assets/windmills.jpg') no-repeat center center fixed;
-<<<<<<< HEAD
-    background-size: cover;
-}
-
-.App {
-    text-align: center;
-}
-
-#placeholder {
-    color: #3A759A;
-    font-size: 300%;
-    margin: 150px;
-=======
     background-color: #65BCA2;
     background-size: cover;
     color: #333;
@@ -92,5 +79,4 @@ h4 {
 
 .footer p {
     margin: auto;
->>>>>>> dev
 }
