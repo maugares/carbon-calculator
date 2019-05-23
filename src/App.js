@@ -17,8 +17,10 @@ function App() {
                 window.location.href = 'https://ecochain.com/software/'; 
                 return null;
             }}/>
-            <footer className="footer">
-                <i>No rights can be derived from the information given in this tool</i>
+            <footer>
+                <div className="footer">
+                    <p><i>No rights can be derived from the information given in this tool</i></p>
+                </div>
             </footer>
         </div>
     );

@@ -68,7 +68,15 @@ h4 {
     box-shadow: none;
 }
 
-footer {
+.footer {
     color: white;
     text-align: center;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.footer p {
+    margin: auto;
 }
