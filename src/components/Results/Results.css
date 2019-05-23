@@ -1,13 +1,14 @@
 .results-container {
     display: flex;
     flex-direction: row;
+    align-items: baseline;
     margin: 2%;
 }
 
 .profit-chart {
     width: 90%;
     margin: auto;
-    height: 500px;
+    min-height: 500px;
 }
 
 .chart-container {
@@ -16,7 +17,6 @@
     width: 60%;
     padding: 1%;
     margin-bottom: 1%;
-    height: 925px;
     margin-left: 5%;
 }
 
