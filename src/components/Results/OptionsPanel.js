@@ -1,5 +1,5 @@
 import React from 'react'
-import { Collapse, Icon, Slider, Select, Form, Button } from 'antd'
+import { Collapse, Slider, Select, Form, Button, Radio } from 'antd'
 import NumericInput from '../Utils/NumericInput'
 import { industry } from '../../lib/industry'
 import { Link } from 'react-router-dom'
@@ -8,8 +8,6 @@ import './Results.css'
 
 const Panel = Collapse.Panel
 const Option = Select.Option
-
-const cog = <Icon type="setting" />
 
 const panelStyle = {
     background: 'rgba(255, 255, 255, 0.64)',
@@ -115,17 +113,24 @@ export default function OptionsPanel(props) {
             </Collapse>
             <Collapse defaultActiveKey={['1']} style={collapseStyle}>
                 <Panel header="Change your CO2 emissions" style={panelStyle}>
-                    {/* <Radio.Group 
-                        value={props.values.emissionsKnown} 
-                        onChange={props.onEmissionsKnownChange}
-                        style={{ marginLeft: '5%' }}
-                    >
-                        <Radio value="yes">Yes</Radio>
-                        <Radio value="no">No</Radio>
-                    </Radio.Group> */}
                     <TextWithTooltip topic='emissions' className='infoStyle' />
                     <Form style={formStyle} layout="inline">
                         <Form.Item>
+                            <label>Do you know your emissions?</label>
+                            <Radio.Group 
+                                value={props.values.emissionsKnown} 
+                                onChange={props.onEmissionsKnownChange}
+                                style={{ 
+                                    marginLeft: '5%',
+                                    marginBottom: '10%'
+                                }}
+                            >
+                                <Radio value="yes">Yes</Radio>
+                                <Radio value="no">No</Radio>
+                            </Radio.Group>
+                        </Form.Item>
+                        <Form.Item>
+                            <label>Scope 1 - Direct emissions</label>
                             <TextWithTooltip topic='scope1Box' />
                             {props.values.emissionsKnown === 'yes'
                                 ? <NumericInput

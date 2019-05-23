@@ -53,7 +53,7 @@ export default function CompanyInfoForm(props) {
                         value={props.values.profitMargin} 
                         onChange={e => props.onChange(e, 'profitMargin')}
                         tipFormatter={percFormatter} 
-                        marks={{0: '0%', 100: '100%'}}
+                        marks={{ 0: '0%', 100: '100%' }}
                     />
                 </Form.Item>
             </Form>
