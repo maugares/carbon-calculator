@@ -27,8 +27,9 @@ export default class MainChart extends Component {
                                         "cumulative",
                                         this.props.cumulative
                                     ),
-                                    backgroundColor: "rgba(101, 188, 162, 0.4)",
-                                    pointBackgroundColor:  "rgba(101, 188, 162, 1)",
+                                    backgroundColor: "rgba(101, 188, 162, 0.3)",
+                                    pointBackgroundColor:  "rgba(101, 188, 162, 0.8)",
+                                    borderColor: "rgba(101, 188, 162, 0.8)"
                                 },
                                 {
                                     label: "Profit after tax",
@@ -42,9 +43,9 @@ export default class MainChart extends Component {
                                         "cumulativeProfitAT",
                                         this.props.cumulative
                                     ),
-                                    backgroundColor: "rgba(69, 168, 72, 0.4)",
-                                    pointBackgroundColor:  "rgba(69, 168, 72, 1)",
-                                    fill: true,
+                                    backgroundColor: "rgba(69, 168, 72, 0.3)",
+                                    pointBackgroundColor:  "rgba(69, 168, 72, 0.8)",
+                                    borderColor: "rgba(69, 168, 72, 0.8)"
                                 }
                             ]
                         }
