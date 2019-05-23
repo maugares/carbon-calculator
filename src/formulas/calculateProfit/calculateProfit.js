@@ -137,8 +137,8 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
     let cumulative = []
 
     yearArray.map(year => {
-        profit = [...profit, profitTable[year][varNameDiscrete]]
-        cumulative = [...cumulative, profitTable[year][varNameCumulative]]
+        profit = [...profit, profitTable[year][varNameDiscrete].toFixed(0)]
+        cumulative = [...cumulative, profitTable[year][varNameCumulative].toFixed(0)]
         return null
     })
 
