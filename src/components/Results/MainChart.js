@@ -5,7 +5,6 @@ import {dataGraphProfitNT, dataGraphProfitAT} from '../../formulas/calculateProf
 
 
 export default class MainChart extends Component {
-    
     render() {
         if(!this.props.emissionData || !this.props.taxInfo || !this.props.companyData) return 'loading'
         return (

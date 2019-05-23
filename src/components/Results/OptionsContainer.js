@@ -2,10 +2,15 @@ import React, { Component } from 'react'
 import OptionsPanel from './OptionsPanel'
 import { connect } from 'react-redux'
 import { updateInput } from '../../actions/input'
+import { calculateEmissions } from '../../formulas/calculateEmissions/calculateEmissions'
 
 class OptionsContainer extends Component {
     onChange = (data, target) => {
         this.props.updateInput({ [target]: data })
+        
+        if(this.props.emissionsKnown === 'no') {
+            this.props.updateInput(calculateEmissions(this.props.industry, this.props.turnover))
+        }
     }
 
     render() {
@@ -25,7 +30,7 @@ const mapStateToProps = state => ({
     profitMargin: state.pageOneInput.profitMargin, 
     elasticity: state.pageOneInput.elasticity, 
     taxToCustomer: state.pageOneInput.taxToCustomer, 
-    emissionsKnown: state.pageOneInput.emissionsKnown,
+    emissionsKnown: state.pageTwoInput.emissionsKnown,
     S1emissions: state.pageTwoInput.S1emissions, 
     S1reductionTarget: state.pageTwoInput.S1reductionTarget, 
     S2emissions: state.pageTwoInput.S2emissions, 
