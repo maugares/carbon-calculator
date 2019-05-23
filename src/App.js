@@ -21,9 +21,10 @@ function App() {
             }}/>
             <footer>
                 <div className="footer">
-                    <p><i>No rights can be derived from the information given in this tool</i></p><TextWithTooltip topic='disclaimer' />
+                    <TextWithTooltip topic='disclaimer' />
                 </div>
             </footer>
+        </div>
     );
 }
 
