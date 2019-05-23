@@ -1,10 +1,12 @@
 import React from 'react';
 import './App.css';
-import {Route} from 'react-router'
+import { Route } from 'react-router'
 import LandingPage from './components/LandingPage/LandingPage'
 import InfoContainer from './components/PageOne/InfoContainer'
 import EmissionsContainer from './components/PageTwo/EmissionsContainer';
 import ResultsContainer from './components/Results/ResultsContainer';
+import TextWithTooltip from './components/Utils/TextWithTooltip';
+import './components/Utils/styles.css'
 
 function App() {
     return (
@@ -13,16 +15,15 @@ function App() {
             <Route exact path="/step-1" component={InfoContainer} />
             <Route exact path="/step-2" component={EmissionsContainer} />
             <Route exact path="/results" component={ResultsContainer} />
-            <Route path='/ecochain' component={() => { 
-                window.location.href = 'https://ecochain.com/software/'; 
+            <Route path='/ecochain' component={() => {
+                window.location.href = 'https://ecochain.com/software/';
                 return null;
             }}/>
             <footer>
                 <div className="footer">
-                    <p><i>No rights can be derived from the information given in this tool</i></p>
+                    <p><i>No rights can be derived from the information given in this tool</i></p><TextWithTooltip topic='disclaimer' />
                 </div>
             </footer>
-        </div>
     );
 }
 

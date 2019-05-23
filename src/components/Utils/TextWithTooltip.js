@@ -58,10 +58,20 @@ export default function TextWithTooltip(props) {
                         <div className="tooltip-graph"><h3>{input.text}</h3></div>
                         <div className="tooltip-icon">
                             <Tooltip placement="rightTop" title={input.message} >
-                                <Icon type="info-circle"/>
+                                <Icon type="info-circle" />
                             </Tooltip>
                         </div>
                     </div>
+                )
+
+            case 'disclaimer':
+                return (
+                    <footer className="footer">
+                        <b className="tooltip-text">{input.text}</b>
+                        <Tooltip placement="rightTop" title={input.message} >
+                            <Icon type="info-circle" className="tooltip-icon" />
+                        </Tooltip>
+                    </footer>
                 )
 
             default:
