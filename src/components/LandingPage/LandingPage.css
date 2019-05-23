@@ -1,0 +1,23 @@
+.landing-page {
+    margin: auto;
+    width: 50%;
+    text-align: center;
+    display: flex;
+    align-content: flex-start;
+    flex-direction: column;
+    color: #3D7A9B;
+    min-height: 500px;
+    margin-top: 7%;
+}
+
+.landing-page button {
+    background: #45A848;
+    color: white;
+    border: none;
+    border-radius: 12px;
+    width: 180px;
+    height: 46px;
+    font-size: 24px;
+    margin: auto;
+    cursor: pointer;
+}

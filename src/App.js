@@ -1,10 +1,33 @@
 import React from 'react';
 import './App.css';
+import { Route } from 'react-router'
+import LandingPage from './components/LandingPage/LandingPage'
+import InfoContainer from './components/PageOne/InfoContainer'
+import EmissionsContainer from './components/PageTwo/EmissionsContainer';
+import ResultsContainer from './components/Results/ResultsContainer';
+import TextWithTooltip from './components/Utils/TextWithTooltip';
+import './components/Utils/styles.css'
 
 function App() {
     return (
         <div className="App">
+<<<<<<< HEAD
             <h1 id="placeholder">Coming Soon!</h1>
+=======
+            <Route exact path="/" component={LandingPage} />
+            <Route exact path="/step-1" component={InfoContainer} />
+            <Route exact path="/step-2" component={EmissionsContainer} />
+            <Route exact path="/results" component={ResultsContainer} />
+            <Route path='/ecochain' component={() => {
+                window.location.href = 'https://ecochain.com/carbon-tax-calculator-2/';
+                return null;
+            }}/>
+            <footer>
+                <div className="footer">
+                    <TextWithTooltip topic='disclaimer' />
+                </div>
+            </footer>
+>>>>>>> dev
         </div>
     );
 }

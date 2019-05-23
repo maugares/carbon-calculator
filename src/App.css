@@ -1,5 +1,6 @@
 body {
     background: url('./assets/windmills.jpg') no-repeat center center fixed;
+<<<<<<< HEAD
     background-size: cover;
 }
 
@@ -11,4 +12,85 @@ body {
     color: #3A759A;
     font-size: 300%;
     margin: 150px;
+=======
+    background-color: #65BCA2;
+    background-size: cover;
+    color: #333;
+}
+
+div.ant-form-item-control {
+    width: 100%;
+}
+
+.container {
+    background: rgba(255, 255, 255, 0.64);
+    width: 80%;
+    margin: auto;
+    min-height: 100vh;
+}
+
+h1 {
+    font-size: 325%;
+    color: #3D7A9B;
+}
+
+h2 {
+    font-size: 250%;
+    color: #3D7A9B;
+}
+
+h3 {
+    font-size: 140%;
+    color: #3D7A9B;
+}
+
+h4 {
+    color: #3D7A9B;
+    font-size: 120%;
+    margin: 0;
+}
+
+#logo {
+    width: 125px;
+    height: 110px;
+}
+
+.form-container {
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
+
+.continue-button {
+    width: 100px;
+    height: 30px;
+    margin: auto;
+    background: #40809C;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border: none;
+    color: white;
+    border-radius: 5px;
+    transition: 0.2s all;
+    cursor: pointer;
+}
+
+.continue-button:active {
+    box-shadow: none;
+}
+
+.footer {
+    color: white;
+    text-align: center;
+    position: fixed;
+    width: 100%;
+    left: 0;
+    bottom: 0;
+}
+
+.footer p {
+    margin: auto;
+>>>>>>> dev
 }

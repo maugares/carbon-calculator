@@ -1,0 +1,85 @@
+.results-container {
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+    margin: 2%;
+}
+
+.profit-chart {
+    width: 90%;
+    margin: auto;
+    height: 500px;
+}
+
+.chart-container {
+    background: rgba(255, 255, 255, 0.64);
+    border: 1px solid white;
+    width: 60%;
+    padding: 1%;
+    margin-bottom: 1%;
+    margin-left: 5%;
+}
+
+.options-container {
+    width: 30%;
+    display: flex;
+    flex-direction: column;
+}
+
+.company-options, .tax-options, .market-options {
+    background: rgba(255, 255, 255, 0.64);
+    border: 1px solid white;
+    margin: 10px;
+}
+
+.tax-options {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+    padding: 5%;
+    margin: 0;
+}
+
+.tax-options h2 {
+    margin: auto;
+}
+
+.chart-container h3 {
+    margin: 0;
+}
+
+.subcharts-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.subchart {
+    width: 40%;
+    height: 300px;
+    margin: 5%;
+}
+
+.tax-growth-container, .tax-slider-container {
+    padding: 3%;
+    margin: 1%;
+}
+
+.infoStyle{
+    /* position: absolute; */
+    display: flex;
+    align-self: left;
+    font-size: 125%;
+}
+
+.ecochain {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: 0.7
+}
+
+.ecochain img {
+    width: 90px;
+    margin: 5px;
+}

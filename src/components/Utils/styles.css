@@ -1,0 +1,57 @@
+.label {
+    height: 2em;
+    margin: 1em 0 2em 0;
+    padding: 0em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.label-scope {
+    height: 2em;
+    width: auto;
+    margin: 0.5em;
+    padding: 0em;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.label-reduction {
+    /* height: 2em; */
+    /* margin: 0 0 1em 0; */
+    /* padding: 0em; */
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: initial;
+}
+
+.label-graph {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-start;
+    justify-content: initial;
+}
+
+.tooltip-icon {
+    margin: 0.2em;
+}
+
+.label b {
+    line-height: normal;
+}
+
+.tooltip-reduction {
+    padding: 0 0.2em 0;
+}
+
+.tooltip-graph {
+    padding: 0 0.2em 0;
+}
+
+.tooltip-text {
+    padding: 0 0.3em 0;
+}
