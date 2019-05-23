@@ -51,7 +51,7 @@ export default function OptionsPanel(props) {
                     <Form style={formStyle}>
                         <Form.Item>
                             <label>Industry</label>
-                            <Select defaultValue="Select industry" onChange={e => props.onChange(e, 'industry')}>
+                            <Select value={props.values.industry} onChange={e => props.onChange(e, 'industry')}>
                                 {industry.map(entry => <Option value={entry} key={entry}>{entry}</Option>)}
                             </Select>
                         </Form.Item>
