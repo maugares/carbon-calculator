@@ -8,7 +8,7 @@ export default function TextWithTooltip(props) {
     switch (input.position) {
     case 'right':
         return (
-            <div className="label" style={{marginLeft: '5px'}}>
+            <div className="label">
                 <b>{input.text}</b>
                 <Tooltip placement="rightTop" title={input.message}>
                     <Icon type="info-circle" />
