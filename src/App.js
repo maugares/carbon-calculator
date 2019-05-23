@@ -18,9 +18,12 @@ function App() {
             <Route path='/ecochain' component={() => {
                 window.location.href = 'https://ecochain.com/software/';
                 return null;
-            }} />
-            <TextWithTooltip topic='disclaimer' />
-        </div>
+            }}/>
+            <footer>
+                <div className="footer">
+                    <p><i>No rights can be derived from the information given in this tool</i></p><TextWithTooltip topic='disclaimer' />
+                </div>
+            </footer>
     );
 }
 

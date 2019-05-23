@@ -71,3 +71,15 @@
     align-self: left;
     font-size: 125%;
 }
+
+.ecochain {
+    position: fixed;
+    bottom: 0;
+    right: 0;
+    opacity: 0.7
+}
+
+.ecochain img {
+    width: 90px;
+    margin: 5px;
+}
