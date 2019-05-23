@@ -29,8 +29,9 @@ export default class SubCharts extends Component {
                                             "cumulativeTax",
                                             this.props.cumulative
                                         ),
-                                        backgroundColor: "rgba(101, 188, 162, 0.4)",
+                                        backgroundColor: "rgba(101, 188, 162, 0.3)",
                                         pointBackgroundColor: "rgba(101, 188, 162, 1)",
+                                        borderColor: "rgba(101, 188, 162, 0.8)"
                                     },
                                 ]
                         }
@@ -56,8 +57,9 @@ export default class SubCharts extends Component {
                                             "scope1Cumulative",
                                             this.props.cumulative
                                         ),
-                                        backgroundColor: "rgba(101, 188, 162, 0.4)",
+                                        backgroundColor: "rgba(101, 188, 162, 0.3)",
                                         pointBackgroundColor: "rgba(101, 188, 162, 1)",
+                                        borderColor: "rgba(101, 188, 162, 0.8)"
                                     },
                                     {
                                         label: "Scope 2",
@@ -71,8 +73,9 @@ export default class SubCharts extends Component {
                                             "scope2Cumulative",
                                             this.props.cumulative
                                         ),
-                                        backgroundColor: "rgba(69, 168, 72, 0.4)",
+                                        backgroundColor: "rgba(69, 168, 72, 0.3)",
                                         pointBackgroundColor: "rgba(69, 168, 72, 1)",
+                                        borderColor: "rgba(69, 168, 72, 0.8)"
                                     },
                                     {
                                         label: "Scope 3",
@@ -86,8 +89,9 @@ export default class SubCharts extends Component {
                                             "scope3Cumulative",
                                             this.props.cumulative
                                         ),
-                                        backgroundColor: "rgba(60, 116, 151, 0.4)",
-                                        pointBackgroundColor: "rgba(60, 116, 151, 1)",
+                                        backgroundColor: "rgba(60, 116, 151, 0.3)",
+                                        pointBackgroundColor: "rgba(60, 116, 151, 0.8)",
+                                        borderColor: "rgba(60, 116, 151, 0.8)"
                                     },
                                 ]
                         }
