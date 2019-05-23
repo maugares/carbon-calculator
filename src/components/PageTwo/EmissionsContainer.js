@@ -83,6 +83,19 @@ class EmissionsContainer extends Component {
                     {this.state.emissionsKnown &&
                         <div className="form-container">
                             <EmissionsForm values={this.state} onChange={this.onChange} />
+                            {this.state.emissionsKnown === 'no' &&
+                            <div className="info-box">
+                                <p>
+                                    Unfortunately you don't know your exact emissions. 
+                                    Based on your industry and turnover we will give you a 
+                                    <b> rough (!) </b> 
+                                    estimation of your emissions to play around with. 
+                                    Emissions are estimated by using input/out modelling.
+                                    <br /><br />
+                                    <i>- No rights can be derived from the information given in this tool -</i>
+                                </p>
+                            </div>
+                            }
                             <button className="continue-button" onClick={this.onSubmit}>Continue</button>
                         </div>
                     }
