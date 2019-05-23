@@ -20,13 +20,13 @@ export default function EmissionsForm(props) {
                 <tr>
                     <th></th>
                     <th>CO2 emissions (tons)</th>
-                    <TextWithTooltip topic='reduction'/>
+                    <th><TextWithTooltip topic='reduction' /></th>
                 </tr>
             </thead>
             <tbody>
                 <tr>
                     <td>
-                        <TextWithTooltip topic='scope1'/>
+                        <TextWithTooltip topic='scope1' />
                     </td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
@@ -52,7 +52,7 @@ export default function EmissionsForm(props) {
                     </td>
                 </tr>
                 <tr>
-                    <td><TextWithTooltip topic='scope2'/></td>
+                    <td><TextWithTooltip topic='scope2' /></td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
                             ? <NumericInput
@@ -77,7 +77,7 @@ export default function EmissionsForm(props) {
                     </td>
                 </tr>
                 <tr>
-                    <td><TextWithTooltip topic='scope3'/></td>
+                    <td><TextWithTooltip topic='scope3' /></td>
                     <td>
                         {props.values.emissionsKnown === 'yes'
                             ? <NumericInput
