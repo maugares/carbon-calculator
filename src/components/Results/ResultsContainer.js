@@ -40,6 +40,7 @@ class ResultsContainer extends Component {
 
     render() {
         return (
+            <>
             <div className="results-container">
                 <div className="options-container">
                     <TaxOptions 
@@ -74,6 +75,10 @@ class ResultsContainer extends Component {
                     />
                 </div>
             </div>
+            <a className="ecochain" href="https://ecochain.com">
+                <img src={require('../../assets/ecochain.png')} alt="powered by Ecochain" />
+            </a>
+        </>
         )
     }
 }
