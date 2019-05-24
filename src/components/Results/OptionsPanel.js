@@ -26,7 +26,7 @@ const collapseStyle = {
 const formStyle = {
     width: '90%',
     maxWidth: '400px',
-    margin: 'auto'
+    margin: 'auto',
 }
 
 const emissionStyle = {
@@ -54,7 +54,7 @@ export default function OptionsPanel(props) {
                             </Select>
                         </Form.Item>
                         <Form.Item>
-                            <label>Annual Turnover (Euro's)</label>
+                            <label><b>Annual Turnover (Euro's)</b></label>
                             <NumericInput
                                 maxLength={20}
                                 prefix="€"
@@ -63,7 +63,7 @@ export default function OptionsPanel(props) {
                             />
                         </Form.Item>
                         <Form.Item>
-                            <label>Annual Turnover Growth (%)</label>
+                            <label><b>Annual Turnover Growth (%)</b></label>
                             <Slider
                                 value={props.values.turnoverGrowth}
                                 onChange={e => props.onChange(e, 'turnoverGrowth')}
@@ -74,7 +74,7 @@ export default function OptionsPanel(props) {
                             />
                         </Form.Item>
                         <Form.Item>
-                            <label>What is your overall profit margin (%)</label>
+                            <label><b>What is your overall profit margin (%)</b></label>
                             <Slider
                                 value={props.values.profitMargin}
                                 onChange={e => props.onChange(e, 'profitMargin')}

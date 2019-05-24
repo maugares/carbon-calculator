@@ -15,7 +15,7 @@ function App() {
             <Route exact path="/step-2" component={EmissionsContainer} />
             <Route exact path="/results" component={ResultsContainer} />
             <Route path='/ecochain' component={() => {
-                window.location.href = 'https://ecochain.com/carbon-tax-calculator-2/';
+                window.location.href = 'https://ecochain.com/carbon-tax-calculator/';
                 return null;
             }}/>
         </div>
