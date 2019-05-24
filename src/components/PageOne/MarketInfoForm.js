@@ -1,10 +1,31 @@
 import React from 'react'
-import { Slider, Form } from 'antd'
+import { Slider, Form, Icon } from 'antd'
 import '../Utils/styles.css'
 import TextWithTooltip from '../Utils/TextWithTooltip';
 
 function percFormatter(value) {
     return `${value}%`
+}
+
+
+
+const elasticityMarks = {
+    '0': {
+        label: 'Customer doesn\'t react to price',
+        style: {
+            fontSize: '80%',
+            width: '100px',
+            transform: 'translate(-40px)'
+        }
+    }, 
+    '-4': {
+        label: 'Customer reacts heavily to price',
+        style: {
+            fontSize: '80%',
+            width: '100px',
+            transform: 'translate(-50px)'
+        }
+    }
 }
 
 export default function MarketInfoForm(props) {
@@ -21,7 +42,7 @@ export default function MarketInfoForm(props) {
                         min={-4}
                         max={0}
                         step={0.1}
-                        marks={{ '0': 'Inelastic', '-4': 'Elastic' }}
+                        marks={elasticityMarks}
                     />
                 </Form.Item>
                 <Form.Item style={{width: '100%'}} colon={false} wrapperCol={{ sm: 12 }}>
