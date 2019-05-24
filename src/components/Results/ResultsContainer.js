@@ -58,14 +58,6 @@ class ResultsContainer extends Component {
                 </div>
                 
                 <div className="chart-container">
-                    <div style={{ textAlign: 'center' }}>
-                        {/* <Checkbox 
-                            onChange={this.onChange}
-                            checked={this.state.cumulative}
-                        >
-                                Cumulative
-                        </Checkbox> */}
-                    </div>
                     <Tabs style={{marginTop: '1%'}}>
                         <Tabs.TabPane tab="Overview" key="1">
                             <MainChart 
