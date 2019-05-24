@@ -48,7 +48,7 @@ export default function OptionsPanel(props) {
                     <TextWithTooltip topic='companyInfo' />
                     <Form style={formStyle}>
                         <Form.Item>
-                            <label>Industry</label>
+                            <label><b>Industry</b></label>
                             <Select value={props.values.industry} onChange={e => props.onChange(e, 'industry')}>
                                 {industry.map(entry => <Option value={entry} key={entry}>{entry}</Option>)}
                             </Select>

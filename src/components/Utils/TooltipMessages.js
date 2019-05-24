@@ -52,7 +52,7 @@ export const labels = {
     marketInfo1: {
         position: 'right',
         text: `How price sensitive is your market?`,
-        message: <div><p>Who will pay for the carbon tax? </p><p> Use the first slider to indicate how much of your taxes will be covered by a price increase and payed for by your customer.</p></div>
+        message: <div><p>Who will pay for the carbon tax? </p><p> Use the first slider to indicate how much of your taxes will be covered by a price increase and paid for by your customer.</p></div>
     },
     marketInfo2: {
         position: 'right',
