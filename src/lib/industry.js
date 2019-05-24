@@ -3,7 +3,7 @@ export const industry = [
     "Chemicals and refineries",
     "Electrical engineering industry",
     "Food industry",
-    "Metal electro and SME meta",
+    "Metal electro and SME metals",
     "Furniture and interior",
     "Rubber and plastics industry",
     "Textiles, clothing and leather",

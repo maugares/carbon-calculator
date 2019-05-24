@@ -5,7 +5,6 @@ import LandingPage from './components/LandingPage/LandingPage'
 import InfoContainer from './components/PageOne/InfoContainer'
 import EmissionsContainer from './components/PageTwo/EmissionsContainer';
 import ResultsContainer from './components/Results/ResultsContainer';
-import TextWithTooltip from './components/Utils/TextWithTooltip';
 import './components/Utils/styles.css'
 
 function App() {
@@ -16,14 +15,9 @@ function App() {
             <Route exact path="/step-2" component={EmissionsContainer} />
             <Route exact path="/results" component={ResultsContainer} />
             <Route path='/ecochain' component={() => {
-                window.location.href = 'https://ecochain.com/carbon-tax-calculator-2/';
+                window.location.href = 'https://ecochain.com/carbon-tax-calculator/';
                 return null;
             }}/>
-            <footer>
-                <div className="footer">
-                    <TextWithTooltip topic='disclaimer' />
-                </div>
-            </footer>
         </div>
     );
 }
