@@ -49,15 +49,15 @@ export const labels = {
         position: 'box',
         message: <div><p>Use this tab to see how other industries perform under tax regulation.</p></div>
     },
-    marketInfo1: {
-        position: 'right',
-        text: `How price sensitive is your market?`,
-        message: <div><p>Who will pay for the carbon tax? </p><p> Use the first slider to indicate how much of your taxes will be covered by a price increase and paid for by your customer.</p></div>
-    },
     marketInfo2: {
         position: 'right',
         text: `What percentage of the carbon tax will be levied to your customer?`,
-        message: <div><p>Use the second slider to indicate how price sensitive your consumers are. </p><p> How sensitive are consumers in your market to price?</p></div>
+        message: <div><p>Who will pay for the carbon tax? </p><p> Use this slider to indicate how much of your taxes will be covered by a price increase and paid for by your customer.</p></div>
+    },
+    marketInfo1: {
+        position: 'right',
+        text: `How price sensitive is your market?`,
+        message: <div><p>{`To indicate how your customers react to a price change we use the price elasticity of demand. Inelastic goods and services have fewer substitutes and price change doesn’t affect quantity demanded as much. A good example of relatively inelastic demand (between 0 and -1) is that for gasoline. While luxury goods tend to be elastic (<-1)`}</p></div>
     },
     emissions: {
         position: 'box',
