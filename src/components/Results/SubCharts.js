@@ -5,8 +5,6 @@ import { dataGraphCO2Tax, dataGraphTaxableEmissions } from '../../formulas/calcu
 import TextWithTooltip from '../Utils/TextWithTooltip';
 import '../Utils/styles.css'
 
-const subScript2 = '2'.sub()
-
 export default class SubCharts extends Component {
     render() {
         return (
