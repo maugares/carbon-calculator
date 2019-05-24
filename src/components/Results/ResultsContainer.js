@@ -2,11 +2,13 @@ import React, { Component } from 'react'
 import MainChart from './MainChart'
 import TaxOptions from './TaxOptions'
 import SubCharts from './SubCharts'
-import { Checkbox } from 'antd'
+import { Checkbox, Tabs } from 'antd'
 import './Results.css'
 import { connect } from 'react-redux';
 import OptionsContainer from './OptionsContainer'
 import TextWithTooltip from '../Utils/TextWithTooltip'
+import SubChartOne from './SubchartOne'
+import SubChartTwo from './SubchartTwo'
 
 class ResultsContainer extends Component {
     state = {
@@ -51,29 +53,62 @@ class ResultsContainer extends Component {
                     />
                     <OptionsContainer />
                 </div>
+                
                 <div className="chart-container">
                     <div style={{ textAlign: 'center' }}>
-                        <Checkbox 
+                        {/* <Checkbox 
                             onChange={this.onChange}
                             checked={this.state.cumulative}
                         >
-                        Cumulative
-                        </Checkbox>
+                                Cumulative
+                        </Checkbox> */}
                     </div>
-                    <MainChart 
-                        taxInfo={this.state} 
-                        companyData={this.props.companyData} 
-                        emissionData={this.props.emissionData}
-                        cumulative={this.state.cumulative}
-                        taxScope={this.state.taxScope} 
-                    />
-                    <SubCharts 
-                        taxInfo={this.state} 
-                        companyData={this.props.companyData} 
-                        emissionData={this.props.emissionData}
-                        cumulative={this.state.cumulative}
-                        taxScope={this.state.taxScope}  
-                    />
+                    <Tabs style={{marginTop: '1%'}}>
+                        <Tabs.TabPane tab="Overview" key="1">
+                            <MainChart 
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                            <SubCharts 
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope}  
+                            />
+                        </Tabs.TabPane>
+                        <Tabs.TabPane tab="Profit" key="2">
+                            <MainChart 
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                        </Tabs.TabPane>
+                        <Tabs.TabPane tab="Tax/year" key="3">
+                            <SubChartOne
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                        </Tabs.TabPane>
+                        <Tabs.TabPane tab="Emissions" key="4">
+                            <SubChartTwo 
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                        </Tabs.TabPane>
+                    </Tabs>
+
                 </div>
             </div>
             <a className="ecochain" href="https://ecochain.com">
