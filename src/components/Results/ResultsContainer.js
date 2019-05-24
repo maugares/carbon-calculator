@@ -12,6 +12,7 @@ import SubChartTwo from './SubchartTwo'
 import ProfitTable from './Tables/ProfitTable'
 import TaxperyearTable from './Tables/TaxperyearTable';
 import EmissionsTable from './Tables/EmissionsTable'
+import ResultsPageHeader from './ResultsPageHeader'
 
 class ResultsContainer extends Component {
     state = {
@@ -49,6 +50,7 @@ class ResultsContainer extends Component {
             <>
             <div className="results-container">
                 <div className="options-container">
+                    <ResultsPageHeader />
                     <TaxOptions 
                         values={this.state} 
                         onChange={this.onChange} 
@@ -60,6 +62,18 @@ class ResultsContainer extends Component {
                 <div className="chart-container">
                     <Tabs style={{marginTop: '1%'}}>
                         <Tabs.TabPane tab="Overview" key="1">
+                            <div style={{ 
+                                textAlign: 'right',
+                                position: 'absolute',
+                                right: '2%',
+                            }}>
+                                <Checkbox 
+                                    onChange={this.onChange}
+                                    checked={this.state.cumulative}
+                                >
+                            Cumulative
+                                </Checkbox>
+                            </div>
                             <MainChart 
                                 taxInfo={this.state} 
                                 companyData={this.props.companyData} 
@@ -76,6 +90,18 @@ class ResultsContainer extends Component {
                             />
                         </Tabs.TabPane>
                         <Tabs.TabPane tab="Profit" key="2">
+                            <div style={{ 
+                                textAlign: 'right',
+                                position: 'absolute',
+                                right: '2%',
+                            }}>
+                                <Checkbox 
+                                    onChange={this.onChange}
+                                    checked={this.state.cumulative}
+                                >
+                            Cumulative
+                                </Checkbox>
+                            </div>
                             <MainChart 
                                 taxInfo={this.state} 
                                 companyData={this.props.companyData} 
@@ -92,6 +118,18 @@ class ResultsContainer extends Component {
                             />
                         </Tabs.TabPane>
                         <Tabs.TabPane tab="Tax/year" key="3">
+                            <div style={{ 
+                                textAlign: 'right',
+                                position: 'absolute',
+                                right: '2%',
+                            }}>
+                                <Checkbox 
+                                    onChange={this.onChange}
+                                    checked={this.state.cumulative}
+                                >
+                            Cumulative
+                                </Checkbox>
+                            </div>
                             <SubChartOne
                                 taxInfo={this.state} 
                                 companyData={this.props.companyData} 
@@ -108,6 +146,18 @@ class ResultsContainer extends Component {
                             />
                         </Tabs.TabPane>
                         <Tabs.TabPane tab="Emissions" key="4">
+                            <div style={{ 
+                                textAlign: 'right',
+                                position: 'absolute',
+                                right: '5%',
+                            }}>
+                                <Checkbox 
+                                    onChange={this.onChange}
+                                    checked={this.state.cumulative}
+                                >
+                            Cumulative
+                                </Checkbox>
+                            </div>
                             <SubChartTwo 
                                 taxInfo={this.state} 
                                 companyData={this.props.companyData} 

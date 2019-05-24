@@ -34,18 +34,7 @@ export default function TaxOptions(props) {
                     value={props.values.checked}
                 />
             </div>
-            <div style={{ 
-                textAlign: 'right',
-                position: 'absolute',
-                right: '2%',
-            }}>
-                <Checkbox 
-                    onChange={props.onChange}
-                    checked={props.values.cumulative}
-                >
-                                Cumulative
-                </Checkbox>
-            </div>
+            
         </div>
     )
 }

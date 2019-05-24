@@ -96,3 +96,9 @@
     width: 90px;
     margin: 5px;
 }
+
+.results-logo {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
