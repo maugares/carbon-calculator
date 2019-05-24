@@ -130,7 +130,6 @@ export default function OptionsPanel(props) {
                             </Radio.Group>
                         </Form.Item>
                         <Form.Item>
-                            <label>Scope 1 - Direct emissions</label>
                             <TextWithTooltip topic='scope1Box' />
                             {props.values.emissionsKnown === 'yes'
                                 ? <NumericInput
