@@ -28,7 +28,7 @@ export default function TaxperyearTable(props) {
             </thead>
             <tbody>
                 <tr>
-                    <td><b>Without tax</b></td>
+                    <td><b>Tax per year</b></td>
                     {
                         perYear.map(el => <td>€{el}</td>)
                     }
