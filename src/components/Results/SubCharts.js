@@ -5,8 +5,9 @@ import { dataGraphCO2Tax, dataGraphTaxableEmissions } from '../../formulas/calcu
 import TextWithTooltip from '../Utils/TextWithTooltip';
 import '../Utils/styles.css'
 
-export default class SubCharts extends Component {
+const subScript2 = '2'.sub()
 
+export default class SubCharts extends Component {
     render() {
         return (
             <div className="subcharts-container">
@@ -18,7 +19,7 @@ export default class SubCharts extends Component {
                             datasets:
                                 [
                                     {
-                                        label: "Total CO2 tax",
+                                        label: `Total CO\u2082 tax`,
                                         data: dataGraphCO2Tax(
                                             this.props.companyData,
                                             this.props.taxScope,

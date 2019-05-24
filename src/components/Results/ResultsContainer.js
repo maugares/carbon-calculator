@@ -6,6 +6,7 @@ import { Checkbox } from 'antd'
 import './Results.css'
 import { connect } from 'react-redux';
 import OptionsContainer from './OptionsContainer'
+import TextWithTooltip from '../Utils/TextWithTooltip'
 
 class ResultsContainer extends Component {
     state = {
@@ -78,6 +79,11 @@ class ResultsContainer extends Component {
             <a className="ecochain" href="https://ecochain.com">
                 <img src={require('../../assets/ecochain.png')} alt="powered by Ecochain" />
             </a>
+            <footer>
+                <div className="footer">
+                    <TextWithTooltip topic='disclaimer' />
+                </div>
+            </footer>
         </>
         )
     }

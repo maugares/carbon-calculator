@@ -11,6 +11,7 @@ module.exports = override(
         modifyVars: { // Modify theme LESS theme below
             '@primary-color': '#45A848',
             '@heading-color': '#40809C',
+            '@font-family': "'-apple-system', 'BlinkMacSystemFont', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', 'sans-serif'"
         },
     }),
 );
