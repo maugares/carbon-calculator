@@ -9,6 +9,7 @@ import OptionsContainer from './OptionsContainer'
 import TextWithTooltip from '../Utils/TextWithTooltip'
 import SubChartOne from './SubchartOne'
 import SubChartTwo from './SubchartTwo'
+import ProfitTable from './Tables/ProfitTable'
 
 class ResultsContainer extends Component {
     state = {
@@ -87,6 +88,13 @@ class ResultsContainer extends Component {
                                 emissionData={this.props.emissionData}
                                 cumulative={this.state.cumulative}
                                 taxScope={this.state.taxScope} 
+                            />
+                            <ProfitTable
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope}
                             />
                         </Tabs.TabPane>
                         <Tabs.TabPane tab="Tax/year" key="3">

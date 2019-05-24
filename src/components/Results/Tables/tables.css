@@ -1,0 +1,19 @@
+.chart-table {
+    height: 25vh;
+    width: 80%;
+    margin: auto;
+    margin-top: 10vh;
+    border: 1px solid #333;
+    background: rgba(255, 255, 255, 0.877);
+}
+
+.chart-table th {
+    padding: 1%;
+    border: 1px solid #333;
+    color: #40809C;
+}
+
+.chart-table td {
+    padding: 1%;
+    border: 1px solid #333;
+}
