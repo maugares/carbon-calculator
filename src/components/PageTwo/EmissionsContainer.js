@@ -90,7 +90,7 @@ class EmissionsContainer extends Component {
                                     Based on your industry and turnover we will give you a 
                                     <b> rough (!) </b> 
                                     estimation of your emissions to play around with. 
-                                    Emissions are estimated by using input/out modelling.
+                                    Emissions are estimated by using input/output modelling.
                                     <br /><br />
                                     <i>- No rights can be derived from the information given in this tool -</i>
                                 </p>
