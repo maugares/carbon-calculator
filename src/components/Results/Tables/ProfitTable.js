@@ -1,6 +1,7 @@
 import React from 'react'
 import {dataGraphProfitNT, dataGraphProfitAT} from '../../../formulas/calculateProfit/calculateProfit'
 import './tables.css'
+import {addCommas} from '../../Utils/addCommas'
 
 export default function profitTable(props) {
     const noTax = dataGraphProfitNT(
@@ -37,20 +38,22 @@ export default function profitTable(props) {
                 <tr>
                     <td><b>Without tax</b></td>
                     {
-                        noTax.map(el => <td>€{el}</td>)
+                        noTax.map(el => <td>€{addCommas(el)}</td>)
                     }
                 </tr>
                 <tr>
                     <td><b>After tax</b></td>
                     {
-                        tax.map(el => <td>€{el}</td>)
+                        tax.map(el => <td>€{addCommas(el)}</td>)
                     }
                 </tr>
                 <tr>
                     <td><b>Difference</b></td>{
                         tax.map((el, index) => {
                             return el - noTax[index]
-                        }).map(el => <td>€{Math.abs(el)}</td>)
+                        }).map(el => {
+                            return <td>€{addCommas(el)}</td>
+                        })
                     } 
                 </tr>
             </tbody>
