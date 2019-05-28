@@ -193,5 +193,14 @@ export const labels = {
             <div>
                 <p>This calculator only provides an indication of the impact of carbon tax on your profit. We make no representations or warranties of any kind, express or implied, about the completeness, accuracy, reliability, suitability or availability with respect to the information provided by this calculator. Any reliance you place on such information is therefore strictly at your own risk.</p>
             </div>
+    },
+    taxableEmissions: {
+        position: 'right',
+        text: 'Taxable emissions',
+        message:
+        <div>
+            <p>Indicate here for which scopes the tax will be applicable.</p> 
+            <p>For an explanation about the different scopes, scroll down to the “change emissions tab”.</p>
+        </div>
     }
 }

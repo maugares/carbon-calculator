@@ -27,14 +27,14 @@ export default function TaxOptions(props) {
                 />
             </div>
             <div className="tax-growth-container">
-                <p>Taxable emissions</p>
+                <TextWithTooltip topic='taxableEmissions' />
                 <Checkbox.Group
                     options={['Scope 1', 'Scope 2', 'Scope 3']}
                     onChange={e => props.onCheckboxChange(e, 'checked')}
                     value={props.values.checked}
                 />
             </div>
-            
+
         </div>
     )
 }
