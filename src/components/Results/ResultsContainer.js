@@ -71,7 +71,7 @@ class ResultsContainer extends Component {
                                     onChange={this.onChange}
                                     checked={this.state.cumulative}
                                 >
-                            Cumulative
+                                Cumulative
                                 </Checkbox>
                             </div>
                             <MainChart 
