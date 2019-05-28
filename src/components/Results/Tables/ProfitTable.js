@@ -36,23 +36,25 @@ export default function profitTable(props) {
             </thead>
             <tbody>
                 <tr>
-                    <td><b>Without tax</b></td>
+                    <td className="desc-column"><b>Without tax</b></td>
                     {
                         noTax.map(el => <td>€{addCommas(el)}</td>)
                     }
                 </tr>
                 <tr>
-                    <td><b>After tax</b></td>
+                    <td className="desc-column"><b>After tax</b></td>
                     {
                         tax.map(el => <td>€{addCommas(el)}</td>)
                     }
                 </tr>
                 <tr>
-                    <td><b>Difference</b></td>{
+                    <td className="desc-column"><b>Impact</b></td>{
                         tax.map((el, index) => {
                             return el - noTax[index]
                         }).map(el => {
-                            return <td>€{addCommas(el)}</td>
+                            return el < 0
+                                ? <td className="negative">€{addCommas(el)}</td>
+                                : <td className="positive">€{addCommas(el)}</td>
                         })
                     } 
                 </tr>
