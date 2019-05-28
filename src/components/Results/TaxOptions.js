@@ -4,11 +4,6 @@ import { Checkbox } from 'antd'
 import TextWithTooltip from '../Utils/TextWithTooltip'
 
 export default function TaxOptions(props) {
-    const growthValues = []
-    for (let i = 0.5; i <= 6.5; i += 0.5) {
-        growthValues.push(i)
-    }
-
     return (
         <div className="tax-options">
             <div>

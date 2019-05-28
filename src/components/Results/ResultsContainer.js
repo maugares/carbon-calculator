@@ -177,7 +177,7 @@ class ResultsContainer extends Component {
 
                 </div>
             </div>
-            <a className="ecochain" href="https://ecochain.com">
+            <a className="ecochain" href="https://ecochain.com/carbon-tax-calculator/">
                 <img src={require('../../assets/ecochain.png')} alt="powered by Ecochain" />
             </a>
             <footer>
