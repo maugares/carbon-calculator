@@ -48,7 +48,7 @@ export default function profitTable(props) {
                     }
                 </tr>
                 <tr>
-                    <td className="desc-column"><b>Impact</b></td>{
+                    <td className="desc-column"><b>Impact on profit</b></td>{
                         tax.map((el, index) => {
                             return el - noTax[index]
                         }).map(el => {

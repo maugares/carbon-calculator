@@ -70,7 +70,7 @@ export const labels = {
     },
     graphEmissions: {
         position: 'graph',
-        text: `Taxable emissions`,
+        text: `Taxable emissions (in tons)`,
         message: <div><p>This graph displayes the total amount of taxable emissions for your company per year</p></div>
     },
     graphProfit: {
