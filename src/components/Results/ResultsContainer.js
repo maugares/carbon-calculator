@@ -120,7 +120,7 @@ class ResultsContainer extends Component {
                                 taxScope={this.state.taxScope}
                             />
                         </Tabs.TabPane>
-                        <Tabs.TabPane tab="Tax/year" key="3">
+                        <Tabs.TabPane tab="Tax" key="3">
                             <div style={{ 
                                 textAlign: 'right',
                                 position: 'absolute',
