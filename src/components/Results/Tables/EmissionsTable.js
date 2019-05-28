@@ -1,6 +1,7 @@
 import React from 'react'
 import {dataGraphTaxableEmissions} from '../../../formulas/calculateProfit/calculateProfit'
 import './tables.css'
+import {addCommas} from '../../Utils/addCommas'
 
 export default function TaxperyearTable(props) {
     const scope1 = dataGraphTaxableEmissions(
@@ -52,19 +53,19 @@ export default function TaxperyearTable(props) {
                 <tr>
                     <td><b>Scope 1 </b>( <i>in tons CO<sub>2</sub></i> )</td>
                     {
-                        scope1.map(el => <td>{el}</td>)
+                        scope1.map(el => <td>{addCommas(el)}</td>)
                     }
                 </tr>
                 <tr>
                     <td><b>Scope 2 </b>( <i>in tons CO<sub>2</sub></i> )</td>
                     {
-                        scope2.map(el => <td>{el}</td>)
+                        scope2.map(el => <td>{addCommas(el)}</td>)
                     }
                 </tr>
                 <tr>
                     <td><b>Scope 3 </b>( <i>in tons CO<sub>2</sub></i> )</td>
                     {
-                        scope3.map(el => <td>{el}</td>)
+                        scope3.map(el => <td>{addCommas(el)}</td>)
                     }
                 </tr>
             </tbody>

@@ -7,8 +7,6 @@ function percFormatter(value) {
     return `${value}%`
 }
 
-
-
 const elasticityMarks = {
     '0': {
         label: 'Customer doesn\'t react to price',
