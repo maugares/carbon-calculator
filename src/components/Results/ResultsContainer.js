@@ -17,7 +17,7 @@ import ResultsPageHeader from './ResultsPageHeader'
 class ResultsContainer extends Component {
     state = {
         euroPerTon: 50, // euros
-        taxGrowth: 5.5, // percentage,
+        taxGrowth: 10, // percentage,
         checked: ['Scope 1', 'Scope 2', 'Scope 3'],
         taxScope: { scope1: true, scope2: true, scope3: true },
         cumulative: true
