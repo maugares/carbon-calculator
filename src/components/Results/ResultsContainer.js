@@ -2,11 +2,17 @@ import React, { Component } from 'react'
 import MainChart from './MainChart'
 import TaxOptions from './TaxOptions'
 import SubCharts from './SubCharts'
-import { Checkbox } from 'antd'
+import { Checkbox, Tabs } from 'antd'
 import './Results.css'
 import { connect } from 'react-redux';
 import OptionsContainer from './OptionsContainer'
 import TextWithTooltip from '../Utils/TextWithTooltip'
+import SubChartOne from './SubchartOne'
+import SubChartTwo from './SubchartTwo'
+import ProfitTable from './Tables/ProfitTable'
+import TaxperyearTable from './Tables/TaxperyearTable';
+import EmissionsTable from './Tables/EmissionsTable'
+import ResultsPageHeader from './ResultsPageHeader'
 
 class ResultsContainer extends Component {
     state = {
@@ -44,6 +50,7 @@ class ResultsContainer extends Component {
             <>
             <div className="results-container">
                 <div className="options-container">
+                    <ResultsPageHeader />
                     <TaxOptions 
                         values={this.state} 
                         onChange={this.onChange} 
@@ -51,29 +58,123 @@ class ResultsContainer extends Component {
                     />
                     <OptionsContainer />
                 </div>
+                
                 <div className="chart-container">
-                    <div style={{ textAlign: 'center' }}>
-                        <Checkbox 
-                            onChange={this.onChange}
-                            checked={this.state.cumulative}
-                        >
-                        Cumulative
-                        </Checkbox>
-                    </div>
-                    <MainChart 
-                        taxInfo={this.state} 
-                        companyData={this.props.companyData} 
-                        emissionData={this.props.emissionData}
-                        cumulative={this.state.cumulative}
-                        taxScope={this.state.taxScope} 
-                    />
-                    <SubCharts 
-                        taxInfo={this.state} 
-                        companyData={this.props.companyData} 
-                        emissionData={this.props.emissionData}
-                        cumulative={this.state.cumulative}
-                        taxScope={this.state.taxScope}  
-                    />
+                    <Tabs style={{marginTop: '1%'}}>
+                        <Tabs.TabPane tab="Overview" key="1">
+                            <div style={{ 
+                                textAlign: 'right',
+                                position: 'absolute',
+                                right: '2%',
+                            }}>
+                                <Checkbox 
+                                    onChange={this.onChange}
+                                    checked={this.state.cumulative}
+                                >
+                            Cumulative
+                                </Checkbox>
+                            </div>
+                            <MainChart 
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                            <SubCharts 
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope}  
+                            />
+                        </Tabs.TabPane>
+                        <Tabs.TabPane tab="Profit" key="2">
+                            <div style={{ 
+                                textAlign: 'right',
+                                position: 'absolute',
+                                right: '2%',
+                            }}>
+                                <Checkbox 
+                                    onChange={this.onChange}
+                                    checked={this.state.cumulative}
+                                >
+                            Cumulative
+                                </Checkbox>
+                            </div>
+                            <MainChart 
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                            <ProfitTable
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope}
+                            />
+                        </Tabs.TabPane>
+                        <Tabs.TabPane tab="Tax/year" key="3">
+                            <div style={{ 
+                                textAlign: 'right',
+                                position: 'absolute',
+                                right: '2%',
+                            }}>
+                                <Checkbox 
+                                    onChange={this.onChange}
+                                    checked={this.state.cumulative}
+                                >
+                            Cumulative
+                                </Checkbox>
+                            </div>
+                            <SubChartOne
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                            <TaxperyearTable
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                        </Tabs.TabPane>
+                        <Tabs.TabPane tab="Emissions" key="4">
+                            <div style={{ 
+                                textAlign: 'right',
+                                position: 'absolute',
+                                right: '5%',
+                            }}>
+                                <Checkbox 
+                                    onChange={this.onChange}
+                                    checked={this.state.cumulative}
+                                >
+                            Cumulative
+                                </Checkbox>
+                            </div>
+                            <SubChartTwo 
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope} 
+                            />
+                            <EmissionsTable
+                                taxInfo={this.state} 
+                                companyData={this.props.companyData} 
+                                emissionData={this.props.emissionData}
+                                cumulative={this.state.cumulative}
+                                taxScope={this.state.taxScope}
+                            />
+                        </Tabs.TabPane>
+                    </Tabs>
+
                 </div>
             </div>
             <a className="ecochain" href="https://ecochain.com">

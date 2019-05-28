@@ -1,0 +1,24 @@
+.chart-table {
+    width: 80%;
+    margin: auto;
+    margin-top: 10vh;
+    border: 1px solid rgb(175, 175, 175);
+}
+
+.chart-table th {
+    padding: 1%;
+    border: 1px solid rgb(175, 175, 175);
+    color: #40809C;
+    background: rgba(255, 255, 255, 0.877);
+}
+
+.chart-table td {
+    padding: 1%;
+    border: 1px solid rgb(175, 175, 175);
+    height: 7vh;
+    background: rgba(255, 255, 255, 0.877);
+}
+
+.chart-table th:empty {
+    visibility: hidden;
+}

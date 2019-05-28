@@ -34,6 +34,7 @@ export default function TaxOptions(props) {
                     value={props.values.checked}
                 />
             </div>
+            
         </div>
     )
 }
