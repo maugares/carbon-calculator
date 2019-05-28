@@ -152,7 +152,7 @@ class ResultsContainer extends Component {
                             <div style={{ 
                                 textAlign: 'right',
                                 position: 'absolute',
-                                right: '5%',
+                                right: '2%',
                             }}>
                                 <Checkbox 
                                     onChange={this.onChange}
