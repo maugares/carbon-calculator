@@ -51,19 +51,19 @@ export default function TaxperyearTable(props) {
             </thead>
             <tbody>
                 <tr>
-                    <td><b>Scope 1 </b>( <i>in tons CO<sub>2</sub></i> )</td>
+                    <td className="desc-column"><b>Scope 1 </b>( <i>in tons CO<sub>2</sub></i> )</td>
                     {
                         scope1.map(el => <td>{addCommas(el)}</td>)
                     }
                 </tr>
                 <tr>
-                    <td><b>Scope 2 </b>( <i>in tons CO<sub>2</sub></i> )</td>
+                    <td className="desc-column"><b>Scope 2 </b>( <i>in tons CO<sub>2</sub></i> )</td>
                     {
                         scope2.map(el => <td>{addCommas(el)}</td>)
                     }
                 </tr>
                 <tr>
-                    <td><b>Scope 3 </b>( <i>in tons CO<sub>2</sub></i> )</td>
+                    <td className="desc-column"><b>Scope 3 </b>( <i>in tons CO<sub>2</sub></i> )</td>
                     {
                         scope3.map(el => <td>{addCommas(el)}</td>)
                     }

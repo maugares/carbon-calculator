@@ -162,7 +162,7 @@ export const labels = {
     },
     graphEmissions: {
         position: 'graph',
-        text: `Taxable emissions`,
+        text: `Taxable emissions (in tons)`,
         message:
             <div>
                 <p>This graph displayes the total tax that your company has to pay per year.</p>

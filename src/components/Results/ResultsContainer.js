@@ -60,6 +60,9 @@ class ResultsContainer extends Component {
                 </div>
                 
                 <div className="chart-container">
+                    <a className="ecochain-cta" href="https://ecochain.com/carbon-tax-calculator/">
+                        <b>BECOME FUTURE PROOF</b>
+                    </a>
                     <Tabs style={{marginTop: '1%'}}>
                         <Tabs.TabPane tab="Overview" key="1">
                             <div style={{ 
@@ -71,7 +74,7 @@ class ResultsContainer extends Component {
                                     onChange={this.onChange}
                                     checked={this.state.cumulative}
                                 >
-                            Cumulative
+                                Cumulative
                                 </Checkbox>
                             </div>
                             <MainChart 
@@ -177,7 +180,7 @@ class ResultsContainer extends Component {
 
                 </div>
             </div>
-            <a className="ecochain" href="https://ecochain.com">
+            <a className="ecochain" href="https://ecochain.com/carbon-tax-calculator/">
                 <img src={require('../../assets/ecochain.png')} alt="powered by Ecochain" />
             </a>
             <footer>
