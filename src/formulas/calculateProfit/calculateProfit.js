@@ -137,7 +137,7 @@ const createArrays = (profitTable, varNameDiscrete, varNameCumulative, years, is
     let cumulative = []
 
     yearArray.map(year => {
-        if (profitTable[year][varNameDiscrete] < 20 && (varNameDiscrete === "scope1" || varNameDiscrete === "scope2" || varNameDiscrete === "scope3" )) {
+        if (profitTable[year][varNameDiscrete] < 20 ) {
             profit = [...profit, profitTable[year][varNameDiscrete].toFixed(2)]
             cumulative = [...cumulative, profitTable[year][varNameCumulative].toFixed(2)]
         } else {
