@@ -27,7 +27,6 @@ export const options = {
         },
     },
     scales: {
-        xAxis: [{ stacked: true}],
         yAxes: [{
             ticks: {
                 callback: function(value, index, values) {
