@@ -27,6 +27,7 @@ export const options = {
         },
     },
     scales: {
+        xAxis: [{ stacked: true}],
         yAxes: [{
             ticks: {
                 callback: function(value, index, values) {
@@ -35,7 +36,8 @@ export const options = {
                     value = value.join(',');
                     return value
                 }
-            }
+            },
+            stacked: true
         }]
     }
 }
