@@ -97,6 +97,24 @@
     margin: 5px;
 }
 
+.ecochain-cta {
+    color: white;
+    position: absolute;
+    right: 2%;
+    top: 0.5%;
+    background: #56ca19;
+    padding: 1em;
+    border: none;
+    border-radius: 2em;
+    font-size: 90%;
+    z-index: 99;
+}
+
+.ecochain-cta:hover {
+    cursor: 'pointer';
+    color: white;
+}
+
 .results-logo {
     display: flex;
     flex-direction: row;

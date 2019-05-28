@@ -9,7 +9,7 @@
     padding: 1%;
     border: 1px solid rgb(175, 175, 175);
     color: #40809C;
-    background: rgb(230, 230, 230);
+    background: rgb(255, 255, 255);
 }
 
 .chart-table td {
@@ -28,8 +28,7 @@ td.positive {
 }
 
 td.desc-column {
-    background: rgb(230, 230, 230);
-    color: #40809C;
+    background: rgb(255, 255, 255);
 }
 
 .chart-table th:empty {

@@ -60,6 +60,9 @@ class ResultsContainer extends Component {
                 </div>
                 
                 <div className="chart-container">
+                    <a className="ecochain-cta" href="https://ecochain.com/carbon-tax-calculator/">
+                        <b>BECOME FUTURE PROOF</b>
+                    </a>
                     <Tabs style={{marginTop: '1%'}}>
                         <Tabs.TabPane tab="Overview" key="1">
                             <div style={{ 
