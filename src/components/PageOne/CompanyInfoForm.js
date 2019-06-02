@@ -29,7 +29,7 @@ export default function CompanyInfoForm(props) {
                     <NumericInput 
                         maxLength={25}
                         placeholder="Fill in your revenue" 
-                        tipText="Fill in your revenue"
+                        tiptext="Fill in your revenue"
                         prefix="€" 
                         value={props.values.turnover} 
                         onChange={e => props.onChange(e, 'turnover')} 
