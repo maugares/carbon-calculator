@@ -213,7 +213,7 @@ export default function OptionsPanel(props) {
                     </Form>
                 </Panel>
             </Collapse>
-            <Link to="/ecochain">
+            <a href="https://ecochain.com/carbon-tax-calculator/" target="_blank" >
                 <Button
                     type="primary"
                     size="large"
@@ -226,7 +226,7 @@ export default function OptionsPanel(props) {
                 >
                     <b>Calculate your exact emissions</b>
                 </Button>
-            </Link>
+            </a>
         </div>
     )
 }

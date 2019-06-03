@@ -60,7 +60,7 @@ class ResultsContainer extends Component {
                 </div>
                 
                 <div className="chart-container">
-                    <a className="ecochain-cta" href="https://ecochain.com/carbon-tax-calculator/">
+                    <a target="_blank" className="ecochain-cta" href="https://ecochain.com/carbon-tax-calculator/">
                         <b>BECOME FUTURE PROOF</b>
                     </a>
                     <Tabs style={{marginTop: '1%'}}>
@@ -180,7 +180,7 @@ class ResultsContainer extends Component {
 
                 </div>
             </div>
-            <a className="ecochain" href="https://ecochain.com/carbon-tax-calculator/">
+            <a target="_blank" className="ecochain" href="https://ecochain.com/carbon-tax-calculator/">
                 <img src={require('../../assets/ecochain.png')} alt="powered by Ecochain" />
             </a>
             <footer>
