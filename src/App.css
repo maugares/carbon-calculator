@@ -76,3 +76,23 @@ h4 {
     left: 0;
     bottom: 0;
 }
+
+@media screen and (max-width: 750px) {
+    .mobile-warning {
+        width: 100%;
+        color: red;
+        background: white;
+        opacity: 0.9;
+        z-index: 99;
+        padding: 10%;
+        margin: auto;
+        text-align: center;
+        position: fixed;
+    }
+}
+
+@media screen and (min-width: 750px) {
+    .mobile-warning {
+        display: none;
+    }
+}

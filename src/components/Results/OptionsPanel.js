@@ -2,7 +2,6 @@ import React from 'react'
 import { Collapse, Slider, Select, Form, Button, Radio } from 'antd'
 import NumericInput from '../Utils/NumericInput'
 import { industry } from '../../lib/industry'
-import { Link } from 'react-router-dom'
 import TextWithTooltip from '../Utils/TextWithTooltip'
 import './Results.css'
 
